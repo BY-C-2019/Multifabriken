@@ -4,11 +4,11 @@ namespace Multifabriken
 {
     class Pipes
     {
-        private int diameter = 0;
+        private string diameter = "0";
         private string material = "";
-        private int längd = 0;
+        private string längd = "0";
 
-        public int Diameter
+        public string Diameter
         {
             get { return diameter; }
             set { diameter = value; }
@@ -20,7 +20,7 @@ namespace Multifabriken
             set { material = value; }
         }
 
-        public int Längd
+        public string Längd
         {
             get { return längd; }
             set { längd = value; }
