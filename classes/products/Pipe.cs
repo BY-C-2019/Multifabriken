@@ -20,13 +20,13 @@ namespace Multifabriken
         private decimal CalculatePrice() {
             int pricePerMeter = 0;
             if (Material == "Plast") {
-                pricePerMeter = 1;
+                pricePerMeter = 10;
             }
             else if (Material == "Järn") {
-                pricePerMeter = 5;
+                pricePerMeter = 50;
             }
             else if (Material == "Betong") {
-                pricePerMeter = 10;
+                pricePerMeter = 1000;
             }
 
             return Convert.ToDecimal(pricePerMeter * Length);
