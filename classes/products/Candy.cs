@@ -14,9 +14,8 @@ namespace Multifabriken
             int selection= Menu.DisplayMenu(flavours,"");
             Weight = weight[selection];
             Flavour = flavours[selection];
-
-
-
+            Name = Flavour + " godisar";
+            Price = Convert.ToDecimal(79 * Weight);
         }
     }
 }

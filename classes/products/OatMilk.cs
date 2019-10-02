@@ -13,7 +13,8 @@ namespace Multifabriken
             string[] size = new string[]{"0.5","1","2"};
             FatRatio = Convert.ToDouble(Menu.DisplayMenu(fatRatio,""));
             Size = Convert.ToDouble(Menu.DisplayMenu(size,""));
-
+            Name = Size + " liter havremjölk med " + FatRatio + "% fetthalt";
+            Price = Convert.ToDecimal(15 * Size);
         }
     }
 }

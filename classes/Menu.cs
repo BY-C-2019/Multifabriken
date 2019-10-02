@@ -38,8 +38,8 @@ public static class Menu {
                 return currentIndex;
             }
         }
-    }
-
+    }    
+    
     public static bool YesOrNo(string header) {
         string[] m = {"Ja", "Nej"};
         return (DisplayMenu(m, header) == 0);
