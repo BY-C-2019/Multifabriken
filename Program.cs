@@ -13,29 +13,38 @@ namespace Multifabriken
             string flavourChoise = Console.ReadLine();//try catch / switch?
             return flavourChoise;
         }
-        static int mangd(){
+        static double getAmmount(){
             Console.WriteLine("Hur mycket?");
-            int iAmmount = 0;
+            double dAmmount = 0;
             string sAmmount = Console.ReadLine();
             try{
-                iAmmount = Convert.ToInt32(sAmmount);
+                dAmmount = Convert.ToDouble(sAmmount);
             }catch{
                 Console.WriteLine("Ange mängden i siffror");
             }
-            return iAmmount;
+            return dAmmount;
         }
-        static void milkType(){
+        static int milkType(){
             Console.WriteLine("Vilken fetthalt vill du ha? ");
             Console.WriteLine("(Mellan 2% och 11%)");
-            int fat =  Convert.ToInt32(Console.ReadLine());
-
+            string fat = Console.ReadLine();
+            int partFat = 0;
+            try{
+                partFat = Convert.ToInt32(fat);
+            }catch{
+                Console.WriteLine("Ange fetthalt i heltal");
+            }
+            if (partFat < 2 || partFat > 11){
+                Console.WriteLine("Fetthalten måste vara mellan 2% och 11%");
+            }
+            return partFat;
         }
         static void Main(string[] args)
         {
             Console.WriteLine("Hej och välkommen till multifabriken!");
             while (true)
             {
-                Console.WriteLine("Vad vill du göra?");
+                Console.WriteLine("Vad vill du beställa?");
                 Console.WriteLine("1. Godis");
                 Console.WriteLine("2. Havremjölk");
                 Console.WriteLine("3. Rör");
@@ -48,11 +57,11 @@ namespace Multifabriken
                 {
                     case "1"://Godis
                         candyMenu();
-                        mangd();
+                        getAmmount();
                         break;
                     case "2"://Havremjölk
                         milkType();
-
+                        getAmmount();
                         break;
                     case "3"://Rör
 
