@@ -6,7 +6,7 @@ namespace Multifabriken
     {
         static void Main(string[] args)
         {
-            string[] mainMenu = {"Lägg till produkt i kundvagnen", "Visa kundvagnen", "Avsluta"};
+            string[] mainMenu = {"Lägg till produkt i kundvagnen", "Visa kundvagnen", "Bekräfta beställning och avsluta"};
             string welcomeMessage = "Hej och välkommen till Multifabriken ABs konsollapp! Här kan du beställa en hel hög olika produkter!\nVad vill du göra?";
             bool isProgramRunning = true;
             Order currentOrder = new Order();
@@ -27,8 +27,11 @@ namespace Multifabriken
                         break;
                     // Quit program
                     case 2:
-                        Console.WriteLine("Tack för att du handlar hos Multifabriken AB!");
-                        isProgramRunning = false;
+                        currentOrder.ConfirmOrder();
+                        if (currentOrder.IsOrderCompleted) {
+                            Console.WriteLine("Tack för att du handlar hos Multifabriken AB!");
+                            isProgramRunning = false;
+                        }
                         break;
                 }
             }
