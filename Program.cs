@@ -123,7 +123,7 @@ namespace Multifabriken
                     }
 
                 }
-                
+
                 Pipe MenuOptionPipes()
                 {
                     string material;
@@ -149,7 +149,7 @@ namespace Multifabriken
                     Console.WriteLine("Välj Fett");
                     fat = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Välj mängd");
-                    amount = Convert.ToDouble((Console.ReadLine());
+                    amount = Convert.ToInt32(Console.ReadLine());
 
                     Oatmeal oatmeal = new Oatmeal(fat, amount);
                     return oatmeal;
