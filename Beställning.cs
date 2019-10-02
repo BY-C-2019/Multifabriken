@@ -7,7 +7,7 @@ namespace Multifabriken
     public class Beställning
     {
         Godis godis = new Godis();
-
+		Bil bil = new Bil();
 //Lägger till en lista som sparar alla beställningar.
         List<int> addingToReciept = new List<int>();
        
@@ -35,7 +35,7 @@ namespace Multifabriken
 
                 case 3: 
                 Console.Clear();
-                godis.ValAvGodis();
+                bil.ValAvBil();
                 break;
 
                 case 4: 
