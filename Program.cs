@@ -4,9 +4,6 @@ namespace Multifabriken
 {
     class Program
     {
-	    static void candyMenu(){
-            return;
-        }
         //Metod för att välja modell på bilen
         static string carModel()
         {
@@ -21,11 +18,12 @@ namespace Multifabriken
         //Metod för att välja färg på bilen 
         static string carColor()
         {
-            Console.WriteLine("Vilken färg ska bilen ha? Mata in dinfärgkod: ");
+            Console.WriteLine("Vilken färg ska bilen ha? Mata in din färgkod i hex värde: ");
             string colorChoise = Console.ReadLine();
             return colorChoise;
         }
-
+        
+        //Metod för att välja lyx eller interiör
         static string carInterior()
         {
             Console.WriteLine("Välj din inredning:");
@@ -36,7 +34,8 @@ namespace Multifabriken
             return interiorChoise;
         }
 
-        static string godisMeny(){
+        //Metod för att välja godistyp
+        static string candyMenu(){
             Console.WriteLine("Vilken typ av godis vill du ha?");
             Console.WriteLine("1. Hallon");
             Console.WriteLine("2. Lakris");
@@ -45,6 +44,8 @@ namespace Multifabriken
             string flavourChoise = Console.ReadLine();//try catch / switch?
             return flavourChoise;
         }
+
+        //Metod för att hämta mängd på beställning från användaren. 
         static double getAmmount(){
             Console.WriteLine("Hur mycket?");
             double dAmmount = 0;
@@ -56,6 +57,8 @@ namespace Multifabriken
             }
             return dAmmount;
         }
+
+        //Metod för mjölktyp
         static int milkType(){
             Console.WriteLine("Vilken fetthalt vill du ha? ");
             Console.WriteLine("(Mellan 2% och 11%)");
@@ -71,11 +74,17 @@ namespace Multifabriken
             }
             return partFat;
         }
+
+
+
+
+        
         static void Main(string[] args)
         {
             Console.WriteLine("Hej och välkommen till multifabriken!");
             while (true)
             {
+                //Meny, loopas
                 Console.WriteLine("Vad vill du beställa?");
                 Console.WriteLine("1. Godis");
                 Console.WriteLine("2. Havremjölk");
