@@ -16,7 +16,7 @@ namespace Multifabriken
                 fat = value;
             }
         }
-        public float Amount 
+        public int Amount 
         {
             get 
             {
