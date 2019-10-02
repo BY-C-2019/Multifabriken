@@ -9,12 +9,11 @@ namespace Multifabriken
         {
             string[] flavours = new string[]{"Choklad","Mint","Lakrits","Hallon","Jordgubb","Salmiak","Päron"};
             
-            //weight in kilo
-            int[] weight = new int[]{7,4,5,6,7,2,6};
-            int selection= Menu.DisplayMenu(flavours,"");
-            Weight = weight[selection];
+            //weight in kilo            
+            int selection= Menu.DisplayMenu(flavours, "Välj smak: ");
             Flavour = flavours[selection];
-            Name = Flavour + " godisar";
+            Weight = Menu.MenuForAmount("Hur många kg " + Flavour + "godis vill du ha? ", -1, false);
+            Name = Flavour + "godisar";
             Price = Convert.ToDecimal(79 * Weight);
         }
     }

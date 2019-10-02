@@ -45,23 +45,42 @@ public static class Menu {
         return (DisplayMenu(m, header) == 0);
     }
 
-    public static int MenuForAmount(string header) {
-        int amount = 0;
+    public static double MenuForAmount(string header, double max, bool smallScale) {
+        double amount = 0;
+        double increment = 0.5;
         ConsoleKey keyPress;
         Stopwatch stopWatch = new Stopwatch();
         stopWatch.Start();
         while (true) {
             Console.Clear();
-            Console.Write(header + amount);
-            keyPress = Console.ReadKey(true).Key;            
+            Console.Write(header + amount + "\n");
+            keyPress = Console.ReadKey(true).Key;
 
             if (stopWatch.ElapsedMilliseconds >= 100) {
+                if (smallScale) {
+                    increment = 0.1;
+                }
+                else {
+                    increment = (amount >= 2) ? 1 : 0.5;
+                }
+
+
                 if (keyPress == ConsoleKey.UpArrow) {
-                    amount = (amount == 0) ? 0 : amount - 1;
+                    if (max == -1) {
+                        amount = (amount == 0) ? 0 : amount - increment;
+                    }
+                    else {
+                        amount = (amount <= 0) ? max : amount - increment;
+                    }
                     stopWatch.Restart();
                 }
                 else if (keyPress == ConsoleKey.DownArrow) {
-                    amount++;
+                    if (max == -1) {
+                        amount += increment; 
+                    }
+                    else {
+                        amount = (amount >= max) ? 0 : amount + increment;
+                    }
                     stopWatch.Restart();
                 }
                 else if (keyPress == ConsoleKey.Enter) {
