@@ -4,6 +4,7 @@ namespace Multifabriken
 {
     class Program
     {
+	static string candyMenu(){
 
         //Metod för att välja modell på bilen
         static string carModel()
@@ -45,8 +46,20 @@ namespace Multifabriken
         }
         static int mangd(){
             Console.WriteLine("Hur mycket?");
-            // int ammount = convert;
-            return 1;
+            int iAmmount = 0;
+            string sAmmount = Console.ReadLine();
+            try{
+                iAmmount = Convert.ToInt32(sAmmount);
+            }catch{
+                Console.WriteLine("Ange mängden i siffror");
+            }
+            return iAmmount;
+        }
+        static void milkType(){
+            Console.WriteLine("Vilken fetthalt vill du ha? ");
+            Console.WriteLine("(Mellan 2% och 11%)");
+            int fat =  Convert.ToInt32(Console.ReadLine());
+
         }
         static void Main(string[] args)
         {
@@ -63,10 +76,11 @@ namespace Multifabriken
                 switch (input)
                 {
                     case "1"://Godis
-                        godisMeny();
+                        candyMenu();
                         mangd();
                         break;
                     case "2"://Havremjölk
+                        milkType();
 
                         break;
                     case "3"://Rör
