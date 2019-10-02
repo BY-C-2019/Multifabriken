@@ -121,7 +121,7 @@ namespace Multifabriken
         }
         public static void Car()
         {
-            //carItem = true;
+            carItem = true;
             Console.WriteLine("Våra olika märken");
             Console.WriteLine("[1] Volvo");
             Console.WriteLine("[2]BMW");
@@ -170,6 +170,7 @@ namespace Multifabriken
         }
         public static void OatMilk()
         {
+            oatMilkItem=true;
             Console.WriteLine("Våra fetthalter");
             Console.WriteLine("[1]2%");
             Console.WriteLine("[2]6%");
