@@ -1,4 +1,6 @@
-
+using System;
+namespace Multifabriken
+{
     class Bilar
     {
         public string modell; //Ska vara bestämda i lista?
@@ -6,3 +8,4 @@
         public bool inredning; //antingen lyx eller standard
 
     }
+}

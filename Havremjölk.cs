@@ -1,3 +1,7 @@
+using System;
+
+namespace Multifabriken
+{
 class Havremjölk
     {
         //Skapa Konstruktor? Som sätter standardvärde på objektet när de skapas.
@@ -5,3 +9,4 @@ class Havremjölk
         public string volym;
 
     }
+}
