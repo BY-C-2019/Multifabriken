@@ -23,7 +23,6 @@ namespace Multifabriken
                     // View shopping cart
                     case 1:
                         currentOrder.PrintCart();
-                        Console.ReadLine();
                         break;
                     // Quit program
                     case 2:
