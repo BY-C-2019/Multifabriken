@@ -10,7 +10,7 @@ namespace Multifabriken
         public OatMilk()
         {
             string[] fatRatioStrings = new string[]{"0.5% fetthalt","1.0% fetthalt","1.5% fetthalt","4.0% fetthalt"};
-            double[] fatRatio = new double[]{0.5, 1.0, 1.5, 4.0,15,20};
+            double[] fatRatio = new double[]{0.5, 1.0, 1.5, 4.0};
             string[] sizeStrings = new string[]{"0.5 liter","1.0 liter","2.0 liter"};
             double[] sizes = new double[]{ 0.5, 1, 2};
             int fatIndex = Menu.DisplayMenu(fatRatioStrings,"");
