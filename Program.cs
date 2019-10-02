@@ -35,11 +35,13 @@ namespace Multifabriken
             Console.WriteLine("Hej och välkommen till multifabriken!");
             while (true)
             {
-                Console.WriteLine("Vad vill du beställa?");
+                Console.WriteLine("Vad vill du göra?");
                 Console.WriteLine("1. Godis");
                 Console.WriteLine("2. Havremjölk");
                 Console.WriteLine("3. Rör");
                 Console.WriteLine("4. Bilar");
+                Console.WriteLine("5. Skriv ut varor");
+                Console.WriteLine("6. Avsluta programmet");
 
                 string input = Console.ReadLine();
                 switch (input)
