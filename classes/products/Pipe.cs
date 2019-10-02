@@ -15,7 +15,7 @@ namespace Multifabriken
             Material = materials[Menu.DisplayMenu(materials,"Välj material:")];
             Length = Menu.MenuForAmount("Hur långt skall ditt rör vara? ", 15, false);
             Diameter = Menu.MenuForAmount("Vilken diameter skall ditt rör ha? ", 1.5, true);
-            Name = Material + "rör: " + Length + " meter";
+            Name = Material + "rör";
             Price = this.CalculatePrice();
         }
         private decimal CalculatePrice() {
