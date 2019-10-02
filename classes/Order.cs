@@ -24,18 +24,18 @@ namespace Multifabriken
             set {
                 switch (value) {
                     // 0: Car
-                    // 1: Candy
-                    // 2: Pipe
-                    // 3: OatMilk
                     case 0:
                         _products.Add(new Car());
                         break;
+                    // 1: Candy
                     case 1:
                         _products.Add(new Candy());
                         break;
+                    // 2: Pipe
                     case 2:
                         _products.Add(new Pipe());
                         break;
+                    // 3: OatMilk
                     case 3:
                         _products.Add(new OatMilk());
                         break;
@@ -59,19 +59,19 @@ namespace Multifabriken
                     Console.WriteLine(p.ToString());
                     i++;
                 }
-                System.Console.WriteLine("------------------------------------------------------");
+                Console.WriteLine("------------------------------------------------------");
                 if(GetTotalNumberOfProducts > 1)
                 {
-                    Console.Write("Totalt {0} varor.",GetTotalNumberOfProducts);          
+                    Console.Write("Totalt {0} varor.",GetTotalNumberOfProducts);      
                 }
                 else
                 {
                     Console.Write("Totalt {0} vara.",GetTotalNumberOfProducts);
                 }
                 string total = String.Format("Totalsumma: {0} kr", GetTotalPrice);
-                System.Console.WriteLine(String.Format("{0,40}", total));
+                Console.WriteLine(String.Format("{0,40}", total));
                 Console.ForegroundColor = ConsoleColor.Red;
-                System.Console.WriteLine("\nFör att ta bort en rad tryck på [R]. För att gå vidare tryck på annan knapp");
+                Console.WriteLine("\nFör att ta bort en rad tryck på [R]. För att gå vidare tryck på annan knapp");
                 Console.ResetColor();
                 var input = Console.ReadKey(true);
                 if(input.Key == ConsoleKey.R)
@@ -80,9 +80,9 @@ namespace Multifabriken
                     {
                         string[] query =    (from s in _products
                                             select s.ToString()).ToArray();
-                                            
+
                         _products.RemoveAt(Menu.DisplayMenu(query, "Välj vara att ta bort:"));
-                        System.Console.WriteLine("Varan borttagen");
+                        Console.WriteLine("Varan borttagen");
                     }
                 }
             }
