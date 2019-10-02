@@ -10,14 +10,13 @@ namespace Multifabriken
         public double Diameter { get; set; }
         public Pipe()
         {
-                string[] materials = new string[]{"Plast","Järn","Betong"};
-                string[] lengths = new string[]{"0.5","1.0","2.0","3.0"};
-                Material = materials[Menu.DisplayMenu(materials,"")];
-                Length = Convert.ToDouble(lengths[Menu.DisplayMenu(lengths,"")]);
-                Name = Material + "rör: " + " meter.";
-                Price = this.CalculatePrice();
+            string[] materials = new string[]{"Plast","Järn","Betong"};
+            string[] lengths = new string[]{"0,5","1,0","2,0","3,0"};
+            Material = materials[Menu.DisplayMenu(materials,"Välj material:")];
+            Length = Convert.ToDouble(lengths[Menu.DisplayMenu(lengths,"Välj längd:")]);
+            Name = Material + "rör: " + " meter.";
+            Price = this.CalculatePrice();
         }
-
         private decimal CalculatePrice() {
             int pricePerMeter = 0;
             if (Material == "Plast") {
