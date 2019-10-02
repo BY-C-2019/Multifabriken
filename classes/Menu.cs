@@ -14,6 +14,7 @@ public static class Menu {
         while (true) {
             Console.Clear();
             Console.WriteLine(header);
+            Console.WriteLine();
             foreach (string s in menuOptions) {
                 if (Array.IndexOf(menuOptions, s) == currentIndex) {
                     Console.ForegroundColor = ConsoleColor.Blue;

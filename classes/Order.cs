@@ -54,7 +54,7 @@ namespace Multifabriken
             }
             else {
                 int i = 1;
-                Console.WriteLine("Din kundkorg!");
+                Console.WriteLine("Din kundkorg!\n");
                 foreach (Product p in _products) {
                     Console.WriteLine(p.ToString());
                     i++;
@@ -66,10 +66,13 @@ namespace Multifabriken
                 var input = Console.ReadKey(true);
                 if(input.Key == ConsoleKey.R)
                 {
-                    string[] query =    (from s in _products
-                                        select s.Name).ToArray();
-                    _products.RemoveAt(Menu.DisplayMenu(query, "Välj vara att ta bort:"));
-                    System.Console.WriteLine("Varan borttagen");
+                    if(Menu.YesOrNo("Vill du verkligen ta bort en vara ur varukorgen?"))
+                    {
+                        string[] query =    (from s in _products
+                                            select s.ToString()).ToArray();
+                        _products.RemoveAt(Menu.DisplayMenu(query, "Välj vara att ta bort:"));
+                        System.Console.WriteLine("Varan borttagen");
+                    }
                 }
             }
         }
