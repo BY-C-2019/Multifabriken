@@ -5,27 +5,18 @@ namespace Multifabriken
     {
         public string Color { get; set; }
         public string Brand { get; set; }
-
         public bool LuxuryInteriour { get; set; }
 
-
-        
         Car() :base()
         {
-            
+      
             string[] carBrands = new string[]{"Vas lada","Honda","Volvo","MeserSchmidt","Saab","Audi","Wolkswagen","Lotus"};
-
-            string[] colors = new string[]{"Svart","Vit","Grön","Gul","Rosa","Orange","Blå","Silvermetallic"};
-
             Brand= carBrands[Menu.DisplayMenu(carBrands,"")];
+            string[] colors = new string[]{"Svart","Vit","Grön","Gul","Rosa","Orange","Blå","Silvermetallic"};
             Color = colors[Menu.DisplayMenu(colors,"")];
-            Console.WriteLine("Önskas lyxinredning?");
-            
-                    LuxuryInteriour = Menu.YesOrNo("Vill du ha lyxpaketet?");
+            LuxuryInteriour = Menu.YesOrNo("Vill du ha lyxpaketet?");
 
-            
-
-            
         }
+        
     }
 }
