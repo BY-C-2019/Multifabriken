@@ -14,23 +14,11 @@ namespace Multifabriken
                 switch (Menu.DisplayMenu(mainMenu, welcomeMessage)) {                    
                     case 0:
                         string [] productOptions = {"Bil", "Godis", "Rör", "Havremjölk", "Tillbaka till huvudmenyn"};
-                        switch (Menu.DisplayMenu(productOptions, "Vad vill du beställa?")) {
-                            case 0:
-                                
-                                break;
-                            case 1:
-
-                                break;
-                            case 2:
-
-                                break;
-                            case 3:
-
-                                break;
-                            case 4:
-
-                                break;
+                        int productIndex = Menu.DisplayMenu(productOptions, "Vad vill du beställa?");
+                        if (productIndex != 4) {
+                            currentOrder.AddProduct = productIndex;
                         }
+                        
                         break;
                     // View shopping cart
                     case 1:

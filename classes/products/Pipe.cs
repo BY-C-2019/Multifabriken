@@ -8,7 +8,7 @@ namespace Multifabriken
         public double Length { get; set; }
 
         public double Diameter { get; set; }
-        Pipe() : base()
+        public Pipe()
         {
 
         }

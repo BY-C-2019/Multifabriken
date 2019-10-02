@@ -5,7 +5,7 @@ namespace Multifabriken
     {
         public double Weight { get; set; }
         public string Flavour { get; set; }
-        Candy() : base()
+        public Candy()
         {
 
         }

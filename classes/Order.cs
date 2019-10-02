@@ -19,6 +19,28 @@ namespace Multifabriken
             }
         } 
 
+        public int AddProduct { 
+            set {
+                switch (value) {
+                    // 0: Car
+                    // 1: Candy
+                    // 2: Pipe
+                    // 3: OatMilk
+                    case 0:
+                        _products.Add(new Car());
+                        break;
+                    case 1:
+                        _products.Add(new Candy());
+                        break;
+                    case 2:
+                        _products.Add(new Pipe());
+                        break;
+                    case 3:
+                        _products.Add(new OatMilk());
+                        break;
+                }
+            }
+        }
         public Order() {
             _products = new List<Product>();
         }

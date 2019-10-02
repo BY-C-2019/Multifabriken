@@ -7,7 +7,7 @@ namespace Multifabriken
 
         public double FatRatio { get; set; }
 
-        OatMilk() : base()
+        public OatMilk()
         {
 
 

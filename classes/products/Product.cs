@@ -8,7 +8,7 @@ namespace Multifabriken
 
         public string GetInfo()
         {
-                return "";
+            return "";
         }
 
 
