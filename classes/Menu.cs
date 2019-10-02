@@ -8,22 +8,20 @@ public static class Menu {
     public static int DisplayMenu(string[] menuOptions, string header) {
         int currentIndex = 0;
         ConsoleKey keyPress;
-        string selectionArrow = "-> ";
+        string selected =       "-> ";
+        string notSelected =    "   ";
 
         while (true) {
             Console.Clear();
             Console.WriteLine(header);
             foreach (string s in menuOptions) {
-                string finalOption = "";
                 if (Array.IndexOf(menuOptions, s) == currentIndex) {
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    finalOption += selectionArrow;
+                    System.Console.WriteLine(selected + s);
                 } else {
-                    finalOption += "   ";
+                    System.Console.WriteLine(notSelected + s);
                 }
-                finalOption += s;
-                Console.WriteLine(finalOption);
-                Console.ForegroundColor = ConsoleColor.White;
+                Console.ResetColor();
             }
 
             keyPress = Console.ReadKey(true).Key;
