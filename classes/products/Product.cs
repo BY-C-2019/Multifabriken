@@ -6,7 +6,7 @@ namespace Multifabriken
         public string Name { get; set; }
         public decimal Price { get; set; }
 
-        public string GetInfo(object klass)
+        public string GetInfo()
         {
             return "";
         }

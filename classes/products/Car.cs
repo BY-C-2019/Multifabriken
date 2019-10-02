@@ -7,6 +7,18 @@ namespace Multifabriken
         public string Brand { get; set; }
         public bool LuxuryInteriour { get; set; }
         
+        public override string ToString()
+        {
+                if(LuxuryInteriour)
+                {
+                    return "Modell: "+ Brand+ "\nFärg: "+Color+ "Lyxutrustad: Ja";
+                }
+                else
+                {
+                       return "Modell: "+ Brand+ "\nFärg: "+Color+ "\nLyxutrustad: Nej";
+                }
+                
+        }
         public Car()
         {
             Price = 120000;            

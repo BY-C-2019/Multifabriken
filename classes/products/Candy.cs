@@ -16,5 +16,10 @@ namespace Multifabriken
             Name = Flavour + "godisar";
             Price = Convert.ToDecimal(79 * Weight);
         }
+
+        public override string ToString()
+        {
+            return $"{Name}, Smak: {Flavour}, Mängd: {Weight} kg.";
+        }
     }
 }
