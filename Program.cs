@@ -188,10 +188,10 @@ namespace Multifabriken
                             myMilk.Fat = "3%";
                         }
 
-
                         ListOfMilk.Add(myMilk);
 
                         break;
+                        
                     // skriv ut listorna
                     case "5":
                         Console.WriteLine("Inköpslistan:");
