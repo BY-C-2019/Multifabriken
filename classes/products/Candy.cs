@@ -13,13 +13,13 @@ namespace Multifabriken
             int selection= Menu.DisplayMenu(flavours, "Välj smak: ");
             Flavour = flavours[selection];
             Weight = Menu.MenuForAmount("Hur många kg " + Flavour + "godis vill du ha? ", -1, false);
-            Name = Flavour + "godisar";
+            Name = Flavour + "godis";
             Price = Convert.ToDecimal(79 * Weight);
         }
 
         public override string ToString()
         {
-            return $"{Name}, Smak: {Flavour}, Mängd: {Weight} kg. Pris: {Price}";
+            return $"{Name}, Smak: {Flavour}, Mängd: {Weight} kg. Pris: {Price} kr";
         }
     }
 }
