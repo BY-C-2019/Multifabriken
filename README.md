@@ -1,5 +1,7 @@
 # Multifabriken
 
+# Skrivet av Erik Skinnari, Algot Holton och Petar Björkman
+
 * Jobba minst 2x2 max 4x4
 * Börja med att skapa 1 fork per grupp från detta repo, all kod ska upp på samma ställe.
 * Alla i gruppen ska göra commits till ert repo.
