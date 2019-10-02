@@ -4,8 +4,9 @@ namespace Multifabriken
 {
     class Program
     {
-	static string candyMenu(){
-
+	    static void candyMenu(){
+            return;
+        }
         //Metod för att välja modell på bilen
         static string carModel()
         {
