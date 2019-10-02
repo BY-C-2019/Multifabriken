@@ -2,10 +2,10 @@ namespace Multifabriken
 {
     class Godis
     {
-        private int vikt;
+        private string vikt = "";
         private string smak = "";
 
-        public int Vikt
+        public string Vikt
         {
             get 
             {
