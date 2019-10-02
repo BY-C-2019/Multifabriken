@@ -5,9 +5,18 @@ namespace Multifabriken
     class Program
     {
         static string godisMeny(){
-            Console.WriteLine("");
-            string choise = Console.ReadLine();
-            return choise;
+            Console.WriteLine("Vilken typ av godis vill du ha?");
+            Console.WriteLine("1. Hallon");
+            Console.WriteLine("2. Lakris");
+            Console.WriteLine("3. Jordgubb");
+            Console.WriteLine("4. Päron");
+            string flavourChoise = Console.ReadLine();//try catch / switch?
+            return flavourChoise;
+        }
+        static int mangd(){
+            Console.WriteLine("Hur mycket?");
+            int ammount = convert
+            return;
         }
         static void Main(string[] args)
         {
@@ -25,6 +34,7 @@ namespace Multifabriken
                 {
                     case "1"://Godis
                         godisMeny();
+                        mangd();
                         break;
                     case "2"://Havremjölk
 
