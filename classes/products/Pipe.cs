@@ -14,7 +14,7 @@ namespace Multifabriken
             string[] lengths = new string[]{"0,5","1,0","2,0","3,0"};
             Material = materials[Menu.DisplayMenu(materials,"Välj material:")];
             Length = Convert.ToDouble(lengths[Menu.DisplayMenu(lengths,"Välj längd:")]);
-            Name = Material + "rör: " + " meter.";
+            Name = Material + "rör: " + Length + " meter.";
             Price = this.CalculatePrice();
         }
         private decimal CalculatePrice() {
