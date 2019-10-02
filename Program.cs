@@ -123,6 +123,37 @@ namespace Multifabriken
                     }
 
                 }
+                
+                Pipe MenuOptionPipes()
+                {
+                    string material;
+                    int length;
+                    int diameter;
+
+                    Console.WriteLine("Välj material");
+                    material = Console.ReadLine();
+                    Console.WriteLine("Välj längd");
+                    length = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Välj diMTER");
+                    diameter = Convert.ToInt32(Console.ReadLine());
+
+                    Pipe pipe = new Pipe(material, length, diameter);
+                    return pipe;
+                }
+
+                Oatmeal MenuOptionOatmeal()
+                {
+                    int fat;
+                    int amount;
+
+                    Console.WriteLine("Välj Fett");
+                    fat = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Välj mängd");
+                    amount = Convert.ToDouble((Console.ReadLine());
+
+                    Oatmeal oatmeal = new Oatmeal(fat, amount);
+                    return oatmeal;
+                }
             }
         }
     }
