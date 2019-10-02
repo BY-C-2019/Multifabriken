@@ -48,11 +48,13 @@ namespace Multifabriken
                             case "3":
                                 Console.Clear();
                                 System.Console.WriteLine("**Anropa rör metod**");
+                                MenuOptionPipes();
                                 break;
 
                             case "4":
                                 Console.Clear();
                                 System.Console.WriteLine("**Anropa havre metod");
+                                MenuOptionOatmeal();
                                 break;
                         }
                         break;
@@ -149,7 +151,7 @@ namespace Multifabriken
                     Console.WriteLine("Välj Fett");
                     fat = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Välj mängd");
-                    amount = Convert.ToDouble((Console.ReadLine());
+                    amount = Convert.ToInt32(Console.ReadLine());
 
                     Oatmeal oatmeal = new Oatmeal(fat, amount);
                     return oatmeal;

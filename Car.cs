@@ -33,9 +33,5 @@ namespace Multifabriken
            this.interiorCar=inputInteriorCar;
            
        }
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
     }
 }
