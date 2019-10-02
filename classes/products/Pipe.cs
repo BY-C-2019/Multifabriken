@@ -34,7 +34,7 @@ namespace Multifabriken
         }
         public override string ToString()
         {
-            string output = $"{Name}. Längd: {Length}. Diameter: {Diameter}. Pris: {CalculatePrice()}";
+            string output = $"{Name}. Längd: {Length} meter. Diameter: {Diameter} meter. Pris: {CalculatePrice()}";
 
 
             return output;
