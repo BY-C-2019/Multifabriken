@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 namespace Multifabriken
 {
@@ -46,6 +47,7 @@ namespace Multifabriken
         }
 
         public void PrintCart() {
+            Console.Clear();
             int i = 1;
             Console.WriteLine("Din kundkorg!");
             foreach (Product p in _products) {
@@ -53,6 +55,17 @@ namespace Multifabriken
                 i++;
             }
             Console.WriteLine("Totalt {0} varor för sammanlagt {1}kr", GetTotalNumberOfProducts ,GetTotalPrice);
+            Console.ForegroundColor = ConsoleColor.Red;
+            System.Console.WriteLine("För att ta bort en rad tryck på [R]. För att gå vidare tryck på annan knapp");
+            Console.ResetColor();
+            var input = Console.ReadKey(true);
+            if(input.Key == ConsoleKey.R)
+            {
+                string[] query =    (from s in _products
+                                    select s.Name).ToArray();
+                _products.RemoveAt(Menu.DisplayMenu(query, "Välj vara att ta bort:"));
+                System.Console.WriteLine("Varan borttagen");
+            }
         }
 
         public void ConfirmOrder() {
