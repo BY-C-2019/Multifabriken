@@ -2,7 +2,7 @@ using System;
 
 namespace Multifabriken
 {
-    class Oatmilk : Products
+    class Oatmilk
     {
         
     }

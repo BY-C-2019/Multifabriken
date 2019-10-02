@@ -2,7 +2,7 @@ using System;
 
 namespace Multifabriken
 {
-    class Car : Products
+    class Car
     {
         
     }

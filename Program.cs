@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Multifabriken
 {
@@ -6,7 +7,7 @@ namespace Multifabriken
     {
         static void Main(string[] args)
         {
-            
+            List<string> myCart = new List<string>();
         }
     }
 }
