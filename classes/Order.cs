@@ -56,7 +56,7 @@ namespace Multifabriken
                 int i = 1;
                 Console.WriteLine("Din kundkorg!");
                 foreach (Product p in _products) {
-                    Console.WriteLine("{0}: {1} för {2}kr", i, p.Name, p.Price);
+                    Console.WriteLine(p.ToString());
                     i++;
                 }
                 Console.WriteLine("Totalt {0} varor för sammanlagt {1}kr", GetTotalNumberOfProducts ,GetTotalPrice);

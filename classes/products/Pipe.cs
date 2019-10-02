@@ -32,5 +32,13 @@ namespace Multifabriken
 
             return Convert.ToDecimal(pricePerMeter * Length * Diameter);
         }
+        public override string ToString()
+        {
+            string output = $"{Name}. Längd: {Length}. Diameter: {Diameter}. Pris: {CalculatePrice()}";
+
+
+            return output;
+        }
+
     }
 }
