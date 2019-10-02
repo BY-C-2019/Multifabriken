@@ -19,7 +19,7 @@ namespace Multifabriken
 
         public override string ToString()
         {
-            return $"{Name}, {Size} liter, Fetthalt {FatRatio}%. Summa: {Price} kr.";
+            return $"{Name}, {Size} liter, Fetthalt {FatRatio}%. Pris: {Price} kr.";
         }
     }
 }

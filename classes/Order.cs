@@ -59,9 +59,19 @@ namespace Multifabriken
                     Console.WriteLine(p.ToString());
                     i++;
                 }
-                Console.WriteLine("Totalt {0} varor för sammanlagt {1}kr", GetTotalNumberOfProducts ,GetTotalPrice);
+                System.Console.WriteLine("------------------------------------------------------");
+                if(GetTotalNumberOfProducts > 1)
+                {
+                    Console.Write("Totalt {0} varor.",GetTotalNumberOfProducts);          
+                }
+                else
+                {
+                    Console.Write("Totalt {0} vara.",GetTotalNumberOfProducts);
+                }
+                string total = String.Format("Totalsumma: {0} kr", GetTotalPrice);
+                System.Console.WriteLine(String.Format("{0,40}", total));
                 Console.ForegroundColor = ConsoleColor.Red;
-                System.Console.WriteLine("För att ta bort en rad tryck på [R]. För att gå vidare tryck på annan knapp");
+                System.Console.WriteLine("\nFör att ta bort en rad tryck på [R]. För att gå vidare tryck på annan knapp");
                 Console.ResetColor();
                 var input = Console.ReadKey(true);
                 if(input.Key == ConsoleKey.R)
@@ -70,6 +80,7 @@ namespace Multifabriken
                     {
                         string[] query =    (from s in _products
                                             select s.ToString()).ToArray();
+                                            
                         _products.RemoveAt(Menu.DisplayMenu(query, "Välj vara att ta bort:"));
                         System.Console.WriteLine("Varan borttagen");
                     }

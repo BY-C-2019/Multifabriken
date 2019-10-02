@@ -8,7 +8,7 @@ namespace Multifabriken
         {
             Console.CursorVisible = false;
             string[] mainMenu = { "Lägg till produkt i kundvagnen", "Visa kundvagnen", "Bekräfta beställning och avsluta" };
-            string welcomeMessage = "Hej och välkommen till Multifabriken ABs konsollapp! Här kan du beställa en hel hög olika produkter!\n\nVad vill du göra?";
+            string welcomeMessage = "Hej och välkommen till Multifabriken ABs konsollapp! Här kan du beställa en hel hög olika produkter!\nVad vill du göra?";
             bool isProgramRunning = true;
             Order currentOrder = new Order();
             while (isProgramRunning)
