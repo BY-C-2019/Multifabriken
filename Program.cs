@@ -122,6 +122,61 @@ namespace Multifabriken
 
 
                     case "3":
+                        Godis myGodis = new Godis();
+
+                        Console.WriteLine("Välj smak");
+                        Console.WriteLine("[1] Hallon");
+                        Console.WriteLine("[2] Jordgubb");
+                        Console.WriteLine("[3] Lakris");
+                        Console.WriteLine("[4] Tillbaka");
+                        input = Console.ReadLine();
+                        
+                        switch (input)
+                        {
+                            case "1":
+                                myGodis.Smak = "Hallon";
+                            break;
+
+                            case "2":
+                                myGodis.Smak = "Jordgubb";
+                            break;
+
+                            case "3":
+                                myGodis.Smak = "Lakris";
+                            break;
+
+                            case "4":
+                            break;
+                        }
+
+                        Console.WriteLine("Välj vikt");
+                        Console.WriteLine("[1] 100g");
+                        Console.WriteLine("[2] 200g");
+                        Console.WriteLine("[3] 300g");
+                        input = Console.ReadLine();
+
+                        switch (input)
+                        {
+                            case "1":
+                                myGodis.Vikt = "100g";
+                            break;
+
+                            case "2":
+                                myGodis.Vikt = "200g";
+                            break;
+
+                            case "3":
+                                myGodis.Vikt = "300g";
+                            break;
+
+                        }
+                        myGodises.Add(myGodis);
+
+                        for (int i = 0; i < myGodises.Count; i++)
+                        {
+                            Console.WriteLine("[{0}]. {1} {2}", i + 1, myGodis.Smak, myGodis.Vikt);
+                            
+                        }
                         break;
 
                     case "4":
