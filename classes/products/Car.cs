@@ -11,11 +11,11 @@ namespace Multifabriken
         {
                 if(LuxuryInteriour)
                 {
-                    return "Modell: "+ Brand+ "\nFärg: "+Color+ "Lyxutrustad: Ja";
+                    return "Modell: "+ Brand+ "Färg: "+Color+ "Lyxutrustad: Ja! Pris: "+Price;
                 }
                 else
                 {
-                       return "Modell: "+ Brand+ "\nFärg: "+Color+ "\nLyxutrustad: Nej";
+                       return "Modell: "+ Brand+ "Färg: "+Color+ "Lyxutrustad: Nej! Pris: "+Price;
                 }
                 
         }
