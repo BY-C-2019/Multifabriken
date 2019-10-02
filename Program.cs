@@ -6,7 +6,7 @@ namespace Multifabriken
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Kan de funka nu tro");
         }
     }
 }
