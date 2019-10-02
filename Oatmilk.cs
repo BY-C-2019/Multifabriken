@@ -4,16 +4,16 @@ namespace Multifabriken
 {
     class Oatmilk
     {
-        private float volume = 0f;
-        private float fat = 0f;
+        private string volume = "";
+        private string fat = "";
 
-        public float Volume
+        public string Volume
         {
             get { return volume; }
             set { volume = value; }
         }
 
-        public float Fat
+        public string Fat
         {
             get { return fat; }
             set { fat = value; }
