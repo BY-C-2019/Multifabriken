@@ -22,7 +22,8 @@ namespace Multifabriken
                         break;
                     // View shopping cart
                     case 1:
-                        Console.WriteLine("Du har inga produkter i din kundvagn");
+                        currentOrder.PrintCart();
+                        Console.ReadLine();
                         break;
                     // Quit program
                     case 2:
