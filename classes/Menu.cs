@@ -66,11 +66,11 @@ public static class Menu {
                 }
 
 
-                if (keyPress == ConsoleKey.UpArrow) {
+                if (keyPress == ConsoleKey.DownArrow) {
                     amount = (amount - increment <= increment) ? increment : amount - increment;
                     stopWatch.Restart();
                 }
-                else if (keyPress == ConsoleKey.DownArrow) {
+                else if (keyPress == ConsoleKey.UpArrow) {
                     if (max == -1) {
                         amount += increment; 
                     }
