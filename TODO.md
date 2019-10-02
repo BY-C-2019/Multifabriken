@@ -1,4 +1,4 @@
-##Att göra lista
+### Att göra lista
 
 * Try catch bilar
 * Try catch  / switch godis
@@ -8,4 +8,4 @@
 * Metod för rör diameter 
 * Metod för rör längd
 * Kontroll minimi godis och mjölkmängd (utanför metoden)
-* ###ALlmän idiotproofa allt som har någon input
+* _Idiotproofa allt som har någon input_
