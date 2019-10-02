@@ -1,5 +1,9 @@
 ### Att göra lista
 
+* ~~Huvudmeny~~
+* ~~Underklass godis~~
+* ~~Undermeny bilar~~
+* ~~Alla klasser~~
 * Try catch bilar
 * Try catch  / switch godis
 * Koppla klasser till metodanrop
