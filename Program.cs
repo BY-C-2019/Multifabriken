@@ -6,7 +6,41 @@ namespace Multifabriken
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Boys!");
+            while (true)
+            {   Console.WriteLine("Vad vill du göra");
+                Console.WriteLine("[1] Köp bil");
+                Console.WriteLine("[2] Köp Rör");
+                Console.WriteLine("[3] Köp godis");
+                Console.WriteLine("[4] Köp havremjölk");
+                Console.WriteLine("[5] Skriv ut inköpslista");
+                Console.WriteLine("[6] Avsluta");
+                string input = Console.ReadLine();
+
+                switch (input)
+                {
+                    case "1":
+                        break;
+                        
+                    case "2":
+                        break;
+                    
+                    case "3":
+                        break;
+
+                    case "4":
+                        break;
+
+                    case "5":
+                        break;
+
+                    case "6":
+                        return;
+
+                    default:
+                        Console.WriteLine("Fel val, försök igen");
+                        break;
+                }
+            }
         }
     }
 }
