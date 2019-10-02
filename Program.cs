@@ -7,10 +7,11 @@ namespace Multifabriken
     {
         static void Main(string[] args)
         {
-            List<Car> myCars = new List<Car>();
-            List<Godis> myGodises = new List<Godis>();
-            List<Pipes> myPipes = new List<Pipes>();
-            List<Oatmilk> myMilks = new List<Oatmilk>();
+            // skapa listor
+            List<Car> ListOfCars = new List<Car>();
+            List<Godis> ListOfGodis = new List<Godis>();
+            List<Pipes> ListOfPipes = new List<Pipes>();
+            List<Oatmilk> ListOfMilk = new List<Oatmilk>();
 
             while (true)
             {
@@ -157,13 +158,25 @@ namespace Multifabriken
 
                         switch (input)
                         {
-                            case "1":
-                                myGodis.Vikt = "100g";
-                            break;
+                            myMilk.Fat = "0,5%";
+                        }
+                        else if (input == "2")
+                        {
+                            myMilk.Fat = "1,5%";
+                        }
+                        else
+                        {
+                            myMilk.Fat = "3%";
+                        }
 
-                            case "2":
-                                myGodis.Vikt = "200g";
-                            break;
+                        ListOfMilk.Add(myMilk);
+
+                        break;
+                        
+                    // skriv ut listorna
+                    case "5":
+                        Console.WriteLine("Inköpslistan:");
+                        Console.WriteLine("");
 
                             case "3":
                                 myGodis.Vikt = "300g";
