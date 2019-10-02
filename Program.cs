@@ -4,7 +4,38 @@ namespace Multifabriken
 {
     class Program
     {
-        static string candyMenu(){
+	static string candyMenu(){
+
+        //Metod för att välja modell på bilen
+        static string carModel()
+        {
+            Console.WriteLine("Vilken bilmodell vill du ha?");
+            Console.WriteLine("1. Volvo");
+            Console.WriteLine("2. Saab");
+            Console.WriteLine("3. Ford");
+            string modelChoise = Console.ReadLine(); //try catch
+            return modelChoise;
+        }
+
+        //Metod för att välja färg på bilen 
+        static string carColor()
+        {
+            Console.WriteLine("Vilken färg ska bilen ha? Mata in dinfärgkod: ");
+            string colorChoise = Console.ReadLine();
+            return colorChoise;
+        }
+
+        static string carInterior()
+        {
+            Console.WriteLine("Välj din inredning:");
+            Console.WriteLine("1. Lyx");
+            Console.WriteLine("2. Standard");
+            string interiorChoise = Console.ReadLine();
+            
+            return interiorChoise;
+        }
+
+        static string godisMeny(){
             Console.WriteLine("Vilken typ av godis vill du ha?");
             Console.WriteLine("1. Hallon");
             Console.WriteLine("2. Lakris");
@@ -67,7 +98,9 @@ namespace Multifabriken
 
                         break;
                     case "4"://Bilar
-
+                        carModel();
+                        carColor();
+                        carInterior();
                         break;
                     case "5"://Skriv ut beställning
 
