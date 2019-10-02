@@ -7,7 +7,8 @@ namespace Multifabriken
         static void Main(string[] args)
         {
             while (true)
-            {   Console.WriteLine("Vad vill du göra");
+            {
+                Console.WriteLine("Vad vill du göra");
                 Console.WriteLine("[1] Köp bil");
                 Console.WriteLine("[2] Köp Rör");
                 Console.WriteLine("[3] Köp godis");
@@ -19,11 +20,42 @@ namespace Multifabriken
                 switch (input)
                 {
                     case "1":
-                        break;
-                        
+                        while (true)
+                        {
+                            Console.WriteLine("Välj modell:");
+                            Console.WriteLine("[1] 240");
+                            Console.WriteLine("[2] 740");
+                            Console.WriteLine("[3] 940");
+                            Console.WriteLine("[4] Gå tillbaka");
+                            input = Console.ReadLine();
+
+                            switch (input)
+                            {
+                                case "1":
+
+                                    break;
+
+                                case "2":
+
+                                    break;
+
+                                case "3":
+
+                                    break;
+
+                                case "4":
+                                    return;
+
+                                default:
+                                    Console.WriteLine("Fel val, försök igen");
+                                    break;
+                            }
+                        }
+
+
                     case "2":
                         break;
-                    
+
                     case "3":
                         break;
 
