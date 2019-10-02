@@ -4,9 +4,7 @@ namespace Multifabriken
     public class Pipe : Product
     {
         public string Material { get; set; }
-
         public double Length { get; set; }
-
         public double Diameter { get; set; }
         public Pipe()
         {
@@ -34,11 +32,7 @@ namespace Multifabriken
         }
         public override string ToString()
         {
-            string output = $"{Name}. Längd: {Length} meter. Diameter: {Diameter} meter. Pris: {CalculatePrice()}";
-
-
-            return output;
+            return $"{Name}. Längd: {Length} meter. Diameter: {Diameter} meter. Pris: {CalculatePrice()}";
         }
-
     }
 }
