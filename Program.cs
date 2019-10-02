@@ -8,7 +8,7 @@ namespace Multifabriken
         static void Main(string[] args)
         {
             bool runMenu = true;
-            List<object> orderList  = new List<object>();
+            List<object> orderList = new List<object>();
 
             while (runMenu)
             {
@@ -24,7 +24,7 @@ namespace Multifabriken
 
                 switch (meny)
                 {
-                    
+
                     case "1":
                         Console.Clear();
                         System.Console.WriteLine("[1] Bil");
@@ -79,7 +79,7 @@ namespace Multifabriken
                     case "4":
                         runMenu = false;
                         Console.Clear();
-                        foreach (Car car in orderList) 
+                        foreach (Car car in orderList)
                         {
                             Console.WriteLine(car.TypeCar);
                             Console.WriteLine(car.ColorCar);
@@ -91,30 +91,47 @@ namespace Multifabriken
                 }
 
 
+
                 Car MenuOptionCars()
                 {
                     {
                         string Type = "";
                         string Color = "";
                         bool interior = false;
+                        bool loop = true;
+                        string inputInterior = "";
 
                         Console.WriteLine("Ange vilken typ av bil: ");
                         Type = Console.ReadLine();
-                        Console.WriteLine("Ange vilken färg du vil ha på bilen: ");
+                        Console.WriteLine("Ange vilken färg du vill ha på bilen: ");
                         Color = Console.ReadLine();
-                        Console.WriteLine("Vill du ha [S]tandard inredning eller [L]yx-inredning?");
-                        string inputInterior = Console.ReadLine();
 
-                        if (inputInterior == "S")
+                        while (loop == true)
                         {
-                            interior = false;
-                        }
-                        else if (inputInterior == "L")
-                        {
-                            interior = true;
-                        }
+                            Console.WriteLine("Vill du ha [S]tandard inredning eller [L]yx-inredning?");
+                            inputInterior = Console.ReadLine();
+                            inputInterior = inputInterior.ToUpper();
 
 
+                            if (inputInterior == "S")
+                            {
+                                interior = false;
+                                loop = false;
+                                inputInterior = "Standard-Inredning";
+                            }
+                            else if (inputInterior == "L")
+                            {
+                                interior = true;
+                                loop = false;
+                                inputInterior = "Lyx-Inredning";
+                            }
+                            else
+                            {
+                                System.Console.WriteLine("Fel inmantning");
+                            }
+                        }
+
+                        System.Console.WriteLine($"Du har lagt till en {Type} av färgen {Color} och den har {inputInterior} \n");
                         Car car = new Car(Type, Color, interior);
                         return car;
                     }
