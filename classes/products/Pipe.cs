@@ -12,8 +12,10 @@ namespace Multifabriken
         {
             string[] materials = new string[]{"Plast","Järn","Betong"};
             string[] lengths = new string[]{"0,5","1,0","2,0","3,0"};
+            string[] diameters =  {"0,1", "0,5", "1,0", "15,5"};
             Material = materials[Menu.DisplayMenu(materials,"Välj material:")];
             Length = Convert.ToDouble(lengths[Menu.DisplayMenu(lengths,"Välj längd:")]);
+            Diameter = Convert.ToDouble(diameters[Menu.DisplayMenu(diameters, "Välj diameter: ")]);
             Name = Material + "rör: " + Length + " meter.";
             Price = this.CalculatePrice();
         }
@@ -29,7 +31,7 @@ namespace Multifabriken
                 pricePerMeter = 1000;
             }
 
-            return Convert.ToDecimal(pricePerMeter * Length);
+            return Convert.ToDecimal(pricePerMeter * Length * Diameter);
         }
     }
 }
