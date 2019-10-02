@@ -67,87 +67,79 @@ namespace Multifabriken
                         }
                         else
                         {
-                            myCar.Model = "Blå";
+                            myCar.Color = "Blå";
                         }
-
-                        Console.WriteLine("Vill du ta bort lyxutrustningen?");
-                        Console.WriteLine("[1] Nej");
-                        Console.WriteLine("[2] Ja");
-                        input = Console.ReadLine();
-
-                        if (input == "2")
-                        {
-                            myCar.Luxury = false;
-                        }
-
-                        ListOfCars.Add(myCar);
                         break;
 
                     // rörmeny
                     case "2":
 
                         // instans skapas
-                        Pipes myPipe = new Pipes();
+                        Pipes myPipes = new Pipes();
 
-                        Console.WriteLine("Välj rör:");
-                        Console.WriteLine("[1] Stål 9mm");
-                        Console.WriteLine("[2] Stål 5.56mm");
-                        Console.WriteLine("[3] Plast 9mm");
-                        Console.WriteLine("[4] Plast 5.56");
-                        Console.WriteLine("[5] Betong 9mm");
-                        Console.WriteLine("[6] Betong 5.56mm");
-                        Console.WriteLine("[7] Gå tillbaka");
+                        Console.WriteLine("Välj material:");
+                        Console.WriteLine("[1] Stål");
+                        Console.WriteLine("[2] Plast");
+                        Console.WriteLine("[3] Betong");
                         input = Console.ReadLine();
-                        switch (input)
+
+                        if (input == "1")
                         {
-                            case "1":
-                                myPipe.Material = "Stål 9mm";
-                                Console.WriteLine("Okej du valde Stål 9mm hur många meter vill du ha?");
-                                string meter = Console.ReadLine();
-                                Console.WriteLine("Okej du beställde " + meter + " meter Stål 9mm rör ");
-                                break;
-
-                            case "2":
-                                Console.WriteLine("Okej du valde Stål 5.56mm hur många meter vill du ha?");
-                                string meter2 = Console.ReadLine();
-                                Console.WriteLine("Okej du beställde " + meter2 + " meter Stål 5.56mm rör ");
-                                break;
-
-                            case "3":
-                                Console.WriteLine("Okej du valde Plast 9mm hur många meter vill du ha?");
-                                string meter3 = Console.ReadLine();
-                                Console.WriteLine("Okej du beställde " + meter3 + " meter Plast 9mm rör ");
-                                break;
-
-                            case "4":
-                                Console.WriteLine("Okej du valde Plast 5.56 hur många meter vill du ha?");
-                                string meter4 = Console.ReadLine();
-                                Console.WriteLine("Okej du beställde " + meter4 + " meter Plast 5.56mm rör ");
-                                break;
-
-                            case "5":
-                                Console.WriteLine("Okej du valde Betong 9mm hur många meter vill du ha?");
-                                string meter5 = Console.ReadLine();
-                                Console.WriteLine("Okej du beställde " + meter5 + " meter Betong 9mm rör ");
-                                break;
-
-                            case "6":
-                                Console.WriteLine("Okej du valde Betong 5.56mm hur många meter vill du ha?");
-                                string meter6 = Console.ReadLine();
-                                Console.WriteLine("Okej du beställde " + meter6 + " meter Betong 5.56mm rör ");
-                                break;
-
-                            case "7":
-                                break;
+                            myPipes.Material = "Stål";
+                        }
+                        else if (input == "2")
+                        {
+                            myPipes.Material = "Plast";
+                        }
+                        else
+                        {
+                            myPipes.Material = "Betong";
                         }
 
-                        ListOfPipes.Add(myPipe);
+                        Console.WriteLine("Välj Diameter:");
+                        Console.WriteLine("[1] 9mm");
+                        Console.WriteLine("[2] 5.56");
+                        Console.WriteLine("[3] 30mm");
+                        input = Console.ReadLine();
+
+                        if (input == "1")
+                        {
+                            myPipes.Diameter = "9mm";
+                        }
+                        else if (input == "2")
+                        {
+                            myPipes.Diameter = "5.56mm";
+                        }
+                        else
+                        {
+                            myPipes.Diameter = "30mm";
+                        }
+
+                        Console.WriteLine("Hur många meter vill du ha?");
+                        Console.WriteLine("[1] 15m");
+                        Console.WriteLine("[2] 1m");
+                        Console.WriteLine("[3] 100m");
+                        input = Console.ReadLine();
+                       
+                        if (input == "1")
+                        {
+                            myPipes.Längd = "15m";
+                        }
+                        else if (input == "2")
+                        {
+                            myPipes.Längd = "1m";
+                        }
+                        else
+                        {
+                            myPipes.Längd = "100m";
+                        }
+
+                        ListOfPipes.Add(myPipes);
 
                         foreach (var item in ListOfPipes)
                         {
                             Console.WriteLine(item);
                         }
-
 
                         break;
 
