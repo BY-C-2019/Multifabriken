@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace bilar
+namespace Cars
 {
-    class Bilar
+    class Cars
     {   
-        public Bilar(int Carmodelindex, string Carcolour, bool Luxpackage)
+        public Cars(int carmodelIndex, string carColour, bool luxPackage)
         {
-            carmodel = Billista[Carmodelindex];
-            carcolour = Carcolour;
-            luxpackage = Luxpackage;
-
-            
+            carmodel = bilLista[carmodelIndex];
+            carcolour = carColour;
+            luxpackage = luxPackage; 
         }
-        static List<string> Billista = new List<string>() { "Tesla", "Audi", "Hyundai" };
+        static List<string> bilLista = new List<string>() { "Tesla", "Audi", "Hyundai" };
         public string carmodel { get; set; }
         public string carcolour { get; set; }
         public bool luxpackage { get; set; }
- 
     }
 }
 
