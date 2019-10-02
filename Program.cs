@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Multifabriken
 {
@@ -6,7 +7,10 @@ namespace Multifabriken
     {
         static void Main(string[] args)
         {
-            while (true)
+            bool runMenu = true;
+            List<object> orderList  = new List<object>();
+
+            while (runMenu)
             {
 
                 System.Console.WriteLine("[1] Skapa beställning:");
@@ -20,8 +24,7 @@ namespace Multifabriken
 
                 switch (meny)
                 {
-
-
+                    
                     case "1":
                         Console.Clear();
                         System.Console.WriteLine("[1] Bil");
@@ -36,25 +39,25 @@ namespace Multifabriken
                             case "1":
                                 Console.Clear();
                                 System.Console.WriteLine("**Anropa bil metod**");
-                                MenuOptionCars();
+                                orderList.Add(MenuOptionCars());
                                 break;
 
                             case "2":
                                 Console.Clear();
                                 System.Console.WriteLine("**Anropa godis metod**");
-                                MenuOptionCandy();
+                                orderList.Add(MenuOptionCandy());
                                 break;
 
                             case "3":
                                 Console.Clear();
                                 System.Console.WriteLine("**Anropa rör metod**");
-                                MenuOptionPipes();
+                                orderList.Add(MenuOptionPipes());
                                 break;
 
                             case "4":
                                 Console.Clear();
                                 System.Console.WriteLine("**Anropa havre metod");
-                                MenuOptionOatmeal();
+                                orderList.Add(MenuOptionOatmeal());
                                 break;
                         }
                         break;
@@ -74,7 +77,15 @@ namespace Multifabriken
                         break;
 
                     case "4":
+                        runMenu = false;
                         Console.Clear();
+                        foreach (Car car in orderList) 
+                        {
+                            Console.WriteLine(car.TypeCar);
+                            Console.WriteLine(car.ColorCar);
+                            Console.WriteLine(car.InteriorCar);
+                        }
+                        Console.ReadLine();
                         System.Console.WriteLine("Program avslutat");
                         return;
                 }
@@ -109,6 +120,7 @@ namespace Multifabriken
                     }
 
                 }
+
                 Candy MenuOptionCandy()
                 {
                     {
