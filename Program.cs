@@ -1,15 +1,25 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using milk;
+using Milk;
 using Pipes;
-using Bilar;
-using GodisKlassen;
+using Cars;
+using Order;
+using Candy;
 namespace multifabriken
 {
     class Program
     {
         static void Main(string[] args)
         {
+            order.orderList.Add(new milk(7,2));
+
+            foreach(var p in products){
+                var p2 = p as milk;
+
+                Console.WriteLine(p2.fat);
+            }
+
             Console.WriteLine("Hello World!");
         }
     }

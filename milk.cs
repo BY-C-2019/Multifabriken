@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Products;
 
 
 namespace Milk
 {
     class milk : products
     {
-        public Milk(int fatContent, int packageType)
+        public milk(int fatContent, int packageType)
         {
             if(11 < fatContent || fatContent < 2)
             {

@@ -1,17 +1,17 @@
 using System.Collections.Generic;
 using System;
 
-namespace eyyo
+namespace Candy
 {
 
-    public class Candy
+    public class candy : products
     {  
             private List<string> godisLista = new List<string>(){"Hallon", "Päron", "Lakris", "Jordgubbar"};
 
             public string taste = "";
 
 
-            public Candy(int candyIndex)
+            public candy(int candyIndex)
             {
                 taste = godisLista[candyIndex];
                 

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace Cars
 {
-    class Cars
+    class cars : products
     {   
         static List<string> bilLista = new List<string>() { "Tesla", "Audi", "Hyundai" };
-        public Cars(int carmodelIndex, string carColour, bool luxPackage)
+        public cars(int carmodelIndex, string carColour, bool luxPackage)
         {
             carmodel = bilLista[carmodelIndex];
             carcolour = carColour;
