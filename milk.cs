@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 
 
-namespace milk
+namespace Milk
 {
-    class Milk
+    class milk : products
     {
         public Milk(int fatContent, int packageType)
         {
