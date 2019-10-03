@@ -1,5 +1,4 @@
 ﻿using System;
-using milk;
 
 namespace multifabriken
 {
@@ -7,8 +6,7 @@ namespace multifabriken
     {
         static void Main(string[] args)
         {
-           
-
+            Console.WriteLine("Hello World!");
         }
     }
 }
