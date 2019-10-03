@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace Multifabriken
+namespace Products
 {
-  class Varor
+  class products
   {
     public int antal { get; set; }
     public int mängd { get; set; }
