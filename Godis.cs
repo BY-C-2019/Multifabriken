@@ -7,7 +7,7 @@ namespace Multifabriken
 
         public string Vikt
         {
-            get 
+            get
             {
                 return vikt;
             }
@@ -27,5 +27,12 @@ namespace Multifabriken
                 smak = value;
             }
         }
+        static void AddGodis()
+        {
+
+
+        }
+
+
     }
 }
