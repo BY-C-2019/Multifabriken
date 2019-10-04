@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System;
+using Products;
 
 namespace Candy
 {
 
-    public class candy : products
+    class candy : products
     {  
             private List<string> godisLista = new List<string>(){"Hallon", "Päron", "Lakris", "Jordgubbar"};
 
