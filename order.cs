@@ -1,23 +1,17 @@
 using System;
+using System.Collections.Generic;
 using Products;
+
 using Milk;
 
 
 namespace Order 
 {
-    class order
+    class order : products
     {
-        public List<products> order = new List<products>();
+        static public List<products> orderList = new List<products>();
 
-        static void add()
-        {
-            order.add(new Milk(7,2));
-        }
+        
 
-        static void display()
-        {
-       
-            Console.WriteLine(order[0]);
-        }
     }
 }

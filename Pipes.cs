@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Products;
+
 
 namespace Pipes
 {
-  class Pipes
+  class pipes : products
   {
     static List<string> myPipes = new List<string>() {
           "Rostfritt",
@@ -13,7 +15,7 @@ namespace Pipes
     public int length { get; set; }
     public int diameter { get; set; }
     public string material = "";
-    public Pipes(int Length, int Diameter, string Material)
+    public pipes(int Length, int Diameter, string Material)
     {
       length = Length;
       diameter = Diameter;
