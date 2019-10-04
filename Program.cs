@@ -5,11 +5,11 @@ namespace Multifabriken
 {
     class Program
     {
-        // skapa listor
-        static List<Car> ListOfCars = new List<Car>();
-        static List<Godis> ListOfGodis = new List<Godis>();
-        static List<Pipes> ListOfPipes = new List<Pipes>();
-        static List<Oatmilk> ListOfMilk = new List<Oatmilk>();
+        // skapa listor och variabler som ska kunna nås överallt
+        public static List<Car> ListOfCars = new List<Car>();
+        public static List<Godis> ListOfGodis = new List<Godis>();
+        public static List<Pipes> ListOfPipes = new List<Pipes>();
+        public static List<Oatmilk> ListOfMilk = new List<Oatmilk>();
         static string input;
         static void Main(string[] args)
         {
@@ -50,7 +50,7 @@ namespace Multifabriken
 
                     // skriv ut listorna
                     case "5":
-                        // PrintList();
+                         Print.PrintStuff();
                         break;
 
                     default:
