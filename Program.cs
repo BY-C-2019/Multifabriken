@@ -37,7 +37,15 @@ namespace Multifabriken
                         break;
 
                     case "2":
-                        //  pipes.AddPipe();
+                          // skapa instans
+
+                        Pipes mypipes = new Pipes();
+
+                        // kör metod
+                        Pipes.AddPipe();
+
+                        // lägg till i listan
+                        ListOfPipes.Add(mypipes);
                         break;
 
                     case "3":

@@ -4,10 +4,11 @@ namespace Multifabriken
 {
     class Pipes
     {
-        private string diameter = "0";
-        private string material = "";
-        private string längd = "0";
-
+        //privata vaiabler
+        private static string diameter = "0";
+        private static string material = "";
+        private static string längd = "0";
+        //konstruktorer
         public string Diameter
         {
             get { return diameter; }
@@ -25,63 +26,68 @@ namespace Multifabriken
             get { return längd; }
             set { längd = value; }
         }
-
-        static void AddPipe()
+        // metod som tar in värden ifrån användaren
+        public static void AddPipe()
 
         {
-            string input;
-            while (true)
             {
-                Console.WriteLine("Välj rör:");
-                Console.WriteLine("[1] Stål 9mm");
-                Console.WriteLine("[2] Stål 5.56mm");
-                Console.WriteLine("[3] Plast 9mm");
-                Console.WriteLine("[4] Plast 5.56");
-                Console.WriteLine("[5] Betong 9mm");
-                Console.WriteLine("[6] Betong 5.56mm");
-                Console.WriteLine("[7] Gå tillbaka");
+                string input;
+
+                Console.WriteLine("Välj diameter:");
+                Console.WriteLine("[1] 9mm");
+                Console.WriteLine("[2] 5.56mm");
+                Console.WriteLine("[3] 15mm");
                 input = Console.ReadLine();
-                switch (input)
+
+                if (input == "1")
                 {
-                    case "1":
-                        Console.WriteLine("Okej du valde Stål 9mm hur många meter vill du ha?");
-                        string meter = Console.ReadLine();
-                        Console.WriteLine("Okej du beställde " + meter + " meter Stål 9mm rör ");
-                        return;
+                    diameter = "9mm";
+                }
+                else if (input == "2")
+                {
+                    diameter = "5.56mm";
+                }
+                else
+                {
+                    diameter = "15mm";
+                }
 
-                    case "2":
-                        Console.WriteLine("Okej du valde Stål 5.56mm hur många meter vill du ha?");
-                        string meter2 = Console.ReadLine();
-                        Console.WriteLine("Okej du beställde " + meter2 + " meter Stål 5.56mm rör ");
-                        return;
+                Console.WriteLine("Välj material:");
+                Console.WriteLine("[1] Betong");
+                Console.WriteLine("[2] Stål");
+                Console.WriteLine("[3] Plast");
+                input = Console.ReadLine();
 
-                    case "3":
-                        Console.WriteLine("Okej du valde Plast 9mm hur många meter vill du ha?");
-                        string meter3 = Console.ReadLine();
-                        Console.WriteLine("Okej du beställde " + meter3 + " meter Plast 9mm rör ");
-                        return;
+                if (input == "1")
+                {
+                  material = "Betong";
+                }
+                else if (input == "2")
+                {
+                    material = "Stål";
+                }
+                 else
+                {
+                 material = "Plast";
+                }
 
-                    case "4":
-                        Console.WriteLine("Okej du valde Plast 5.56 hur många meter vill du ha?");
-                        string meter4 = Console.ReadLine();
-                        Console.WriteLine("Okej du beställde " + meter4 + " meter Plast 5.56mm rör ");
-                        return;
+                Console.WriteLine("Vad vill du ha för längd?");
+                Console.WriteLine("[1] 1m");
+                Console.WriteLine("[2] 15m");
+                Console.WriteLine("[3] 100m");
+                input = Console.ReadLine();
 
-                    case "5":
-                        Console.WriteLine("Okej du valde Betong 9mm hur många meter vill du ha?");
-                        string meter5 = Console.ReadLine();
-                        Console.WriteLine("Okej du beställde " + meter5 + " meter Betong 9mm rör ");
-                        return;
-
-                    case "6":
-                        Console.WriteLine("Okej du valde Betong 5.56mm hur många meter vill du ha?");
-                        string meter6 = Console.ReadLine();
-                        Console.WriteLine("Okej du beställde " + meter6 + " meter Betong 5.56mm rör ");
-                        return;
-
-                    case "7":
-
-                        return;
+               if (input == "1")
+                {
+                  längd = "1m";
+                }
+                else if (input == "2")
+                {
+                    längd = "15m";
+                }
+                 else
+                {
+                 längd = "100m";
                 }
             }
         }
