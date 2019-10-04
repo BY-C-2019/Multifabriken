@@ -16,7 +16,5 @@ namespace eyyo
                 taste = godisLista[candyIndex];
                 
             }
-       
     }
-
 }
