@@ -38,12 +38,9 @@ namespace Multifabriken
 
                     case "2":
                         // skapa instans
-
                         Pipes mypipes = new Pipes();
-
                         // kör metod
                         Pipes.AddPipe();
-
                         // lägg till i listan
                         ListOfPipes.Add(mypipes);
                         break;
@@ -63,6 +60,7 @@ namespace Multifabriken
 
                     // avsluta
                     case "6":
+                        Console.WriteLine("Hej då!");
                         Print.PrintStuff();
                         return;
 
