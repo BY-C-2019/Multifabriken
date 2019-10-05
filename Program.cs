@@ -16,7 +16,8 @@ namespace Multifabriken
             // huvudmeny
             while (true)
             {
-                Console.WriteLine("Vad vill du göra");
+                Console.WriteLine("Vad vill du göra?");
+                Console.WriteLine("");
                 Console.WriteLine("[1] Köp bil");
                 Console.WriteLine("[2] Köp rör");
                 Console.WriteLine("[3] Köp godis");
@@ -46,11 +47,21 @@ namespace Multifabriken
                         break;
 
                     case "3":
-                        //  AddMilk();
-                        break;
+                        // skapa instans
+                        // Oatmilk myMilk = new Oatmilk();
+                        // kör metod
+                        // Oatmilk.AddMilk();
+                        // lägg till i listan
+                        // ListOfMilk.Add(myMilk);
+                        // break;
 
                     case "4":
-                        //  AddGodis();
+                        // skapa instans
+                        Oatmilk myMilk = new Oatmilk();
+                        // kör metod
+                        Oatmilk.AddMilk();
+                        // lägg till i listan
+                        ListOfMilk.Add(myMilk);
                         break;
 
                     // skriv ut listorna

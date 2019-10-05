@@ -4,8 +4,8 @@ namespace Multifabriken
 {
     class Oatmilk
     {
-        private string volume = "";
-        private string fat = "";
+        private static string volume = "";
+        private static string fat = "";
 
         public string Volume
         {
@@ -19,42 +19,80 @@ namespace Multifabriken
             set { fat = value; }
         }
 
-         static void AddMilk()
+        public static void AddMilk()
+        {
             {
                 string input;
-                Godis myGodis = new Godis();
 
-                Console.WriteLine("Välj smak");
-                Console.WriteLine("[1] Hallon");
-                Console.WriteLine("[2] Jordgubb");
-                Console.WriteLine("[3] Lakris");
-                Console.WriteLine("[4] Tillbaka");
-                input = Console.ReadLine();
+                bool checkInput = false;
 
-                switch (input)
+                // kör loop så länge inte någon av de förväntade alternativen matas in
+                while (!checkInput)
                 {
-                    case "1":
-                        myGodis.Smak = "Hallon";
-                        break;
+                    Console.WriteLine("Välj mängd:");
+                    Console.WriteLine("[1] 0,5 liter");
+                    Console.WriteLine("[2] 1,5 liter");
+                    Console.WriteLine("[3] 3 liter");
+                    input = Console.ReadLine();
 
-                    case "2":
-                        myGodis.Smak = "Jordgubb";
-                        break;
+                    switch (input)
+                    {
+                        case "1":
+                            volume = "0,5 liter";
+                            // avsluta loopen
+                            checkInput = true;
+                            break;
 
-                    case "3":
-                        myGodis.Smak = "Lakris";
-                        break;
+                        case "2":
+                            volume = "1,5 liter";
+                            checkInput = true;
+                            break;
 
-                    case "4":
-                        break;
+                        case "3":
+                            volume = "3 liter";
+                            checkInput = true;
+                            break;
+
+                        default:
+                            // täcker alla val förutom de förväntade men avbryter inte loopen
+                            Console.WriteLine("Fel val!");
+                            break;
+                    }
                 }
 
-                Console.WriteLine("Välj vikt");
-                Console.WriteLine("[1] 100g");
-                Console.WriteLine("[2] 200g");
-                Console.WriteLine("[3] 300g");
-                input = Console.ReadLine();
-            }
+                checkInput = false;
+                while (!checkInput)
+                {
+                    Console.WriteLine("Välj fetthalt:");
+                    Console.WriteLine("[1] 0,5%");
+                    Console.WriteLine("[2] 1,5%");
+                    Console.WriteLine("[3] 3%");
+                    input = Console.ReadLine();
 
+                    switch (input)
+                    {
+                        case "1":
+                            fat = "0,5%";
+                            checkInput = true;
+                            break;
+
+                        case "2":
+                            fat = "1,5%";
+                            checkInput = true;
+                            break;
+
+                        case "3":
+                            fat = "3%";
+                            checkInput = true;
+                            break;
+
+                        default:
+                            Console.WriteLine("Fel val!");
+                            break;
+                    }
+                }
+
+            }
+        }
     }
 }
