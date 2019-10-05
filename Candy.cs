@@ -25,5 +25,8 @@ namespace Multifabriken
            this.typeCandy=inputTypeCandy;
            this.amountCandy=inputAmountCandy;
        }
+
+        
+
     }
-}1
+}
