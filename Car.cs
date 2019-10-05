@@ -4,7 +4,6 @@ namespace Multifabriken
 {
     class Car
     {
-
         // privata variabler
         private static string model = "";
         private static string color = "";
@@ -32,52 +31,99 @@ namespace Multifabriken
         {
             string input;
 
-            Console.WriteLine("Välj modell:");
-            Console.WriteLine("[1] Volvo 240");
-            Console.WriteLine("[2] Volvo 740");
-            Console.WriteLine("[3] Volvo 940");
-            input = Console.ReadLine();
+            bool checkInput = false;
 
-            if (input == "1")
+            // kör loop så länge inte någon av de förväntade alternativen matas in
+            while (!checkInput)
             {
-                model = "240";
-            }
-            else if (input == "2")
-            {
-                model = "740";
-            }
-            else
-            {
-                model = "940";
-            }
+                Console.WriteLine("Välj modell:");
+                Console.WriteLine("[1] Volvo 240");
+                Console.WriteLine("[2] Volvo 740");
+                Console.WriteLine("[3] Volvo 940");
+                input = Console.ReadLine();
 
-            Console.WriteLine("Välj färg:");
-            Console.WriteLine("[1] Röd");
-            Console.WriteLine("[2] Grön");
-            Console.WriteLine("[3] Blå");
-            input = Console.ReadLine();
+                switch (input)
+                {
+                    case "1":
+                        model = "Volvo 240";
+                        // avsluta loopen
+                        checkInput = true;
+                        break;
 
-            if (input == "1")
-            {
-                color = "Röd";
-            }
-            else if (input == "2")
-            {
-                color = "Grön";
-            }
-            else
-            {
-                color = "Blå";
+                    case "2":
+                        model = "Volvo 740";
+                        checkInput = true;
+                        break;
+
+                    case "3":
+                        model = "Volvo 940";
+                        checkInput = true;
+                        break;
+
+                    default:
+                        // täcker alla val förutom de förväntade men avbryter inte loopen
+                        Console.WriteLine("Fel val!");
+                        break;
+                }
             }
 
-            Console.WriteLine("Vill du ta bort lyxutrustningen?");
-            Console.WriteLine("[1] Nej");
-            Console.WriteLine("[2] Ja");
-            input = Console.ReadLine();
-
-            if (input == "2")
+            checkInput = false;
+            while (!checkInput)
             {
-                luxury = false;
+                Console.WriteLine("Välj färg:");
+                Console.WriteLine("[1] Röd");
+                Console.WriteLine("[2] Grön");
+                Console.WriteLine("[3] Blå");
+                input = Console.ReadLine();
+
+                switch (input)
+                {
+                    case "1":
+                        color = "Röd";
+                        checkInput = true;
+                        break;
+
+                    case "2":
+                        color = "Grön";
+                        checkInput = true;
+                        break;
+
+                    case "3":
+                        color = "Blå";
+                        checkInput = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("Fel val!");
+                        break;
+                }
+            }
+
+            checkInput = false;
+            while (!checkInput)
+            {
+                Console.WriteLine("Vill du ta bort lyxutrustningen?");
+                Console.WriteLine("[1] Nej");
+                Console.WriteLine("[2] Ja");
+                input = Console.ReadLine();
+
+                switch (input)
+                {
+
+                    case "1":
+                        luxury = true;
+                        checkInput = true;
+                        break;
+
+                    case "2":
+                        luxury = false;
+                        checkInput = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("Fel val!");
+                        break;
+                }
             }
         }
     }
