@@ -18,7 +18,7 @@ namespace Multifabriken
             {
                 Console.WriteLine("Vad vill du göra");
                 Console.WriteLine("[1] Köp bil");
-                Console.WriteLine("[2] Köp Rör");
+                Console.WriteLine("[2] Köp rör");
                 Console.WriteLine("[3] Köp godis");
                 Console.WriteLine("[4] Köp havremjölk");
                 Console.WriteLine("[5] Skriv ut inköpslista");
@@ -37,7 +37,7 @@ namespace Multifabriken
                         break;
 
                     case "2":
-                          // skapa instans
+                        // skapa instans
 
                         Pipes mypipes = new Pipes();
 
@@ -58,8 +58,13 @@ namespace Multifabriken
 
                     // skriv ut listorna
                     case "5":
-                         Print.PrintStuff();
+                        Print.PrintStuff();
                         break;
+
+                    // avsluta
+                    case "6":
+                        Print.PrintStuff();
+                        return;
 
                     default:
                         Console.WriteLine("Fel val, försök igen");

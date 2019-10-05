@@ -6,27 +6,42 @@ namespace Multifabriken
     {
         public static void PrintStuff()
         {
+            Console.WriteLine("Inköpslistan innehåller följande:");
+            Console.WriteLine("");
             foreach (var item in Program.ListOfCars)
             {
-                Console.WriteLine(item.Model);
-                Console.WriteLine(item.Color);
-                Console.WriteLine(item.Luxury);
+                Console.WriteLine("Bilmodell: " + item.Model);
+                Console.WriteLine("Färg: " + item.Color);
+                if (item.Luxury == true)
+                {
+                    Console.WriteLine("med lyxutrustning");
+                }
+                Console.WriteLine("");
+
             }
             foreach (var item in Program.ListOfGodis)
             {
-                Console.WriteLine(item.Vikt);
-                Console.WriteLine(item.Smak);
+                Console.WriteLine("Godispåse");
+                Console.WriteLine("Vikt: " + item.Vikt);
+                Console.WriteLine("Smak: " + item.Smak);
+                Console.WriteLine("");
             }
+
             foreach (var item in Program.ListOfPipes)
             {
-                Console.WriteLine(item.Material);
-                Console.WriteLine(item.Längd);
-                Console.WriteLine(item.Diameter);
+                Console.WriteLine("Rör");
+                Console.WriteLine("Material: " + item.Material);
+                Console.WriteLine("Längd: " + item.Längd);
+                Console.WriteLine("Diameter: " + item.Diameter);
+                Console.WriteLine("");
             }
+
             foreach (var item in Program.ListOfMilk)
             {
-                Console.WriteLine(item.Volume);
-                Console.WriteLine(item.Fat);
+                Console.WriteLine("Havremjölk");
+                Console.WriteLine("Mängd: " + item.Volume);
+                Console.WriteLine("Fetthalt: " + item.Fat);
+                Console.WriteLine("");
             }
         }
     }

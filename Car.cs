@@ -33,9 +33,9 @@ namespace Multifabriken
             string input;
 
             Console.WriteLine("Välj modell:");
-            Console.WriteLine("[1] 240");
-            Console.WriteLine("[2] 740");
-            Console.WriteLine("[3] 940");
+            Console.WriteLine("[1] Volvo 240");
+            Console.WriteLine("[2] Volvo 740");
+            Console.WriteLine("[3] Volvo 940");
             input = Console.ReadLine();
 
             if (input == "1")
