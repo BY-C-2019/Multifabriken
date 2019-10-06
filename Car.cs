@@ -25,35 +25,39 @@ namespace Multifabriken
 
             // Kontrollera att man vill lägga till beställning
             Console.WriteLine("Är du nöjd med följade spec på bil?");
-            Console.WriteLine("{0} : [Färg] {1} : [Lyxmodell] {2}", carModel, carColor, luxaryModel);
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("  {0} : [Färg] {1} : [Lyxmodell] {2}", carModel, carColor, luxaryModel);
+            Console.WriteLine("------------------------------------");
 
             while (true) 
             {
                 Console.Write("JA/NEJ: ");
                 string input = Console.ReadLine().ToUpper();
-
-                // Om man vill lägga beställning
-                if (input[0] == 'J')
+                if (input != "")
                 {
-                    // Välj hur många man vill beställa
-                    Console.WriteLine("Hur många vill du köpa?");
-                    while (true) 
+                    // Om man vill lägga beställning
+                    if (input[0] == 'J')
                     {
-                        // Försök konvertera inmatning och spara till quantity. Fortsätt försöka tills det lyckas.
-                        Console.Write(" : ");
-                        try {
-                            quantity = Convert.ToInt32(Console.ReadLine());
-                            return true;
-                        }
-                        catch {
+                        // Välj hur många man vill beställa
+                        Console.WriteLine("Hur många vill du köpa?");
+                        while (true) 
+                        {
+                            // Försök konvertera inmatning och spara till quantity. Fortsätt försöka tills det lyckas.
+                            Console.Write(" : ");
+                            try {
+                                quantity = Convert.ToInt32(Console.ReadLine());
+                                return true;
+                            }
+                            catch {
+                            }
                         }
                     }
-                }
-                // Om man inte vill lägga beställning, återgå till meny
-                else if (input[0] == 'N')
-                {
-                    Console.WriteLine("Återgår till start...");
-                    return false;
+                    // Om man inte vill lägga beställning, återgå till meny
+                    else if (input[0] == 'N')
+                    {
+                        Console.WriteLine("Återgår till start...");
+                        return false;
+                    }
                 }
             }
         }
@@ -81,7 +85,8 @@ namespace Multifabriken
 
                     // Tilldela önskad modell från availablemodels
                     option = availableOptions[input];
-                    Console.WriteLine("Du valde: " + option);
+                    Console.Clear();
+                    Console.WriteLine("Du valde: {0}\n", option);
                     return;
                 }
                 catch {
