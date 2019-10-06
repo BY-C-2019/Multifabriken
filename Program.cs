@@ -11,7 +11,7 @@ namespace Multifabriken
             string[]        menuOptions = { "Lägg till produkter", "Visa/ändra kundvagn", "Avsluta programmet" };
 
             List<string>    myCart = new List<string>();
-            string[]        currentProducts =  {"Bil", "Godis", "Rör", "Havremjölk"};
+            string[]        currentProducts =  {"Bil", "Godis", "Rör", "Havremjölk", "Tillbaka"};
 
             // Program loop
             while (true) 
@@ -102,50 +102,63 @@ namespace Multifabriken
                 Console.WriteLine("[{0}] {1}", i+1, productList[i]);
             }
             
-            Console.Write(": ");
-            // Läs in användarens val och välj produkt
-            string productInput = Console.ReadLine();
 
-            switch(productInput[0])
+            while (true) 
             {
-                // Köp bil
-                case '1':
-                Car myCar = new Car();
+                Console.Write(": ");
+                string productInput = Console.ReadLine();
+    
+                if (productInput != "") 
+                {
+                    switch(productInput[0])
+                    {
+                        // Köp bil
+                        case '1':
+                        Console.Clear();
+                        Car myCar = new Car();
 
-                if (myCar.BuyMenu() == true) {
-                    myCar.AddToCart(cartToAddProduct);
+                        if (myCar.BuyMenu() == true) {
+                            myCar.AddToCart(cartToAddProduct);
+                        }
+
+                        return;
+
+                        // Köp godis
+                        case '2':
+                        Console.Clear();
+                        Candy myCandy = new Candy();
+                        myCandy.CandyMenu();
+                        myCandy.AddToCart(cartToAddProduct);
+                        return;
+
+                        // Köp rör
+                        case '3':
+                        Console.Clear();
+                        Pipe myPipe = new Pipe();
+                        
+                        if (myPipe.OrderPipe() == true) {
+                            myPipe.AddToCart(cartToAddProduct);
+                        }
+                        return;
+
+                        // Köp havremjölk
+                        case '4':
+                        Console.Clear();
+                        Oatmilk myOatmilk = new Oatmilk();
+
+                        if (myOatmilk.OatOrder() == true) {
+                            myOatmilk.AddToCart(cartToAddProduct);
+                        }
+                        return;
+
+                        case '5':
+                        return;
+
+                        default:
+                        Console.WriteLine("Felinmatning...");
+                        break;
+                    }
                 }
-
-                break;
-
-                // Köp godis
-                case '2':
-                Candy myCandy = new Candy();
-                myCandy.CandyMenu();
-                myCandy.AddToCart(cartToAddProduct);
-                break;
-
-                // Köp rör
-                case '3':
-                Pipe myPipe = new Pipe();
-                
-                if (myPipe.OrderPipe() == true) {
-                    myPipe.AddToCart(cartToAddProduct);
-                }
-                break;
-
-                // Köp havremjölk
-                case '4':
-                Oatmilk myOatmilk = new Oatmilk();
-
-                if (myOatmilk.OatOrder() == true) {
-                    myOatmilk.AddToCart(cartToAddProduct);
-                }
-                break;
-
-                default:
-                Console.WriteLine("Felinmatning...");
-                break;
             }
         }
                     
@@ -162,58 +175,62 @@ namespace Multifabriken
                 Console.WriteLine("[{0}] {1}", i+1, cartMenuOptions[i]);
             }
             
-            while (true) {
+            while (true) 
+            {
                 Console.Write(": ");
                 string cartMenuInput = Console.ReadLine();
 
-                switch (cartMenuInput[0])
+                if (cartMenuInput != "")
                 {
-                    // Ta bort produkt
-                    case '1':
+                    switch (cartMenuInput[0])
+                    {
+                        // Ta bort produkt
+                        case '1':
 
-                    // Om listan är tom, återgå till huvudmenyn
-                    if (cart.Count == 0) {
-                        Console.WriteLine("Du har inget att ta bort...");
-                        return;
-                    }
+                        // Om listan är tom, återgå till huvudmenyn
+                        if (cart.Count == 0) {
+                            Console.WriteLine("Du har inget att ta bort...");
+                            return;
+                        }
 
-                    Console.Clear();
-                    Console.WriteLine("Vilken produkt vill du ta bort?");
-                    Console.WriteLine("-------------------------------");
-                    PrintProductsInCart(cart, true, 1);
-                    while (true) {
-                        try {
-                            // Läs in och ta bort 1 för att kompensera för att användarvänligheten (+1)
-                            Console.Write(": ");
-                            int productToRemove = Convert.ToInt32(Console.ReadLine()) - 1;
-                            
-                            // Om index är innanför kundvagnens storlek, ta bort produkt
-                            if (productToRemove >= 0 && productToRemove < cart.Count) {
-                                Console.Clear();
-                                Console.WriteLine("Raderat: " + cart[productToRemove]);
-                                cart.RemoveAt(productToRemove);
-                                
-                                Console.WriteLine("Tryck på valfri tangent för att återgå till menyn.");
+                        Console.Clear();
+                        Console.WriteLine("Vilken produkt vill du ta bort?");
+                        Console.WriteLine("-------------------------------");
+                        PrintProductsInCart(cart, true, 1);
+                        while (true) {
+                            try {
+                                // Läs in och ta bort 1 för att kompensera för att användarvänligheten (+1)
                                 Console.Write(": ");
-                                Console.ReadLine();
-                                return;
+                                int productToRemove = Convert.ToInt32(Console.ReadLine()) - 1;
+                                
+                                // Om index är innanför kundvagnens storlek, ta bort produkt
+                                if (productToRemove >= 0 && productToRemove < cart.Count) {
+                                    Console.Clear();
+                                    Console.WriteLine("Raderat: " + cart[productToRemove]);
+                                    cart.RemoveAt(productToRemove);
+                                    
+                                    Console.WriteLine("Tryck på valfri tangent för att återgå till menyn.");
+                                    Console.Write(": ");
+                                    Console.ReadLine();
+                                    return;
+                                }
+                                else {
+                                    throw new Exception();
+                                }
+                                
                             }
-                            else {
-                                throw new Exception();
+                            catch {
+                                Console.WriteLine("Det finns inget att ta bort på detta indexet...");
                             }
-                            
                         }
-                        catch {
-                            Console.WriteLine("Det finns inget att ta bort på detta indexet...");
-                        }
-                    }
-                    
-                    // Tillbaka till menyn
-                    case '2':
-                    return;
+                        
+                        // Tillbaka till menyn
+                        case '2':
+                        return;
 
-                    default:
-                    break;
+                        default:
+                        break;
+                    }
                 }
             }
         }
