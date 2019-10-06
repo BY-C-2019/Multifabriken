@@ -11,7 +11,7 @@ namespace Multifabriken
             string[]        menuOptions = { "Lägg till produkter", "Visa/ändra kundvagn", "Avsluta programmet" };
 
             List<string>    myCart = new List<string>();
-            string[]        currentProducts =  {"Bil", "Godis", "Rör", "Havremjölk", "Tillbaka"};
+            string[]        currentProducts =  {"Bil", "Godis", "Rör", "Havremjölk", "...Tillbaka"};
 
             // Program loop
             while (true) 
@@ -120,7 +120,6 @@ namespace Multifabriken
                         if (myCar.BuyMenu() == true) {
                             myCar.AddToCart(cartToAddProduct);
                         }
-
                         return;
 
                         // Köp godis
@@ -186,7 +185,6 @@ namespace Multifabriken
                     {
                         // Ta bort produkt
                         case '1':
-
                         // Om listan är tom, återgå till huvudmenyn
                         if (cart.Count == 0) {
                             Console.WriteLine("Du har inget att ta bort...");
@@ -217,7 +215,6 @@ namespace Multifabriken
                                 else {
                                     throw new Exception();
                                 }
-                                
                             }
                             catch {
                                 Console.WriteLine("Det finns inget att ta bort på detta indexet...");
