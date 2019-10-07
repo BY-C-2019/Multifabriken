@@ -28,67 +28,106 @@ namespace Multifabriken
         }
         // metod som tar in värden ifrån användaren
         public static void AddPipe()
+        
+
 
         {
             {
                 string input;
+                bool loop = false;
 
-                Console.WriteLine("Välj diameter:");
-                Console.WriteLine("[1] 9mm");
-                Console.WriteLine("[2] 5.56mm");
-                Console.WriteLine("[3] 15mm");
-                input = Console.ReadLine();
+                while (!loop)
+                {
+                    Console.WriteLine("Välj diameter:");
+                    Console.WriteLine("[1] 9mm");
+                    Console.WriteLine("[2] 5.56mm");
+                    Console.WriteLine("[3] 15mm");
+                    input = Console.ReadLine();
 
-                if (input == "1")
-                {
-                    diameter = "9mm";
-                }
-                else if (input == "2")
-                {
-                    diameter = "5.56mm";
-                }
-                else
-                {
-                    diameter = "15mm";
-                }
+                    if (input == "1")
+                    {
+                        diameter = "9mm";
+                        loop = true;
 
-                Console.WriteLine("Välj material:");
-                Console.WriteLine("[1] Betong");
-                Console.WriteLine("[2] Stål");
-                Console.WriteLine("[3] Plast");
-                input = Console.ReadLine();
+                    }
+                    else if (input == "2")
+                    {
+                        diameter = "5.56mm";
+                        loop = true;
+                    }
+                    else if (input == "3")
+                    {
+                        diameter = "15mm";
+                        loop = true;
+                    }
+                    else 
+                    {
+                        Console.WriteLine("Fel inmatning!");
+                    }
+                }
+                    
+                loop = false;
 
-                if (input == "1")
+                while (!loop)
                 {
-                  material = "Betong";
-                }
-                else if (input == "2")
-                {
-                    material = "Stål";
-                }
-                 else
-                {
-                 material = "Plast";
-                }
+                    Console.WriteLine("Välj material:");
+                    Console.WriteLine("[1] Betong");
+                    Console.WriteLine("[2] Stål");
+                    Console.WriteLine("[3] Plast");
+                    input = Console.ReadLine();
 
-                Console.WriteLine("Vad vill du ha för längd?");
-                Console.WriteLine("[1] 1m");
-                Console.WriteLine("[2] 15m");
-                Console.WriteLine("[3] 100m");
-                input = Console.ReadLine();
+                    if (input == "1")
+                    {
+                    material = "Betong";
+                    loop = true;
+                    }
+                    else if (input == "2")
+                    {
+                        material = "Stål";
+                        loop = true;
+                    }
+                    else if (input == "3")
+                    {
+                    material = "Plast";
+                    loop = true;
+                    }
+                    else 
+                    {
+                        Console.WriteLine("Fel inmatning!");
+                    }
+                }
+                    
+                loop = false;
 
-               if (input == "1")
+                while (!loop)
                 {
-                  längd = "1m";
+                    Console.WriteLine("Vad vill du ha för längd?");
+                    Console.WriteLine("[1] 1m");
+                    Console.WriteLine("[2] 15m");
+                    Console.WriteLine("[3] 100m");
+                    input = Console.ReadLine();
+
+                    if (input == "1")
+                    {
+                    längd = "1m";
+                    loop = true;
+                    }
+                    else if (input == "2")
+                    {
+                        längd = "15m";
+                        loop = true;
+                    }
+                    else if (input == "3")
+                    {
+                    längd = "100m";
+                    loop = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Fel inmatning!");
+                    }
                 }
-                else if (input == "2")
-                {
-                    längd = "15m";
-                }
-                 else
-                {
-                 längd = "100m";
-                }
+                    
             }
         }
 
