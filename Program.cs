@@ -47,18 +47,28 @@ namespace Multifabriken
                         Godis nyttGodis = new Godis(Godis.candyMenu(), candyInmatning); //Skapar objekt
                         minOrder.listaGodis.Add(nyttGodis);
                         break;
+                    
+                    
+                    
+                    
+                    
                     case "2"://Havremjölk
 
                         double milkInmatning = getAmmount();
                         if (milkInmatning < 0.5){
                             Console.WriteLine("Du måste ange minst 0.5 liter mjölk");
-                        }else{
-                            double milkFat = milkInmatning;
                         }
                         Havremjölk mjölkOrder = new Havremjölk(Havremjölk.milkFat(), milkInmatning);
                         minOrder.listaHavremjölk.Add(mjölkOrder);
-                        
                         break;
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     case "3"://Rör
                         Rör nyttRör = new Rör( Rör.pipeMaterial(), Rör.pipeDiameter(), Rör.pipeLength());
                         minOrder.listaRör.Add(nyttRör);

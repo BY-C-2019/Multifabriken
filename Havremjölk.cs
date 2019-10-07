@@ -23,7 +23,7 @@ public class Havremjölk
         }catch{
         Console.WriteLine("Ange fetthalt i heltal");
         }
-
+        //byt till do while
         if (partFat < 2 || partFat > 11){
         Console.WriteLine("Fetthalten måste vara mellan 2% och 11%");
         }
