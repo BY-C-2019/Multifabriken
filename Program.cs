@@ -142,30 +142,28 @@ namespace Multifabriken
                 switch (input)
                 {
                     case "1"://Godis
+                        double candyInmatning = getAmmount();
                         candyMenu();
-                        double candyWeight = getAmmount();
-                        if (candyWeight < 1){
+                        if (candyInmatning < 1){
                             Console.WriteLine("Minst 1kg godis");
                         }else{
+                            double candyWeight = candyInmatning;
                         }
+                        Godis nyttGodis = new Godis(candyMenu(), candyInmatning); //Skapar objekt
                         break;
                     case "2"://Havremjölk
-                        Havremjölk mjölkOrder = new Havremjölk();
-                        mjölkOrder.fetthalt = milkFat();
-                        double milkAmmount = getAmmount();
-                        
-                        if (milkAmmount < 0.5){
+
+                        double milkInmatning = getAmmount();
+                        if (milkInmatning < 0.5){
                             Console.WriteLine("Du måste ange minst 0.5 liter mjölk");
                         }else{
-                            mjölkOrder.volym = milkAmmount;
+                            double milkFat = milkInmatning;
                         }
+                        Havremjölk mjölkOrder = new Havremjölk(milkFat(), milkInmatning);
+                        
                         break;
                     case "3"://Rör
-                        Rör nyttRör = new Rör();
-                        //skapa konstruktor istället för detta:
-                        nyttRör.diameter = pipeDiameter();
-                        nyttRör.length = pipeLength();
-                        nyttRör.material = pipeMaterial();
+                        Rör nyttRör = new Rör(pipeMaterial(), pipeDiameter(), pipeLength());
                         minOrder.listaRör.Add(nyttRör);
                         
                         break;
