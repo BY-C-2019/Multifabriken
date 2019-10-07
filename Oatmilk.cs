@@ -34,6 +34,7 @@ namespace Multifabriken
                     Console.WriteLine("[2] 1,5 liter");
                     Console.WriteLine("[3] 3 liter");
                     input = Console.ReadLine();
+                    Console.Clear();
 
                     switch (input)
                     {
@@ -68,6 +69,7 @@ namespace Multifabriken
                     Console.WriteLine("[2] 1,5%");
                     Console.WriteLine("[3] 3%");
                     input = Console.ReadLine();
+                    Console.Clear();
 
                     switch (input)
                     {

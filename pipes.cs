@@ -43,6 +43,7 @@ namespace Multifabriken
                     Console.WriteLine("[2] 5.56mm");
                     Console.WriteLine("[3] 15mm");
                     input = Console.ReadLine();
+                    Console.Clear();
 
                     if (input == "1")
                     {
@@ -75,6 +76,7 @@ namespace Multifabriken
                     Console.WriteLine("[2] Stål");
                     Console.WriteLine("[3] Plast");
                     input = Console.ReadLine();
+                    Console.Clear();
 
                     if (input == "1")
                     {
@@ -106,6 +108,7 @@ namespace Multifabriken
                     Console.WriteLine("[2] 15m");
                     Console.WriteLine("[3] 100m");
                     input = Console.ReadLine();
+                    Console.Clear();
 
                     if (input == "1")
                     {

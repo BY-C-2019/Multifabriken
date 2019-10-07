@@ -41,6 +41,7 @@ namespace Multifabriken
                 Console.WriteLine("[2] Jordgubb");
                 Console.WriteLine("[3] Lakris");
                 input = Console.ReadLine();
+                Console.Clear();
 
                 switch (input)
                 {
@@ -75,6 +76,7 @@ namespace Multifabriken
                 Console.WriteLine("[2] 200g");
                 Console.WriteLine("[3] 300g");
                 input = Console.ReadLine();
+                Console.Clear();
 
                 switch (input)
                 {

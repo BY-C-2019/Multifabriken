@@ -41,6 +41,7 @@ namespace Multifabriken
                 Console.WriteLine("[2] Volvo 740");
                 Console.WriteLine("[3] Volvo 940");
                 input = Console.ReadLine();
+                Console.Clear();
 
                 switch (input)
                 {
@@ -75,6 +76,7 @@ namespace Multifabriken
                 Console.WriteLine("[2] Grön");
                 Console.WriteLine("[3] Blå");
                 input = Console.ReadLine();
+                Console.Clear();
 
                 switch (input)
                 {
@@ -106,6 +108,7 @@ namespace Multifabriken
                 Console.WriteLine("[1] Nej");
                 Console.WriteLine("[2] Ja");
                 input = Console.ReadLine();
+                Console.Clear();
 
                 switch (input)
                 {

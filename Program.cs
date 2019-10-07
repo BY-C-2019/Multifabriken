@@ -25,6 +25,7 @@ namespace Multifabriken
                 Console.WriteLine("[5] Skriv ut inköpslista");
                 Console.WriteLine("[6] Avsluta");
                 input = Console.ReadLine();
+                Console.Clear();
 
                 switch (input)
                 {
