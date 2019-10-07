@@ -13,7 +13,7 @@ namespace Multifabriken
             try{
                 dAmmount = Convert.ToDouble(sAmmount);
             }catch{
-                Console.WriteLine("Ange mängden i siffror");
+                Console.WriteLine("Ange endast i heltal");
             }
             return dAmmount;
         }
@@ -46,14 +46,8 @@ namespace Multifabriken
                         }else{
                             Console.WriteLine("Minst 1kg godis");
                             break;
-                        }
-                    
-                    
-                    
-                    
-                    
+                        }                   
                     case "2"://Havremjölk
-
                         double milkAmmount = getAmmount();
                         if (milkAmmount > 0.5){
                         Havremjölk mjölkOrder = new Havremjölk(Havremjölk.milkFat(), milkAmmount);
@@ -63,15 +57,7 @@ namespace Multifabriken
                         else{
                             Console.WriteLine("Du måste ange minst 0.5 liter mjölk");
                             break;
-                        }
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                        }    
                     case "3"://Rör
                         Rör nyttRör = new Rör( Rör.pipeMaterial(), Rör.pipeDiameter(), Rör.pipeLength());
                         minOrder.listaRör.Add(nyttRör);
