@@ -7,7 +7,6 @@ namespace Cars
 {
     class cars : products
     {   
-        static List<string> bilLista = new List<string>() { "Tesla", "Audi", "Hyundai" };
         public cars(int carmodelIndex, string carColour, bool luxPackage)
         {
             carmodel = bilLista[carmodelIndex];

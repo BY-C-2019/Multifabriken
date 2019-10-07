@@ -18,6 +18,44 @@ public class Menu
 
         public void MoveUp() => SelectedIndex = Math.Max(SelectedIndex - 1, 0);      // Rör dig ett steg uppåt om du inte är på högsta nivån
         public void MoveDown() => SelectedIndex = Math.Min(SelectedIndex + 1, Items.Count - 1); // Rör dig ett steg neråt om du inte är på lägsta nivån
+
+        public Menu GetMenu(Menu menu, string header)
+        {
+            var menuPainter = new ConsoleMenuPainter(menu);        // Skapar meny med hjälp av klassen
+
+            Console.Clear();                                        // Så att consolen alltid ser likadan ut
+
+            Console.WriteLine(header);                              // Skriv ut header
+
+            for (int i = 0; i <= header.Length; i++)
+            {
+                Console.Write('-');
+            }
+
+            bool done = false;
+
+            do
+            {
+                menuPainter.Paint();                                // Skriver ut menyn
+                var keyInfo = Console.ReadKey();                    // Läser av tangentnedtryckning
+
+                switch (keyInfo.Key)
+                {                                                    // Switch argument för de olika tangenterna
+                    case ConsoleKey.UpArrow:
+                        menu.MoveUp();
+                        break;
+                    case ConsoleKey.DownArrow:
+                        menu.MoveDown();
+                        break;
+                    case ConsoleKey.Enter:
+                        done = true;
+                        break;
+                }
+            }
+            while (!done);                                          // Om enter har tryckts gå ur meny loopen
+            return menu;
+        }
+
     }
     public class ConsoleMenuPainter
     {
@@ -38,4 +76,6 @@ public class Menu
             }
         }
     }
-} 
+}
+    
+ 
