@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace Multifabriken
 {
     public class Pipe
@@ -45,6 +48,17 @@ namespace Multifabriken
             this.material = material;
             this.length = length;
             this.diameter = diameter;
+        }
+
+        public static List<string> ListofTypes()
+        {
+            List<string> menuTypePipe= new List<string>
+                        {
+                        "Typ 1",  
+                        "Typ 2",
+                        "Typ 3"
+                        };
+                        return menuTypePipe;
         }
     }
 }

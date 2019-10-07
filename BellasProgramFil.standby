@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Multifabriken
 {
@@ -7,84 +8,167 @@ namespace Multifabriken
 
         // Egen programfil för att kunna leka med menyn utan att påverka den riktiga programfilen. 
         // Använda denna för att köra ändringarna jag har gjort.
-        static void Main(string[] args)
+        private static int index=0;
+        private static void Main(string[] args)
         {
             while (true)
             {
-
-                System.Console.WriteLine("[1] Skapa beställning:");
-                System.Console.WriteLine("[2] Ändra beställning:");
-                System.Console.WriteLine("[3] Skicka offert.");
-                System.Console.WriteLine("[4] Avsluta.");
-                System.Console.Write("Välj: ");
-
-                string meny = Console.ReadLine();
-                string menyProducts = "";
-
-                switch (meny)
+                List<string> menuItems= new List<string>
                 {
+                  "Skapa beställning",  
+                  "Ändra beställning",
+                  "Skicka offert",
+                  "Avsluta"
 
+                };
 
-                    case "1":
+                Console.CursorVisible=false;
+
+                while (true)
+                {
+                    string selectedMenuItem= drawMenu(menuItems);
+                    
+                    switch (selectedMenuItem)
+                    {
+                        case "Skapa beställning":
                         Console.Clear();
-                        System.Console.WriteLine("[1] Bil");
-                        System.Console.WriteLine("[2] Godis");
-                        System.Console.WriteLine("[3] Rör");
-                        System.Console.WriteLine("[4] Havremjölk");
-                        System.Console.Write("Välj produkt: ");
+                        bool productMenuLoop=true;
+                        List<string> productItems= new List<string>
+                            {
+                                "Bil",  
+                                "Godis",
+                                "Rör",
+                                "Havremjölk",
+                                "Återgå"
+                            };
+                            Console.CursorVisible=false;
 
-                        menyProducts = Console.ReadLine();
-                        switch (menyProducts)
-                        {
-                            case "1":
-                                Console.Clear();
-                                System.Console.WriteLine("**Anropa bil metod**");
-                                Methods.MenuOptionCars();
-                                break;
+                            do
+                            {
+                                string productsMenu= drawMenu(productItems);
+                    
+                                switch (productsMenu)
+                                    {
+                                        case "Bil":
+                                            {
+                                            Console.Clear();
+                                            System.Console.WriteLine("**Anropa bil metod**");
+                                            Methods.MenuOptionCars();
+                                            }
+                                        break;
 
-                            case "2":
-                                Console.Clear();
-                                System.Console.WriteLine("**Anropa godis metod**");
-                                Methods.MenuOptionCandy();
-                                break;
+                                        case "Godis":
+                                            {
+                                            Console.Clear();
+                                            System.Console.WriteLine("**Anropa godis metod**");
+                                            Methods.MenuOptionCandy();
+                                            }
+                                        break;
 
-                            case "3":
-                                Console.Clear();
-                                System.Console.WriteLine("**Anropa rör metod**");
-                                Methods.MenuOptionPipes();
-                                break;
+                                        case "Rör":
+                                            {
+                                            Console.Clear();
+                                            System.Console.WriteLine("**Anropa rör metod**");
+                                            Methods.MenuOptionPipes();
+                                            }
+                                        break;
 
-                            case "4":
-                                Console.Clear();
-                                System.Console.WriteLine("**Anropa havre metod");
-                                Methods.MenuOptionOatmeal();
-                                break;
+                                        case "Havremjölk":
+                                            {
+                                            Console.Clear();
+                                            System.Console.WriteLine("**Anropa havre metod");
+                                            Methods.MenuOptionOatmeal();
+                                            }
+                                        break;
+                                        
+                                        case "Återgå":
+                                            {
+                                            Console.Clear();
+                                            productMenuLoop=false;
+                                            index=0;
+                                            }
+                                        break;
+                            
+                            }
                         }
-                        break;
-
-
-                    case "2":
+                            while (productMenuLoop !=false);
+                            {
+                                break;
+                            }    
+                        
+                    
+                        case "Ändra beställning":
                         Console.Clear();
                         System.Console.Write("Ta bort produkt: ");
-                        menyProducts = Console.ReadLine();
                         break;
 
-                    case "3":
+                        case "Skicka offert":
                         Console.Clear();
                         System.Console.WriteLine("Tryck på valfri tangent för att skicka offert...");
                         Console.ReadKey();
                         System.Console.WriteLine("Offert inskickad.");
                         break;
 
-                    case "4":
+                        case "Avsluta":
                         Console.Clear();
                         System.Console.WriteLine("Program avslutat");
                         return;
+                    }
                 }
-
-               
-                
             }
         }
+
+    public static string drawMenu(List<string>items)
+                {
+                    for (int i = 0; i < items.Count; i++)
+                    {
+                        if (i==index)
+                        {
+                            Console.BackgroundColor=ConsoleColor.Gray;
+                            Console.ForegroundColor=ConsoleColor.Black;
+                            Console.WriteLine(items[i]);
+
+                        }
+                        else
+                        {
+                        Console.WriteLine(items[i]);
+                        }
+                        
+                        Console.ResetColor();
+                    }
+                    ConsoleKeyInfo ckey = Console.ReadKey();
+
+                    if(ckey.Key== ConsoleKey.DownArrow)
+                    {
+                        if (index == items.Count -1) 
+                        {index = 0;  }
+                        else 
+                        {index++;}
+                    }
+                    else if (ckey.Key== ConsoleKey.UpArrow)
+                    {
+                        if (index <=0)
+                        {index= items.Count -1;}
+                        else
+                        {index--;}
+                    }
+                    else if(ckey.Key== ConsoleKey.Enter)
+                    {
+                    return items[index];
+                    }
+                    else
+                    {
+                        return " ";
+                    }
+                    Console.Clear();
+                    return " ";
+                }
+        
+                
+               
+      
+            
+        
     }
+    
 }
