@@ -150,6 +150,7 @@ namespace Multifabriken
                             double candyWeight = candyInmatning;
                         }
                         Godis nyttGodis = new Godis(candyMenu(), candyInmatning); //Skapar objekt
+                        minOrder.listaGodis.Add(nyttGodis);
                         break;
                     case "2"://Havremjölk
 
@@ -160,18 +161,17 @@ namespace Multifabriken
                             double milkFat = milkInmatning;
                         }
                         Havremjölk mjölkOrder = new Havremjölk(milkFat(), milkInmatning);
+                        minOrder.listaHavremjölk.Add(mjölkOrder);
                         
                         break;
                     case "3"://Rör
                         Rör nyttRör = new Rör(pipeMaterial(), pipeDiameter(), pipeLength());
                         minOrder.listaRör.Add(nyttRör);
-                        
+
                         break;
                     case "4"://Bilar
-                        
-                        carModel();
-                        carColor();
-                        carInterior();
+                        Bilar nyBil = new Bilar (carModel(), carColor(), carInterior());
+                        minOrder.listaBilar.Add(nyBil);
                         break;
                     case "5"://Skriv ut beställning
                     int i = 1;

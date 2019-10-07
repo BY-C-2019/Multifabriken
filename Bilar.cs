@@ -3,10 +3,16 @@ namespace Multifabriken
 {
     public class Bilar
     {
+        public Bilar (int model, int color, string interior)
+        {
+            Model = model;
+            Color = color;
+            Interor = interior;
+        }
 
-        public string modell; //Ska vara bestämda i lista?
-        public int färg; //int pga färgkod
-        public bool inredning; //antingen lyx eller standard
+        public int Model; //Efter val 
+        public int Color; //int pga färgkod
+        public string Interor; //antingen lyx eller standard
 
     }
 }
