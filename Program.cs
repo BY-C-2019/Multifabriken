@@ -77,8 +77,8 @@ namespace Multifabriken
             return dAmmount;
         }
 
-        //Metod för mjölktyp
-        static int milkType(){
+        //Metod för fetthalt på mjölk
+        static int milkFat(){
             Console.WriteLine("Vilken fetthalt vill du ha? ");
             Console.WriteLine("(Mellan 2% och 11%)");
             string fat = Console.ReadLine();
@@ -148,13 +148,14 @@ namespace Multifabriken
                         }
                         break;
                     case "2"://Havremjölk
-                        milkType();
+                        Havremjölk mjölkOrder = new Havremjölk();
+                        mjölkOrder.fetthalt = milkFat();
                         double milkAmmount = getAmmount();
+                        
                         if (milkAmmount < 0.5){
                             Console.WriteLine("Du måste ange minst 0.5 liter mjölk");
                         }else{
-                            //lägg till i klass
-                            //WIP Havremjölk nyHavremjölk = new Havremjölk();
+                            mjölkOrder.volym = milkAmmount;
                         }
                         break;
                     case "3"://Rör
@@ -166,6 +167,7 @@ namespace Multifabriken
                         
                         break;
                     case "4"://Bilar
+                        
                         carModel();
                         carColor();
                         carInterior();
