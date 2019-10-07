@@ -12,12 +12,15 @@ namespace Multifabriken
             List<Candy> orderListCandy = new List<Candy>();
             List<Pipe> orderListPipe = new List<Pipe>();
             List<Oatmeal> orderListOatmeal = new List<Oatmeal>();
+            
+            //räknar antal orderrader.
+            int counter = 1;
 
             while (runMenu)
             {
                 Console.Clear();
                 System.Console.WriteLine("[1] Skapa beställning:");
-                System.Console.WriteLine("[2] Ändra beställning:"); // Arbete pågår. Ursäkta röran, vi bygger om.
+                //System.Console.WriteLine("[2] Ändra beställning:"); // Arbete pågår. Ursäkta röran, vi bygger om.
                 System.Console.WriteLine("[3] Skicka offert.");
                 System.Console.WriteLine("[4] Avsluta.");
                 System.Console.Write("Välj: ");
@@ -61,7 +64,7 @@ namespace Multifabriken
                         }
                         break;
 
-
+                    /*  Arbete pågår. Ursäkta röran, vi bygger om.
                     case "2":
                         int selection = 0;
                         bool selectionLoop = true;
@@ -140,12 +143,13 @@ namespace Multifabriken
                             }
                         }
                         break;
+                    */
 
                     case "3":
                         Console.Clear();
-                        System.Console.WriteLine("Tryck på valfri tangent för att skicka offert...");
-                        Console.ReadKey();
                         System.Console.WriteLine("Offert inskickad.");
+                        System.Console.WriteLine("Tryck på valfri tangent för att komma tillbaka till huvudmeny...");
+                        Console.ReadKey();
                         break;
 
                     case "4":
@@ -153,20 +157,19 @@ namespace Multifabriken
                         Console.Clear();
                         foreach (Car car in orderListCar)
                         {
-                            Console.WriteLine("[Beställt] - Bil: {0} || Färg: {1} || Inredning: {2}", car.TypeCar, car.ColorCar, car.InteriorCar);
-
+                            Console.WriteLine("[Beställt, rad {0}] - Bil: {1} || Färg: {2} || Inredning(True = Lyx | False = Standard): {3}",counter++,car.TypeCar, car.ColorCar, car.InteriorCar);
                         }
                         foreach (Candy candy in orderListCandy)
                         {
-                            Console.WriteLine("[Beställt] - Godissort: {0} || Mängd(g): {1}", candy.TypeCandy, candy.AmountCandy);
+                            Console.WriteLine("[Beställt, rad {0}] - Godissort: {1} || Mängd(g): {2}",counter++,candy.TypeCandy, candy.AmountCandy);
                         }
                         foreach (Pipe pipe in orderListPipe)
                         {
-                            System.Console.WriteLine("[Beställt] - Rörmaterial: {0} || Längd(cm): {1} || Diameter(mm): {2}", pipe.Material, pipe.Length, pipe.Diameter);
+                            System.Console.WriteLine("[Beställt, rad {0}] - Rörmaterial: {1} || Längd(cm): {2} || Diameter(mm): {3}",counter++,pipe.Material, pipe.Length, pipe.Diameter);
                         }
                         foreach (Oatmeal oatmeal in orderListOatmeal)
                         {
-                            System.Console.WriteLine("[Beställt] - Havremjölkens fetthalt(%): {0} || Mängd(L): {1}", oatmeal.Fat, oatmeal.Amount);
+                            System.Console.WriteLine("[Beställt, rad {0}] - Havremjölkens fetthalt(%): {1} || Mängd(L): {2}",counter++,oatmeal.Fat, oatmeal.Amount);
                         }
                         Console.ReadLine();
                         System.Console.WriteLine("Program avslutat");
