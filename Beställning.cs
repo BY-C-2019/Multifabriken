@@ -8,6 +8,7 @@ namespace Multifabriken
     {
         Godis godis = new Godis();
 		Bil bil = new Bil();
+        Rör rör = new Rör();
 //Lägger till en lista som sparar alla beställningar.
         List<int> addingToReciept = new List<int>();
        
@@ -30,7 +31,7 @@ namespace Multifabriken
 
                 case 2: 
                 Console.Clear();
-                godis.ValAvGodis();
+                rör.ValAvRör();
                 break;
 
                 case 3: 
