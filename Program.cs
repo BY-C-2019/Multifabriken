@@ -66,8 +66,10 @@ namespace Multifabriken
 
                         break;
                     case "4"://Bilar
-                        Bilar nyBil = new Bilar (carModel(), carColor(), carInterior());
-                        minOrder.listaBilar.Add(nyBil);
+                        Bilar BilBeställning = new Bilar();
+                        BilBeställning.menyModell = carModel();
+                        Bilar.carColor();
+                        Bilar.carInterior();
                         break;
                     case "5"://Skriv ut beställning
                     int i = 1;
