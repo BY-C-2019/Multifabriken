@@ -1,5 +1,6 @@
 using System;
 
+
 namespace Multifabriken
 {
     public class Godis
@@ -39,11 +40,12 @@ namespace Multifabriken
         //variabel som lägger till varor i kvitto
        private string printToReciept = "";
 
-       //SwitchCase meny
+       //SwitchCase för godismeny
        public void ValAvGodis()
        {
            Produkter produkter = new Produkter();
            
+          
                 Console.WriteLine("Välj av följande sorter:");
                 Console.WriteLine("[1] Hallon");
                 Console.WriteLine("[2] Lakrits");
@@ -113,7 +115,7 @@ namespace Multifabriken
                     break;
                 
                 }
-   
+             
        }
     }
 }

@@ -24,8 +24,7 @@ namespace Multifabriken
                  case 1: 
                 // Beställa produkter
                  Console.Clear();
-                 Produkter beställning = new Produkter();
-                 beställning.Order();
+                 Order();
                  break;
 
                  case 2:
@@ -37,6 +36,7 @@ namespace Multifabriken
                  break;
 
                  case 3: 
+                 //Avlsuta spelet
                  return;
 
                  default:
@@ -48,7 +48,7 @@ namespace Multifabriken
              }
             }
         
-        
+        //Metod som skriver ut ordermenyn
         public void Order()
         {
             Console.Clear();

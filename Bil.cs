@@ -25,7 +25,7 @@ namespace Multifabriken
             Console.WriteLine("[2] SAAB");
             Console.WriteLine("[3] BMW");
             choiceModell = int.Parse(Console.ReadLine());
-            // choiceToCustomerModell = int.Parse(Console.ReadLine());
+            
             switch (choiceModell)
             {
                 case 1: 
@@ -56,7 +56,7 @@ namespace Multifabriken
             Console.WriteLine("[2] Blå");
             Console.WriteLine("[3] Grön");
             choiceFärg = int.Parse(Console.ReadLine());
-            // choiceToCustomerModell = int.Parse(Console.ReadLine());
+            
             switch (choiceFärg)
             {
                 case 1: 
@@ -87,7 +87,7 @@ namespace Multifabriken
             Console.WriteLine("[3] Budget");
             Console.WriteLine("[4] Återgå till beställningsmenyn.");
             choiceInredning = int.Parse(Console.ReadLine());
-            // choiceToCustomerModell = int.Parse(Console.ReadLine());
+            
             switch (choiceInredning)
             {
                 case 1: 

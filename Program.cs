@@ -7,8 +7,12 @@ namespace Multifabriken
         
              static void Main(string[] args)
              {
+                 try{
                  Produkter produkter = new Produkter();
                  produkter.Huvudmeny(); 
+                 }catch (Exception e){
+                     System.Console.WriteLine(e);
+                 }
              }
             
             

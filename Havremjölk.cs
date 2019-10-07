@@ -6,11 +6,14 @@ namespace Multifabriken
     {
         //skapar en instans av klassen kvitto
         Kvitto kvitto = new Kvitto();
-        //Beställning beställningTvå = new Beställning();
+        
+        //variabel för storlek på paketet
         private double sizeOfHavremjölk = 0;
 
+        // variabel för fetthalt
         private double fetthaltOfHavremjölk = 0;
         
+        //Metod där beställningen av havremjölk sker
         public void Havremilk()
         {
         Console.WriteLine("Välj vilken volym du vill ha på din havremjölk (i liter): ");
@@ -20,8 +23,12 @@ namespace Multifabriken
 
         string val = "Havremjölk " + sizeOfHavremjölk + " liter och en fetthalt: " + fetthaltOfHavremjölk + " procent.";
         
-        kvitto.Reciept(val);
+        //Lägger till valet i en lista
+        kvitto.Reciept(val);    
+        //Skapar en instans av produkter, så att programmet återgår till ordermenyn
+        Produkter produkter = new Produkter();
+        produkter.Order();
         }
-       
+        
     }
 }
