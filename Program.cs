@@ -168,10 +168,10 @@ namespace Multifabriken
                         
                         break;
                     case "4"://Bilar
-                        
-                        carModel();
-                        carColor();
-                        carInterior();
+                        Bilar BilBeställning = new Bilar();
+                        BilBeställning.menyModell = carModel();//int värde (meny)
+                        carColor();//int värde (hex)
+                        carInterior();//int värde (meny)
                         break;
                     case "5"://Skriv ut beställning
                     int i = 1;
