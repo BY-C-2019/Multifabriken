@@ -20,7 +20,7 @@ namespace Multifabriken
         
         static void Main(string[] args)
         {
-            //skapar instans av 
+            //skapar instans av order
             Order minOrder = new Order ();
             Console.WriteLine("Hej och välkommen till multifabriken!");
             while (true)
@@ -39,13 +39,12 @@ namespace Multifabriken
                 {
                     case "1"://Godis
                         double candyInmatning = getAmmount();
-                        Godis.candyMenu();
                         if (candyInmatning < 1){
                             Console.WriteLine("Minst 1kg godis");
                         }else{
                             double candyWeight = candyInmatning;
                         }
-                        Godis nyttGodis = new Godis(candyMenu(), candyInmatning); //Skapar objekt
+                        Godis nyttGodis = new Godis(Godis.candyMenu(), candyInmatning); //Skapar objekt
                         minOrder.listaGodis.Add(nyttGodis);
                         break;
                     case "2"://Havremjölk
@@ -56,27 +55,53 @@ namespace Multifabriken
                         }else{
                             double milkFat = milkInmatning;
                         }
-                        Havremjölk mjölkOrder = new Havremjölk(milkFat(), milkInmatning);
+                        Havremjölk mjölkOrder = new Havremjölk(Havremjölk.milkFat(), milkInmatning);
                         minOrder.listaHavremjölk.Add(mjölkOrder);
                         
                         break;
                     case "3"://Rör
-                        Rör nyttRör = new Rör(pipeMaterial(), pipeDiameter(), pipeLength());
+                        Rör nyttRör = new Rör( Rör.pipeMaterial(), Rör.pipeDiameter(), Rör.pipeLength());
                         minOrder.listaRör.Add(nyttRör);
 
                         break;
                     case "4"://Bilar
-                        Bilar nyBil = new Bilar (carModel(), carColor(), carInterior());
+                        Bilar nyBil = new Bilar (Bilar.carModel(), Bilar.carColor(), Bilar.carInterior());
                         minOrder.listaBilar.Add(nyBil);
                         break;
                     case "5"://Skriv ut beställning
+                    Console.WriteLine("DIN ORDER ÄR:");
+                    Console.WriteLine("-----------------------------------------------------------------");
                     int i = 1;
+                    int j = 1;
+                    int k = 1;
                     foreach (var element in minOrder.listaRör)
                     {
                         Console.WriteLine("Rör " + i);
                         i++;
-                        Console.WriteLine("Diameter: " + element.diameter + " Längd: " + element.length + " Material: " + element.material);
+                        Console.WriteLine("Diameter: " + element.Diameter + " Längd: " + element.Length + " Material: " + element.Material);
+                    Console.WriteLine("-----------------------------------------------------------------");
                     }
+                    foreach (var element in minOrder.listaBilar)
+                    {
+                        Console.WriteLine("Bil: " + i);
+                        j++;
+                        Console.WriteLine("Modell: " + element.Model + " Färg: " + element.Color + " Inredning: " + element.Interor);
+                    Console.WriteLine("-----------------------------------------------------------------");
+                    }
+                    foreach (var element in minOrder.listaHavremjölk)
+                    {
+                        Console.WriteLine("Havremjölk " + i);
+                        k++;
+                        Console.WriteLine("Fetthalt: " + element.Fetthalt + " Volym: " + element.Volym);
+                    Console.WriteLine("-----------------------------------------------------------------");
+                    }
+                    foreach (var element in minOrder.listaGodis)
+                    {
+                        Console.WriteLine("Godis " + i);
+                        i++;
+                        Console.WriteLine("Smak: " + element.Smak + " Vikt: " + element.Vikt );
+                    Console.WriteLine("-----------------------------------------------------------------");
+                    }                   
                         break;
                     case "6": //Avsluta programmet
                         return;

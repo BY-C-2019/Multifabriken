@@ -3,6 +3,7 @@ namespace Multifabriken
 {
     public class Rör
     {
+        //Konstruktor
         public Rör(string material, double diameter, double length)
         {
             Material = material;
@@ -17,7 +18,7 @@ namespace Multifabriken
             return inmatning;
         }
         //metod för diameter på rör
-        static double pipeDiameter()
+        public static double pipeDiameter()
         {
             Console.WriteLine("Mata in önskad diameter (cm): ");
             double inmatning = Convert.ToDouble(Console.ReadLine());
@@ -25,7 +26,7 @@ namespace Multifabriken
         }
 
         //Metod för material på rör
-        static string pipeMaterial()
+        public static string pipeMaterial()
         {
             //Fixa try catch
             Console.WriteLine("Vilket material vill du ha?");
@@ -35,7 +36,6 @@ namespace Multifabriken
             string inmatning = Console.ReadLine();
             return inmatning;
         }
-        //Konstruktor
 
         //Properties
         public string Material;
