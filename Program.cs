@@ -157,7 +157,7 @@ namespace Multifabriken
                         Console.Clear();
                         foreach (Car car in orderListCar)
                         {
-                            Console.WriteLine("[Beställt, rad {0}] - Bil: {1} || Färg: {2} || Inredning(True = Lyx | False = Standard): {3}",counter++,car.TypeCar, car.ColorCar, car.InteriorCar);
+                            Console.WriteLine("[Beställt, rad {0}] - Bil: {1} || Färg: {2} || Inredning: {3}",counter++,car.TypeCar, car.ColorCar, car.InteriorCar);
                         }
                         foreach (Candy candy in orderListCandy)
                         {
@@ -184,13 +184,20 @@ namespace Multifabriken
             {
                 string type = "";
                 string color = "";
-                bool interior = false;
                 bool loop = true;
                 string inputInterior = "";
 
-                Console.WriteLine("Ange vilken typ av bil: ");
+                //Bilval
+                Console.Clear();
+                Car.Cartype().ForEach(System.Console.WriteLine);// genväg för att skriva ut en foreachloop
+                Console.WriteLine("\nAnge vilken typ av bil: ");
                 type = Console.ReadLine();
-                Console.WriteLine("Ange vilken färg du vill ha på bilen: ");
+                type= type.ToUpper();
+
+                //färgval
+                Console.Clear();
+                Car.Carcolor().ForEach(System.Console.WriteLine); // genväg för att skriva ut en foreachloop
+                Console.WriteLine("\nAnge vilken färg du vill ha på bilen: ");
                 color = Console.ReadLine();
 
                 //En loop som ser till att användaren väljer ett av de valen som finns
@@ -203,15 +210,13 @@ namespace Multifabriken
 
                     if (inputInterior == "S")
                     {
-                        interior = false;
                         loop = false;
-                        inputInterior = "Standard-Inredning";
+                        inputInterior = "Standard";
                     }
                     else if (inputInterior == "L")
                     {
-                        interior = true;
                         loop = false;
-                        inputInterior = "Lyx-Inredning";
+                        inputInterior = "Lyx";
                     }
                     else
                     {
@@ -219,140 +224,150 @@ namespace Multifabriken
                     }
                 }
                 // SKriver ut vad man har lagt till i sin beställning.
-                System.Console.WriteLine($"Du har lagt till en {type} av färgen {color} och den har {inputInterior} \n");
-                Car car = new Car(type, color, interior);
+                System.Console.WriteLine($"Du har lagt till en {type} av färgen {color} och inredningspaketet du valde var: {inputInterior} \n");
+                Car car = new Car(type, color, inputInterior);
                 return car;
             }
         }
         //Menyval ang. Godis
         static public Candy MenuOptionCandy()
-        {
-            {
-                string flavour = "";
-                int weight = 0;
-                bool loop = false;
-
-                Console.Write("Ange vilken typ av godis: ");
-                flavour = Console.ReadLine();
-
-                while (loop == false | weight >= 1000)
                 {
-                    Console.Write("Ange mängd du vill köpa (minst 1000g): ");
-                    try
                     {
+                        string flavour = "";
+                        int weight = 0;
+                        bool loop=false;
+                        
+                        //Val av smak
+                        Console.Clear();
+                        Candy.ListofFlavs().ForEach(System.Console.WriteLine);// genväg för att skriva ut en foreachloop
+                        Console.Write("Ange vilken smak på godiset: ");
+                        flavour = Console.ReadLine();
+                        
+                        //Loop för att se till att användaren beställer rätt mängd godis.
+                        Console.Write("Ange mängd du vill köpa (minst 1000g): ");
+                        while(loop==false)
+                        {
+                        try
+                        {
                         weight = Convert.ToInt32(Console.ReadLine());
+                        if (weight > 999)
+                        {
                         loop = true;
-                        //break;
-                    }
-                    catch
-                    {
-                        System.Console.WriteLine("Ange endast nummer, minst 1000g.");
-                        loop = false;
-                    }
-                }
-                System.Console.WriteLine($"Du har lagt till {weight} gram godis av smaken {flavour}.\n");
-                Candy candy = new Candy(flavour, weight);
-                return candy;
-            }
+                        }
 
-        }
+                        }
+                        catch
+                        {
+                            System.Console.WriteLine("Ange endast nummer, minst 1000g.");
+                            loop=false;
+                        }
+                        }
+                        System.Console.WriteLine($"Du har lagt till {weight} gram godis av smaken {flavour}.\n");
+                        Candy candy = new Candy(flavour, weight);
+                        return candy;
+                    }
+
+                }
 
         //Menyval ang. Rör
         static public Pipe MenuOptionPipes()
-        {
-
-            string material = ""; ;
-            int length = 0;
-            int diameter = 0;
-            bool loopLength = true; // osäker på om man behöver en bool för varje loop 
-            bool loopDiameter = true;// eller om man kan får till det så att samma bool gäller i båda valen?
-
-            Console.Write("Välj material: ");
-            material = Console.ReadLine();
-            while (loopLength == true)
-            {
-                Console.Write("Välj längd, ange i centimeter: ");
-                try
                 {
-                    length = Convert.ToInt32(Console.ReadLine());
-                    loopLength = false;
-                }
-                catch
-                {
-                    System.Console.WriteLine("Ange hela centimeter, Ange endast siffror.");
-                    loopLength = true;
-                }
-            }
+                    
+                    string material="";;
+                    int length=0;
+                    int diameter=0;
+                    bool loopLength=true; // osäker på om man behöver en bool för varje loop -GW
+                    bool loopDiameter=true;// eller om man kan får till det så att samma bool gäller i båda valen? -GW
 
-            while (loopDiameter == true)
-            {
-                Console.Write("Välj diameter, ange i millimeter: ");
-                try
-                {
-                    diameter = Convert.ToInt32(Console.ReadLine());
-                    loopDiameter = false;
-                }
-                catch
-                {
-                    System.Console.WriteLine("Ange endast siffror.");
-                    loopDiameter = true;
-                }
-            }
+                    Console.Clear();
+                    Pipe.ListofTypes().ForEach(System.Console.WriteLine);// genväg för att skriva ut en foreachloop
 
-            System.Console.WriteLine($"Du har lagt till ett rör av {material} av längden {length} och den har diametern {diameter} \n");
-            Pipe pipe = new Pipe(material, length, diameter);
-            return pipe;
-        }
-
-        //Menyval gällande Havremjölk
-        static public Oatmeal MenuOptionOatmeal()
-        {
-            int fat = 0;
-            int amount = 0;
-            bool loopFat = true;
-            bool loopAmount = true;
-
-            while (loopFat == true)
-            {
-                Console.Write("Välj fetthalt; 2-11%: ");
-                try
-                {
-                    fat = Convert.ToInt32(Console.ReadLine());
-                    if (fat >= 2 & fat <= 11)
+                    Console.Write("Välj material: ");
+                    material = Console.ReadLine();
+                    while(loopLength==true)
                     {
-                        loopFat = false;
+                    Console.Write("Välj längd, ange i centimeter: ");
+                    try
+                    {
+                        length = Convert.ToInt32(Console.ReadLine());
+                        loopLength= false;
                     }
-                    else
+                    catch
+                    {
+                        System.Console.WriteLine("Ange hela centimeter, Ange endast siffror.");
+                        loopLength=true;
+                    }
+                    }
+
+                    while(loopDiameter ==true)
+                    {
+                    Console.Write("Välj diameter, ange i millimeter: ");
+                    try
+                    {
+                        diameter = Convert.ToInt32(Console.ReadLine());
+                        loopDiameter = false;
+                    }
+                    catch
+                    {
+                        System.Console.WriteLine("Ange endast siffror.");
+                        loopDiameter= true;
+                    }
+                    }
+
+                    System.Console.WriteLine($"Du har lagt till ett rör av {material} av längden {length}cm och den har diametern {diameter}mm \n");
+                    Pipe pipe = new Pipe(material, length, diameter);
+                    return pipe;
+                }
+
+                //Menyval gällande Havremjölk
+                static public Oatmeal MenuOptionOatmeal()
+                {
+                    int fat=0;
+                    int amount=0;
+                    bool loopFat = true;
+                    bool loopAmount= true;
+
+                    while(loopFat==true)
+                    {
+                    Console.Write("Välj fetthalt; 2-11%: ");
+                    try
+                    {
+                        fat = Convert.ToInt32(Console.ReadLine());
+                        if (fat >=2 & fat <=11)
+                        {
+                        loopFat= false;
+                        }
+                        else
+                        {
+                        System.Console.WriteLine("Ange endast siffror mellan 2 och 11.");
+                        }
+                    }
+                    catch
                     {
                         System.Console.WriteLine("Ange endast siffror mellan 2 och 11.");
+                        loopFat=true;
                     }
-                }
-                catch
-                {
-                    System.Console.WriteLine("Ange endast siffror mellan 2 och 11.");
-                    loopFat = true;
-                }
-            }
+                    }
+                    
+                     while(loopAmount==true)
+                    {
+                    Console.Write("Välj mängd, ange endast hela liter: ");
+                    try
+                    {
+                        amount = Convert.ToInt32(Console.ReadLine());
+                        loopAmount= false;
+                    }
+                    catch
+                    {
+                        System.Console.WriteLine("Ange hela liter, Ange endast siffror.");
+                        loopAmount=true;
+                    }
+                    }
 
-            while (loopAmount == true)
-            {
-                Console.Write("Välj mängd, ange endast hela liter: ");
-                try
-                {
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    loopAmount = false;
+                    System.Console.WriteLine($"Du har lagt till {amount} liter Havremjölk med fetthalten {fat}% \n");
+                    Oatmeal oatmeal = new Oatmeal(fat, amount);
+                    return oatmeal;
                 }
-                catch
-                {
-                    System.Console.WriteLine("Ange hela liter, Ange endast siffror.");
-                    loopAmount = true;
-                }
-            }
-
-            System.Console.WriteLine($"Du har lagt till {amount} liter Havremjölk med fetthalten {fat}% \n");
-            Oatmeal oatmeal = new Oatmeal(fat, amount);
-            return oatmeal;
-        }
         // Ta inte bort än!!!
         // static public List<Car> DeleteProduct(List<Car> car, List<Candy> candy, List<Pipe> pipe, List<Oatmeal> oatmeal)
         // {
