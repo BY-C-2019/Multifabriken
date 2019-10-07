@@ -47,13 +47,13 @@ namespace Multifabriken
                         break;
 
                     case "3":
-                        // skapa instans
-                        // Oatmilk myMilk = new Oatmilk();
+                    // skapa instans
+                        Godis myGodis = new Godis();
                         // kör metod
-                        // Oatmilk.AddMilk();
+                        Godis.AddGodis();
                         // lägg till i listan
-                        // ListOfMilk.Add(myMilk);
-                        // break;
+                        ListOfGodis.Add(myGodis);
+                        break;
 
                     case "4":
                         // skapa instans

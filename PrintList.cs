@@ -10,7 +10,8 @@ namespace Multifabriken
             Console.WriteLine("");
             foreach (var item in Program.ListOfCars)
             {
-                Console.WriteLine("Bilmodell: " + item.Model);
+                Console.WriteLine("Bil");
+                Console.WriteLine("Modell: " + item.Model);
                 Console.WriteLine("Färg: " + item.Color);
                 if (item.Luxury == true)
                 {
