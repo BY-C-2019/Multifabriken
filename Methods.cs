@@ -181,5 +181,24 @@ namespace Multifabriken
                     Oatmeal oatmeal = new Oatmeal(fat, amount);
                     return oatmeal;
                 }
+
+                public static void DeleteProduct() 
+                {
+                    Console.WriteLine("Vilken produkt vill du ta bort?");
+                    Console.WriteLine("Gör ett sifferval: ");
+                    foreach (object item in G) 
+                    {
+
+                    }
+                    Console.ReadLine();
+
+                }
+
+                public static void ChangeProduct() 
+                {
+                    Console.WriteLine("It werks.");
+                    Console.ReadLine();
+                }
+
     }
 }

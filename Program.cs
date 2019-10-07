@@ -64,9 +64,38 @@ namespace Multifabriken
 
 
                     case "2":
-                        Console.Clear();
-                        System.Console.Write("Ta bort produkt: ");
-                        menyProducts = Console.ReadLine();
+                        int selection = 0;
+                        while (selection == 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("[1] Ta bort produkt: ");
+                            Console.WriteLine("[2] Ändra produkt: ");
+                            Console.Write("\nSkriv in val: ");
+                            try
+                            {
+                                selection = Convert.ToInt32(Console.ReadLine());
+                                if (selection == 1) { Methods.DeleteProduct(); }
+                                if (selection == 2) { Methods.ChangeProduct(); }
+                                else 
+                                {
+                                    throw new FormatException();
+                                }
+                            }
+                            catch (FormatException)
+                            {
+                                Console.WriteLine("Skriv in en siffra. 1 eller 2.");
+                                Console.ReadLine();
+                            }
+                            catch (OverflowException)
+                            {
+                                Console.WriteLine("Okeeej. Skriv in en siffra mellan 1 eller 2.");
+                                Console.ReadLine();
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("Ett oväntat fel inträffade: " + e);
+                            }
+                        }
                         break;
 
                     case "3":
@@ -89,103 +118,200 @@ namespace Multifabriken
                         System.Console.WriteLine("Program avslutat");
                         return;
                 }
+            }
+        }
 
+        //Menyvalen som gäller produkten bil
+        public Methods MenuOptionCars()
+        {
+            {
+                string type = "";
+                string color = "";
+                bool interior = false;
+                bool loop = true;
+                string inputInterior = "";
 
+                Console.WriteLine("Ange vilken typ av bil: ");
+                type = Console.ReadLine();
+                Console.WriteLine("Ange vilken färg du vill ha på bilen: ");
+                color = Console.ReadLine();
 
-                Car MenuOptionCars()
+                //En loop som ser till att användaren väljer ett av de valen som finns
+                while (loop == true)
                 {
+                    Console.WriteLine("Vill du ha [S]tandard inredning eller [L]yx-inredning?");
+                    inputInterior = Console.ReadLine();
+                    inputInterior = inputInterior.ToUpper();
+
+
+                    if (inputInterior == "S")
                     {
-                        string Type = "";
-                        string Color = "";
-                        bool interior = false;
-                        bool loop = true;
-                        string inputInterior = "";
-
-                        Console.WriteLine("Ange vilken typ av bil: ");
-                        Type = Console.ReadLine();
-                        Console.WriteLine("Ange vilken färg du vill ha på bilen: ");
-                        Color = Console.ReadLine();
-
-                        while (loop == true)
-                        {
-                            Console.WriteLine("Vill du ha [S]tandard inredning eller [L]yx-inredning?");
-                            inputInterior = Console.ReadLine();
-                            inputInterior = inputInterior.ToUpper();
-
-
-                            if (inputInterior == "S")
-                            {
-                                interior = false;
-                                loop = false;
-                                inputInterior = "Standard-Inredning";
-                            }
-                            else if (inputInterior == "L")
-                            {
-                                interior = true;
-                                loop = false;
-                                inputInterior = "Lyx-Inredning";
-                            }
-                            else
-                            {
-                                System.Console.WriteLine("Fel inmantning");
-                            }
-                        }
-
-                        System.Console.WriteLine($"Du har lagt till en {Type} av färgen {Color} och den har {inputInterior} \n");
-                        Car car = new Car(Type, Color, interior);
-                        return car;
+                        interior = false;
+                        loop = false;
+                        inputInterior = "Standard-Inredning";
                     }
-
+                    else if (inputInterior == "L")
+                    {
+                        interior = true;
+                        loop = false;
+                        inputInterior = "Lyx-Inredning";
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("Fel inmantning");
+                    }
                 }
-
-                Candy MenuOptionCandy()
+                // SKriver ut vad man har lagt till i sin beställning.
+                System.Console.WriteLine($"Du har lagt till en {type} av färgen {color} och den har {inputInterior} \n");
+                Methods car = new Methods();
+                return car;
+            }
+        }
+        //Menyval ang. Godis
+        public Candy MenuOptionCandy()
                 {
                     {
-                        string Type = "";
-                        int Weight = 0;
+                        string flavour = "";
+                        int weight = 0;
+                        bool loop=false;
 
-                        Console.WriteLine("Ange vilken typ av godis: ");
-                        Type = Console.ReadLine();
-                        Console.WriteLine("Ange vilken färg du vil ha på bilen: ");
-                        Weight = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Ange vilken typ av godis: ");
+                        flavour = Console.ReadLine();
 
-                        Candy candy = new Candy(Type, Weight);
+                        while(loop==false| weight >=1000)
+                        {
+                        Console.Write("Ange mängd du vill köpa (minst 1000g): ");
+                        try
+                        {
+                        weight = Convert.ToInt32(Console.ReadLine());
+                        loop=true;
+                        }
+                        catch
+                        {
+                            System.Console.WriteLine("Ange endast nummer, minst 1000g.");
+                            loop=false;
+                        }
+                        }
+                        System.Console.WriteLine($"Du har lagt till {weight} gram godis av smaken {flavour}.\n");
+                        Candy candy = new Candy(flavour, weight);
                         return candy;
                     }
 
                 }
 
-                Pipe MenuOptionPipes()
+        //Menyval ang. Rör
+        public Pipe MenuOptionPipes()
                 {
-                    string material;
-                    int length;
-                    int diameter;
+                    
+                    string material="";;
+                    int length=0;
+                    int diameter=0;
+                    bool loopLength=true; // osäker på om man behöver en bool för varje loop 
+                    bool loopDiameter=true;// eller om man kan får till det så att samma bool gäller i båda valen?
 
-                    Console.WriteLine("Välj material");
+                    Console.Write("Välj material: ");
                     material = Console.ReadLine();
-                    Console.WriteLine("Välj längd");
-                    length = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Välj diMTER");
-                    diameter = Convert.ToInt32(Console.ReadLine());
+                    while(loopLength==true)
+                    {
+                    Console.Write("Välj längd, ange i centimeter: ");
+                    try
+                    {
+                        length = Convert.ToInt32(Console.ReadLine());
+                        loopLength= false;
+                    }
+                    catch
+                    {
+                        System.Console.WriteLine("Ange hela centimeter, Ange endast siffror.");
+                        loopLength=true;
+                    }
+                    }
 
+                    while(loopDiameter ==true)
+                    {
+                    Console.Write("Välj diameter, ange i millimeter: ");
+                    try
+                    {
+                        diameter = Convert.ToInt32(Console.ReadLine());
+                        loopDiameter = false;
+                    }
+                    catch
+                    {
+                        System.Console.WriteLine("Ange endast siffror.");
+                        loopDiameter= true;
+                    }
+                    }
+
+                    System.Console.WriteLine($"Du har lagt till ett rör av {material} av längden {length} och den har diametern {diameter} \n");
                     Pipe pipe = new Pipe(material, length, diameter);
                     return pipe;
                 }
 
-                Oatmeal MenuOptionOatmeal()
+                //Menyval gällande Havremjölk
+                public Oatmeal MenuOptionOatmeal()
                 {
-                    int fat;
-                    int amount;
+                    int fat=0;
+                    int amount=0;
+                    bool loopFat = true;
+                    bool loopAmount= true;
 
-                    Console.WriteLine("Välj Fett");
-                    fat = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Välj mängd");
-                    amount = Convert.ToInt32(Console.ReadLine());
+                    while(loopFat==true)
+                    {
+                    Console.Write("Välj fetthalt; 2-11%: ");
+                    try
+                    {
+                        fat = Convert.ToInt32(Console.ReadLine());
+                        if (fat >=2 & fat <=11)
+                        {
+                        loopFat= false;
+                        }
+                        else
+                        {
+                        System.Console.WriteLine("Ange endast siffror mellan 2 och 11.");
+                        }
+                    }
+                    catch
+                    {
+                        System.Console.WriteLine("Ange endast siffror mellan 2 och 11.");
+                        loopFat=true;
+                    }
+                    }
+                    
+                     while(loopAmount==true)
+                    {
+                    Console.Write("Välj mängd, ange endast hela liter: ");
+                    try
+                    {
+                        amount = Convert.ToInt32(Console.ReadLine());
+                        loopAmount= false;
+                    }
+                    catch
+                    {
+                        System.Console.WriteLine("Ange hela liter, Ange endast siffror.");
+                        loopAmount=true;
+                    }
+                    }
 
+                    System.Console.WriteLine($"Du har lagt till {amount} liter Havremjölk med fetthalten {fat}% \n");
                     Oatmeal oatmeal = new Oatmeal(fat, amount);
                     return oatmeal;
                 }
-            }
-        }
+
+                public void DeleteProduct() 
+                {
+                    Console.WriteLine("Vilken produkt vill du ta bort?");
+                    Console.WriteLine("Gör ett sifferval: ");
+                    foreach (object item in G) 
+                    {
+
+                    }
+                    Console.ReadLine();
+
+                }
+
+                public void ChangeProduct() 
+                {
+                    Console.WriteLine("It werks.");
+                    Console.ReadLine();
+                }
     }
 }
