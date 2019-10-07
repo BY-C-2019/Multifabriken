@@ -6,22 +6,34 @@ namespace Multifabriken
     class Program
     {
         //Metod för att välja modell på bilen
-        static string carModel()
+        static int carModel()
         {
             Console.WriteLine("Vilken bilmodell vill du ha?");
             Console.WriteLine("1. Volvo");
             Console.WriteLine("2. Saab");
             Console.WriteLine("3. Ford");
             string modelChoise = Console.ReadLine(); //try catch
-            return modelChoise;
+            int model = 0;
+            try{
+                model = Convert.ToInt32(modelChoise);
+            }catch{
+                Console.WriteLine("Ange endast siffervärde på bilen");
+            }
+            return model;
         }
 
         //Metod för att välja färg på bilen 
-        static string carColor()
+        static int carColor()
         {
             Console.WriteLine("Vilken färg ska bilen ha? Mata in din färgkod i hex värde: ");
             string colorChoise = Console.ReadLine();
-            return colorChoise;
+            int color = 00000000;
+            try {
+                color = Convert.ToInt32(colorChoise);
+            }catch{
+                Console.WriteLine("Skriv endast siffervärde på hexfärgen");
+            }
+            return color;
         }
         
         //Metod för att välja lyx eller interiör
@@ -36,14 +48,20 @@ namespace Multifabriken
         }
 
         //Metod för att välja godistyp
-        static string candyMenu(){
+        static int candyMenu(){
             Console.WriteLine("Vilken typ av godis vill du ha?");
             Console.WriteLine("1. Hallon");
             Console.WriteLine("2. Lakris");
             Console.WriteLine("3. Jordgubb");
             Console.WriteLine("4. Päron");
             string flavourChoise = Console.ReadLine();//try catch / switch?
-            return flavourChoise;
+            int flavour = 0;
+            try{
+                flavour = Convert.ToInt32(flavourChoise);
+            }catch{
+                Console.WriteLine("Ange endast siffervärde på menyval");
+            }
+            return flavour;
         }
 
         //Metod för att hämta mängd på beställning från användaren. 
