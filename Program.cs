@@ -122,7 +122,7 @@ namespace Multifabriken
         }
 
         //Menyvalen som gäller produkten bil
-        public Methods MenuOptionCars()
+        static public Car MenuOptionCars()
         {
             {
                 string type = "";
@@ -163,12 +163,12 @@ namespace Multifabriken
                 }
                 // SKriver ut vad man har lagt till i sin beställning.
                 System.Console.WriteLine($"Du har lagt till en {type} av färgen {color} och den har {inputInterior} \n");
-                Methods car = new Methods();
+                Car car = new Car(color, type, interior);
                 return car;
             }
         }
         //Menyval ang. Godis
-        public Candy MenuOptionCandy()
+        static public Candy MenuOptionCandy()
                 {
                     {
                         string flavour = "";
@@ -200,7 +200,7 @@ namespace Multifabriken
                 }
 
         //Menyval ang. Rör
-        public Pipe MenuOptionPipes()
+        static public Pipe MenuOptionPipes()
                 {
                     
                     string material="";;
@@ -247,7 +247,7 @@ namespace Multifabriken
                 }
 
                 //Menyval gällande Havremjölk
-                public Oatmeal MenuOptionOatmeal()
+                static public Oatmeal MenuOptionOatmeal()
                 {
                     int fat=0;
                     int amount=0;
@@ -296,19 +296,15 @@ namespace Multifabriken
                     return oatmeal;
                 }
 
-                public void DeleteProduct() 
+                static public void DeleteProduct() 
                 {
                     Console.WriteLine("Vilken produkt vill du ta bort?");
                     Console.WriteLine("Gör ett sifferval: ");
-                    foreach (object item in G) 
-                    {
-
-                    }
                     Console.ReadLine();
 
                 }
 
-                public void ChangeProduct() 
+                static public void ChangeProduct() 
                 {
                     Console.WriteLine("It werks.");
                     Console.ReadLine();
