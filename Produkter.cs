@@ -14,7 +14,7 @@ namespace Multifabriken
         Havremjölk havremjölk = new Havremjölk();
         Godis godis = new Godis();
 		Bil bil = new Bil();
-        
+        Rör rör = new Rör(); 
        
       private int order = 0;
         public void Order()
