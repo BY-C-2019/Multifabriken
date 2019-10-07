@@ -1,10 +1,11 @@
 using System;
 namespace Multifabriken
 {
-    class Bilar
+    public class Bilar
     {
+
         public string modell; //Ska vara bestämda i lista?
-        public string färg; //int pga färgkod
+        public int färg; //int pga färgkod
         public bool inredning; //antingen lyx eller standard
 
     }

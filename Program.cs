@@ -140,12 +140,11 @@ namespace Multifabriken
                 switch (input)
                 {
                     case "1"://Godis
-                        candyMenu();
+                         candyMenu();
                         double candyWeight = getAmmount();
                         if (candyWeight < 1){
                             Console.WriteLine("Minst 1kg godis");
                         }else{
-                            //lägg til i klass
                         }
                         break;
                     case "2"://Havremjölk
@@ -155,6 +154,7 @@ namespace Multifabriken
                             Console.WriteLine("Du måste ange minst 0.5 liter mjölk");
                         }else{
                             //lägg till i klass
+                            //WIP Havremjölk nyHavremjölk = new Havremjölk();
                         }
                         break;
                     case "3"://Rör

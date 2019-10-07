@@ -1,6 +1,6 @@
     namespace Multifabriken
     {
-    class Rör
+    public class Rör
     {
         public string material; //Val från meny
         public double diameter; 
