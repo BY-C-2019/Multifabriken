@@ -28,6 +28,17 @@ namespace Multifabriken
                 length = value;
             }
         }
+        public int Diameter
+        {
+            get
+            {
+                return diameter;
+            }
+            set
+            {
+                diameter = value;
+            }
+        }
 
         public Pipe(string material, int length, int diameter) 
         {

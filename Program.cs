@@ -115,15 +115,20 @@ namespace Multifabriken
                         Console.Clear();
                         foreach (Car car in orderListCar) 
                         {
-                            Console.WriteLine(car.TypeCar);
-                            Console.WriteLine(car.ColorCar);
-                            Console.WriteLine(car.InteriorCar);
+                            Console.WriteLine("[Beställt] - Bil: {0} || Färg: {1} || Inredning: {2}",car.TypeCar,car.ColorCar,car.InteriorCar);
+                            
                         }
                         foreach (Candy candy in orderListCandy) 
                         {
-                            Console.WriteLine(candy.AmountCandy);
-                            Console.WriteLine(candy.TypeCandy);
-                           // Console.WriteLine(candy.AmountCandy);
+                            Console.WriteLine("[Beställt] - Godissort: {0} || Mängd(g): {1}",candy.TypeCandy,candy.AmountCandy);
+                        }
+                        foreach(Pipe pipe in orderListPipe)
+                        {
+                            System.Console.WriteLine("[Beställt] - Rörmaterial: {0} || Längd(cm): {1} || Diameter(mm): {2}",pipe.Material,pipe.Length,pipe.Diameter);
+                        }
+                        foreach(Oatmeal oatmeal in orderListOatmeal)
+                        {
+                            System.Console.WriteLine("[Beställt] - Havremjölkens fetthalt(%): {0} || Mängd(L): {1}", oatmeal.Fat, oatmeal.Amount);
                         }
                         Console.ReadLine();
                         System.Console.WriteLine("Program avslutat");
@@ -174,7 +179,7 @@ namespace Multifabriken
                 }
                 // SKriver ut vad man har lagt till i sin beställning.
                 System.Console.WriteLine($"Du har lagt till en {type} av färgen {color} och den har {inputInterior} \n");
-                Car car = new Car(color, type, interior);
+                Car car = new Car(type, color, interior);
                 return car;
             }
         }
@@ -188,14 +193,15 @@ namespace Multifabriken
 
                         Console.Write("Ange vilken typ av godis: ");
                         flavour = Console.ReadLine();
-
-                        while(loop==false| weight >=1000)
+                        
+                        while(loop==false| weight >= 1000)
                         {
                         Console.Write("Ange mängd du vill köpa (minst 1000g): ");
                         try
                         {
                         weight = Convert.ToInt32(Console.ReadLine());
-                        loop=true;
+                        loop = true;
+                        //break;
                         }
                         catch
                         {
