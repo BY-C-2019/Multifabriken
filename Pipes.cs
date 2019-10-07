@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using Products;
+
 
 namespace pipes
 {
-  class Pipes
+  class pipes : products
   {
-    static List<string> myPipes = new List<string>() {
-          "Rostfritt",
-          "Betong",
-          "Stål"
-      };
+
     public int length { get; set; }
     public int diameter { get; set; }
     public string material = "";
-    public Pipes(int Length, int Diameter, string Material)
+    public pipes(int Length, int Diameter, int materialIndex)
     {
       if(Diameter > 100 || Diameter < 1)
       {
@@ -21,7 +19,7 @@ namespace pipes
       }
       length = Length;
       diameter = Diameter;
-      material = Material;
+      material = products.myPipes[materialIndex];
     }
   }
 }
