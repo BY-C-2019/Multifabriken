@@ -1,5 +1,4 @@
-﻿// Hej Jonatan vi sitter och jobbar som fan nu vart är du?
-
+﻿
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,273 +17,282 @@ namespace multifabriken
 {
     class Program
     {
-        
-           public static List<milk> milkList = new List <milk>();
-           public static List<pipes> pipeList = new List <pipes>();
-           public static List<cars> carList = new List <cars>();
-           public static List<candy> candyList = new List <candy>();
+        public static List<milk> milkList = new List<milk>();
+        public static List<pipes> pipeList = new List<pipes>();
+        public static List<cars> carList = new List<cars>();
+        public static List<candy> candyList = new List<candy>();
         public static void SortThroughList() // Metod som lägger in listorna i en gemensam lista "orderList"
         {
             milkList.Clear();
             pipeList.Clear();
             carList.Clear();
             candyList.Clear();
-            
-            foreach(var p in order.orderList)
+
+            foreach (var p in order.orderList)
             {
-                    var p2 = p as milk;
-                    var p3 = p as cars;
-                    var p4 = p as pipes;
-                    var p5 = p as candy;
+                var p2 = p as milk;
+                var p3 = p as cars;
+                var p4 = p as pipes;
+                var p5 = p as candy;
 
 
-                    
-                    if( p2 != null)
-                    {
+                if (p2 != null)
+                {
                     milkList.Add(p2);
-                    }
-                    else if ( p3 != null)
-                    {
-                    carList.Add(p3);
-                    }
-                    else if ( p4 != null)
-                    {
-                    pipeList.Add(p4);
-                    }
-                    else if ( p5 != null)
-                    {
-                    candyList.Add(p5);
-                    }
                 }
+                else if (p3 != null)
+                {
+                    carList.Add(p3);
+                }
+                else if (p4 != null)
+                {
+                    pipeList.Add(p4);
+                }
+                else if (p5 != null)
+                {
+                    candyList.Add(p5);
+                }
+            }
 
         }
-
         public static void PrintItemsInList() // Listar våra produkter
         {
             Console.WriteLine("Havremjölk:");
-            for(int i = 0; i < milkList.Count; i++)
-            { 
-            Console.WriteLine("\tFetthalt: {0}" ,milkList[i].fat);
-            Console.WriteLine("\tPacketering: {0}", milkList[i].package);
-            Console.WriteLine();
+            for (int i = 0; i < milkList.Count; i++)
+            {
+                Console.WriteLine("\tFetthalt: {0}", milkList[i].fat);
+                Console.WriteLine("\tPacketering: {0}", milkList[i].package);
+                Console.WriteLine();
             }
 
             Console.WriteLine("Bilar:");
-            for(int i = 0; i < carList.Count; i++)
+            for (int i = 0; i < carList.Count; i++)
             {
-                Console.WriteLine("\tBilmodell: {0}" ,carList[i].carmodel);
-                Console.WriteLine("\tFärg: {0}" ,carList[i].carcolour);            
-                Console.WriteLine("\tLyxpaket: {0}" ,carList[i].luxpackage);
+                Console.WriteLine("\tBilmodell: {0}", carList[i].carmodel);
+                Console.WriteLine("\tFärg: {0}", carList[i].carcolour);
+                Console.WriteLine("\tLyxpaket: {0}", carList[i].luxpackage);
                 Console.WriteLine();
 
             }
 
             Console.WriteLine("Godis:");
-            for(int i = 0; i < candyList.Count; i++)
-            { 
-                Console.WriteLine("\tSmak: {0}" ,candyList[i].taste);
-                Console.WriteLine("\tMängd: {0}" ,candyList[i].amount);
+            for (int i = 0; i < candyList.Count; i++)
+            {
+                Console.WriteLine("\tSmak: {0}", candyList[i].taste);
+                Console.WriteLine("\tMängd: {0}", candyList[i].amount);
                 Console.WriteLine();
 
             }
 
             Console.WriteLine("Rör:");
-            for(int i = 0; i < pipeList.Count; i++)
-            { 
-                Console.WriteLine("\tMaterial: {0}" ,pipeList[i].material);
-                Console.WriteLine("\tLängd: {0}" ,pipeList[i].length);
-                Console.WriteLine("\tDiameter: {0}" ,pipeList[i].diameter);
+            for (int i = 0; i < pipeList.Count; i++)
+            {
+                Console.WriteLine("\tMaterial: {0}", pipeList[i].material);
+                Console.WriteLine("\tLängd: {0}", pipeList[i].length);
+                Console.WriteLine("\tDiameter: {0}", pipeList[i].diameter);
                 Console.WriteLine();
 
             }
         }
         static void Main(string[] args)
         {
+            int fatContent = 0;
+            int packageSize = 0;
+            string input;
             do
             {
-            string menuHeader = "Välkommen till MULTIFABRIKEN";
-            string[] menuContent = new string[]{"Lägg till en vara", "Lista varor", "Avsluta"};
+                string menuHeader = "Välkommen till MULTIFABRIKEN";
+                string[] menuContent = new string[] { "Lägg till en vara", "Lista varor", "Avsluta" };
 
-            var menu = new Menu(menuContent);
-            menu = menu.GetMenu(menu, menuHeader); // Skriver ut vår meny för användaren
+                var menu = new Menu(menuContent);
+                menu = menu.GetMenu(menu, menuHeader); // Skriver ut vår meny för användaren
 
-            switch (menu.SelectedIndex)
-            {
+                switch (menu.SelectedIndex)
+                {
+                    case 0:
+                        // Lägg till vara
+                        menuHeader = "Lägg till en vara";
+                        menuContent = new string[] { "Havremjölk", "Godis", "Bil", "Rör", "Avsluta" };
 
-                case 0:
-                // Lägg till vara
-                    menuHeader = "Lägg till en vara";
-                    menuContent = new string[]{"Havremjölk", "Godis", "Bil", "Rör" ,"Avsluta"};
+                        menu = new Menu(menuContent);
+                        menu = menu.GetMenu(menu, menuHeader);
 
-                    menu = new Menu(menuContent);
-                    menu = menu.GetMenu(menu, menuHeader);
-
-                    switch(menu.SelectedIndex)
-                    {
-                        case 0:
-                            Console.Clear();
-                        // Mjölk
-                            
-                                Console.WriteLine("Vilken fettprocent?");
-                                string input = Console.ReadLine();
-                                int fatContent = Convert.ToInt32(input);
-                                Console.WriteLine();
-                            
-                                Console.WriteLine("Vilken förpackning vill du ha?");
-                                for (int i = 0; i < products.packageList.Count; i++)
+                        switch (menu.SelectedIndex)
+                        {
+                            case 0:
+                                Console.Clear();
+                                // Mjölk
+                                while (fatContent < 2 || fatContent > 11)
                                 {
-                                    Console.WriteLine("[{0}] {1}", i+1, products.packageList[i]);
+                                    Console.WriteLine("Vilken fettprocent? Minst 2%, max 11%");
+                                    input = Console.ReadLine();
+                                    fatContent = Convert.ToInt32(input);
+                                    if (fatContent < 2 || fatContent > 11)
+                                    {
+                                        Console.WriteLine("Minst 2% och max 11% fett.");
+                                    }
+                                }
+                                Console.WriteLine("");
+                                while (packageSize < 1 || packageSize > 3)
+                                {
+                                    Console.WriteLine("Vilken förpackning vill du ha?");
+                                    for (int i = 0; i < products.packageList.Count; i++)
+                                    {
+                                        Console.WriteLine("[{0}] {1}", i + 1, products.packageList[i]);
+                                    }
+                                    input = Console.ReadLine();
+
+                                    packageSize = Convert.ToInt32(input);
+                                    if (packageSize < 1 || packageSize > 3)
+                                    {
+                                        Console.WriteLine("Ogiltligt val, välj med knapparna 1-3");
+                                    }
                                 }
 
-                                input = Console.ReadLine();
-                                int packageSize = Convert.ToInt32(input);
+
+
                                 packageSize--;
 
                                 milk milk = new milk(fatContent, packageSize);
 
                                 order.orderList.Add(milk);
                                 Products.products.antal++;
-                            
-                        break;
 
-                        case 1:
-                        // Godis
-                            Console.Clear();
+                                break;
 
-                            Console.WriteLine("Vilken godissort vill du ha?");
-                            for (int i = 0; i < products.godisLista.Count; i++)
-                            {
-                                Console.WriteLine("[{0}] {1}", i+1, products.godisLista[i]);
-                            }
-                            
-                            input = Console.ReadLine();
-                            int SelectedIndex = Convert.ToInt32(input);
-                            SelectedIndex--;
+                            case 1:
+                                // Godis
+                                Console.Clear();
 
-                            Console.WriteLine("Hur mycket vill du ha av {0} i kg", order.godisLista[SelectedIndex]);
-                            input = Console.ReadLine();
-                            int candyAmount = Convert.ToInt32(input);
-                            
+                                Console.WriteLine("Vilken godissort vill du ha?");
+                                for (int i = 0; i < products.godisLista.Count; i++)
+                                {
+                                    Console.WriteLine("[{0}] {1}", i + 1, products.godisLista[i]);
+                                }
 
-                            candy candy = new candy(SelectedIndex, candyAmount);
+                                input = Console.ReadLine();
+                                int SelectedIndex = Convert.ToInt32(input);
+                                SelectedIndex--;
 
-                            order.orderList.Add(candy);
-                            Products.products.antal++;
+                                Console.WriteLine("Hur mycket vill du ha av {0} i kg", order.godisLista[SelectedIndex]);
+                                input = Console.ReadLine();
+                                int candyAmount = Convert.ToInt32(input);
 
-                        break;
+                                candy candy = new candy(SelectedIndex, candyAmount);
 
-                        case 2:
-                        // Bil
-                            Console.Clear();
+                                order.orderList.Add(candy);
+                                Products.products.antal++;
 
-                            Console.WriteLine("Vilken modell vill du ha?");
-                            for (int i = 0; i < products.bilLista.Count; i++)
-                            {
-                                Console.WriteLine("[{0}] {1}", i+1, products.bilLista[i]);
-                            }
+                                break;
 
-                            input = Console.ReadLine();
-                            int selectedIndex = Convert.ToInt32(input);
-                            selectedIndex--;
+                            case 2:
+                                // Bil
+                                Console.Clear();
 
-                            Console.WriteLine("Vilken färg vill du ha på bilen?");
-                            string carColour = Console.ReadLine();
-                            
-                            //------------------------From Stackoverflow------------------------//
-                            char[] a = carColour.ToCharArray();
-                            a[0] = char.ToUpper(a[0]);
-                            carColour = new string(a);
-                            //------------------------------------------------------------------//
-                                   
-                            Console.WriteLine("Vill du ha de sniceiga lyxpaketet?");
-                            Console.WriteLine("[J/N]");
+                                Console.WriteLine("Vilken modell vill du ha?");
+                                for (int i = 0; i < products.bilLista.Count; i++)
+                                {
+                                    Console.WriteLine("[{0}] {1}", i + 1, products.bilLista[i]);
+                                }
 
-                            input = Console.ReadLine();
-                            
-                            char[] b = input.ToCharArray();
-                            b[0] = char.ToUpper(b[0]);
-                            input = new string(b);
+                                input = Console.ReadLine();
+                                int selectedIndex = Convert.ToInt32(input);
+                                selectedIndex--;
 
-                            bool lux = false;
+                                Console.WriteLine("Vilken färg vill du ha på bilen?");
+                                string carColour = Console.ReadLine();
 
-                            if (input[0] == 'J')
-                            {
-                                lux = true;
+                                //------------------------From Stackoverflow------------------------//
+                                char[] a = carColour.ToCharArray();
+                                a[0] = char.ToUpper(a[0]);
+                                carColour = new string(a);
+                                //------------------------------------------------------------------//
 
-                              
-                            }                            
-                            else if(input[0] == 'N')
-                            {
-                                Console.WriteLine("Du valde fel! Du får betala ett lyxpaket ändå");
-                                Console.ReadKey();
-                                lux = true;
+                                Console.WriteLine("Vill du ha de sniceiga lyxpaketet?");
+                                Console.WriteLine("[J/N]");
 
-                            }
-                            
-                            cars cars = new cars(selectedIndex, carColour, lux);
-                            
-                            order.orderList.Add(cars);
-                            Products.products.antal++;
-                        
-                        break;
+                                input = Console.ReadLine();
 
-                        case 3:
-                        // Rör
+                                char[] b = input.ToCharArray();
+                                b[0] = char.ToUpper(b[0]);
+                                input = new string(b);
 
-                            Console.Clear();
-                            Console.WriteLine("Vilket material vill du ha?");
-                            for (int i = 0; i < products.myPipes.Count; i++)
-                            {
-                                Console.WriteLine("[{0}] {1}", i+1, products.myPipes[i]);
-                            }
+                                bool lux = false;
 
-                            input = Console.ReadLine();
-                            selectedIndex = Convert.ToInt32(input);
-                            selectedIndex--;
-
-                            Console.WriteLine("Vilken längd i millimeter vill du ha?");
-                            input = Console.ReadLine();
-                            int selectedLength = Convert.ToInt32(input);
+                                if (input[0] == 'J')
+                                {
+                                    lux = true;
 
 
-                            Console.WriteLine("Vilken diameter i millimeter  vill du ha?");
-                            input = Console.ReadLine();
-                            int selectedDiameter = Convert.ToInt32(input);
+                                }
+                                else if (input[0] == 'N')
+                                {
+                                    Console.WriteLine("Du valde fel! Du får betala ett lyxpaket ändå");
+                                    Console.ReadKey();
+                                    lux = true;
 
-                            pipes pipes = new pipes(selectedLength, selectedDiameter, selectedIndex);
+                                }
+                                cars cars = new cars(selectedIndex, carColour, lux);
 
-                                                        
-                            order.orderList.Add(pipes);
-                            Products.products.antal++;
-                            break;
+                                order.orderList.Add(cars);
+                                Products.products.antal++;
+
+                                break;
+
+                            case 3:
+                                // Rör
+
+                                Console.Clear();
+                                Console.WriteLine("Vilket material vill du ha?");
+                                for (int i = 0; i < products.myPipes.Count; i++)
+                                {
+                                    Console.WriteLine("[{0}] {1}", i + 1, products.myPipes[i]);
+                                }
+
+                                input = Console.ReadLine();
+                                selectedIndex = Convert.ToInt32(input);
+                                selectedIndex--;
+
+                                Console.WriteLine("Vilken längd i millimeter vill du ha?");
+                                input = Console.ReadLine();
+                                int selectedLength = Convert.ToInt32(input);
+
+
+                                Console.WriteLine("Vilken diameter i millimeter  vill du ha?");
+                                input = Console.ReadLine();
+                                int selectedDiameter = Convert.ToInt32(input);
+
+                                pipes pipes = new pipes(selectedLength, selectedDiameter, selectedIndex);
+
+
+                                order.orderList.Add(pipes);
+                                Products.products.antal++;
+                                break;
                         }
-                    
-                break;
+
+                        break;
 
 
-                case 1:
-                // Lista varor
-                    Console.Clear();
-                    Console.WriteLine("Du har beställt {0} st produkter", order.antal);
-                    Console.WriteLine();
-                    SortThroughList();
-                    PrintItemsInList();
-                    Console.ReadKey();
+                    case 1:
+                        // Lista varor
+                        Console.Clear();
+                        Console.WriteLine("Du har beställt {0} st produkter", order.antal);
+                        Console.WriteLine();
+                        SortThroughList();
+                        PrintItemsInList();
+                        Console.ReadKey();
 
-                break;
-
-
-                case 2:
-                // Avsluta
-                    SortThroughList();
-                    PrintItemsInList();
-                return;
-
-            }
-            }while(true);
+                        break;
 
 
+                    case 2:
+                        // Avsluta
+                        SortThroughList();
+                        PrintItemsInList();
+                        return;
 
+                }
+            } while (true);
         }
     }
 }
