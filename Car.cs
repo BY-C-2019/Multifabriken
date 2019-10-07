@@ -9,6 +9,10 @@ namespace Multifabriken
         private string color;
         private string model;
         private string lyxInredning;
+        
+        private string colorList;
+        private string modelList;
+        private string lyxInredningList;
 
         public string Color
         {
@@ -19,7 +23,7 @@ namespace Multifabriken
             set
             {
                 color = value;
-                carList.Add("Färg" + value);
+                colorList=value;
             }
         }
         public string Model
@@ -31,7 +35,7 @@ namespace Multifabriken
             set
             {
                 model = value;
-                carList.Add("Model: "+ value);
+                modelList=value;
             }
         }
         public string LyxInredning
@@ -42,8 +46,9 @@ namespace Multifabriken
             }
             set 
             {
-                LyxInredning = value;
-                carList.Add("Lyxinredning: "+ value);
+                lyxInredning = value;
+                lyxInredningList=value;
+                carList.Add("Model:"+modelList+"\nFärg:"+colorList+"\nLyxinredning:"+lyxInredningList+"\n");
             }
         }
         public void InfoCar()
@@ -51,7 +56,7 @@ namespace Multifabriken
             Console.WriteLine("Bil!");
             for(int i = 0; i < carList.Count;i++)
             {
-                Console.WriteLine((i+1) + " " + carList[i]);
+                Console.WriteLine((i+1) + "." + carList[i]);
             }
         }
         public void ItemCar()
@@ -59,7 +64,7 @@ namespace Multifabriken
             Console.WriteLine("Bil!");
             for(int i = 0; i < carList.Count;i++)
             {
-                Console.WriteLine((i+1) + " " + carList[i]);
+                Console.WriteLine((i+1) + "." + carList[i]);
             }
             Console.WriteLine("Vilken vill du ta bort?");
             int answer = Convert.ToInt32(Console.ReadLine());

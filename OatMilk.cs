@@ -8,6 +8,9 @@ namespace Multifabriken
         static private List<string> oatMilkList = new List<string>();
         private int fat= 0;
         private double liters = 0;
+        
+        private string fatList;
+        private string literList;
 
         public int Fat
         {
@@ -18,7 +21,7 @@ namespace Multifabriken
             set
             { 
                 fat = value;
-                oatMilkList.Add("Fetthalt: " + value + "%");
+                fatList=Convert.ToString(value);
             }
         }
         public double Litres
@@ -30,7 +33,8 @@ namespace Multifabriken
             set
             {
                 liters = value;
-                oatMilkList.Add("Liter: " + value);
+                literList=Convert.ToString(value);
+                oatMilkList.Add("Liter:"+literList+"\nFetthalt:"+fatList+"%\n");
             }
         }
         public void OatMilkInfo()
@@ -43,10 +47,10 @@ namespace Multifabriken
         }
         public void OatMilkItem()
         {
-            Console.WriteLine("Havremjölk!");
+            Console.WriteLine("Havremjölk:");
             for(int i = 0; i < oatMilkList.Count;i++)
             {
-                Console.WriteLine((i+1) + " " + oatMilkList[i]);
+                Console.WriteLine((i+1) + "." + oatMilkList[i]);
             }
             Console.WriteLine("Vilken vill du ta bort?");
             int answer = Convert.ToInt32(Console.ReadLine());
