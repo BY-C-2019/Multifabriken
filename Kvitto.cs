@@ -7,12 +7,13 @@ public class Kvitto
 {
     //Lägger till en lista som sparar alla beställningar.
         List<string> addingToReciept = new List<string>();
+        private string kvitto = "";
      public string Reciept(string reciept)
             {
+                reciept = kvitto;
+                addingToReciept.Add(kvitto);
                 
-                addingToReciept.Add(reciept);
-                
-                return reciept;
+                return kvitto;
             }
 
             public void PrintReciept()
@@ -22,7 +23,7 @@ public class Kvitto
                 Console.WriteLine("------------------");
                 for (int i = 0; i < addingToReciept.Count; i++)
                 {
-                    System.Console.WriteLine(addingToReciept[i]);
+                    System.Console.WriteLine(kvitto[i]);
                 }
             }
 }
