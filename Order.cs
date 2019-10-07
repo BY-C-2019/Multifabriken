@@ -16,10 +16,22 @@ namespace Multifabriken
         {
             return orderList;
         }
-        
+        public void AddToOrderList(object item) 
+        {
+            List<object> orderList = new List<object>();
+            orderList.Add(item);
+        }
+        public void ShowOrderList() 
+        {
+            foreach (object item in orderList) {
+                Console.WriteLine(item);
+            }
+        }
+
+        public Order()
+        {
+            
+        }
+
     }
-    // public Order(List<object> order) 
-    // {
-    //     this.orderList = order;
-    // }
 }

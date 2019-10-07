@@ -25,7 +25,10 @@ namespace Multifabriken
            set { interiorCar = value; }
        }
        
-       
+       public Car() 
+       {
+           
+       }
        public Car (string inputTypeCar,string inputColorCar,bool inputInteriorCar)
        {
            this.typeCar= inputTypeCar;
