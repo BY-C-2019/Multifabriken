@@ -35,7 +35,7 @@ namespace Multifabriken
 
                 case 2: 
                 Console.Clear();
-                godis.ValAvGodis();
+                rör.ValAvRör();
                 break;
 
                 case 3: 

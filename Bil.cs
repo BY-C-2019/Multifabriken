@@ -46,9 +46,8 @@ namespace Multifabriken
                 Console.WriteLine("Felaktig inmatning");
                 break;
             }
-       }
-            public void ValAvFärg()
-            {
+       
+                        
             Console.WriteLine("Välj av följande färger:");
             Console.WriteLine("[1] Röd");
             Console.WriteLine("[2] Blå");
@@ -88,9 +87,9 @@ namespace Multifabriken
                 Console.WriteLine("Felaktig inmatning");
                 break;
             }
-            }    
-            public void ValAvInredning()
-            {
+            
+          
+            
             Console.WriteLine("Välj av följande inredningspaket:");
             Console.WriteLine("[1] Lyx");
             Console.WriteLine("[2] Mellan");
