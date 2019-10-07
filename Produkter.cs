@@ -6,16 +6,7 @@ namespace Multifabriken
 {
     public class Produkter
     {
-     public Produkter()
-     {
-        //  havremjölk = new Havremjölk();
-           
-     }
-        Havremjölk havremjölk = new Havremjölk();
-        Godis godis = new Godis();
-		Bil bil = new Bil();
-        Rör rör = new Rör(); 
-       
+
       private int order = 0;
         public void Order()
         {
@@ -30,21 +21,25 @@ namespace Multifabriken
             {
                 case 1: 
                 Console.Clear();
+                Godis godis = new Godis();
                 godis.ValAvGodis();
                 break;
 
                 case 2: 
                 Console.Clear();
+                Rör rör = new Rör();
                 rör.ValAvRör();
                 break;
 
                 case 3: 
                 Console.Clear();
+                Bil bil = new Bil();
                 bil.ValAvBil();
                 break;
 
                 case 4: 
                 Console.Clear();
+                Havremjölk havremjölk = new Havremjölk();
                 havremjölk.Havremilk();
                 break;
 
