@@ -4,8 +4,11 @@ namespace Multifabriken
 {
     public class Rör
     {
+        // variabel för diametern.
         private int choiceDiameter = 0;
+        // variabel för längden.
         private int choiceLängd = 0;
+        // variabel för matrialet.
         private int choiceMatrial = 0;
         
         
@@ -29,7 +32,9 @@ namespace Multifabriken
             Console.WriteLine("[1] Betong");
             Console.WriteLine("[2] Stål");
             Console.WriteLine("[3] Plast");
+            // variabel för kvittot till kund.
             string valRör;
+            // stichcasemeny för matrialet på rör. Kvitto.Reciept ska skicka valRör till kvittot så kund kan se beställning
             choiceMatrial = int.Parse(Console.ReadLine());
             switch (choiceMatrial)
             {
