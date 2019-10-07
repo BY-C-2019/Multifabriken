@@ -1,6 +1,7 @@
 using System;
 
 
+
 namespace Multifabriken
 {
     public class Godis
@@ -11,7 +12,7 @@ namespace Multifabriken
         private int choiceCandy = 0;
 
         // Läser av hur många kg av sorten godis som väljs
-        private int qtyOfTaste = 0;
+        private int qtyOfTaste;
         //GetSet som håller reda på inmatning.
         public int QtyOfTaste
         {
@@ -19,11 +20,11 @@ namespace Multifabriken
 
             set { if (qtyOfTaste > 10)
                     {
-                        value = 10;
+                        qtyOfTaste = 10;
                     } 
                     else if (qtyOfTaste < 0)
                     {
-                        value = 1;
+                        qtyOfTaste = 1;
                     }
                     else
                     {
@@ -63,8 +64,8 @@ namespace Multifabriken
                         Console.WriteLine("Du valde hallon! Hur många kilo (avrundat till heltal) godis vill du ha av denna smak?");
                         Console.WriteLine("Den största förpackningen innehåller 10Kg godis.");
                         QtyOfTaste = int.Parse(Console.ReadLine());
-                        printToReciept = qtyOfTaste + " kg hallongodis.";
-                        kvitto.Reciept(printToReciept);
+                        printToReciept = qtyOfTaste + " kg hallongodis ";
+                        //kvitto.Reciept(printToReciept);
                         
                         produkter.Order();
                     
@@ -75,8 +76,8 @@ namespace Multifabriken
                         Console.WriteLine("Du valde Lakrits! Hur många kilo (avrundat till heltal) godis vill du ha av denna smak?");
                         Console.WriteLine("Den största förpackningen innehåller 10Kg godis.");
                         QtyOfTaste = int.Parse(Console.ReadLine());
-                        printToReciept = qtyOfTaste + " kg lakritsgodis.";
-                        kvitto.Reciept(printToReciept);
+                        printToReciept = qtyOfTaste + " kg lakritsgodis ";
+                        //kvitto.Reciept(printToReciept);
                         produkter.Order();
 
                     break;
@@ -86,8 +87,8 @@ namespace Multifabriken
                         Console.WriteLine("Du valde Päron! Hur många kilo (avrundat till heltal) godis vill du ha av denna smak?");
                         Console.WriteLine("Den största förpackningen innehåller 10Kg godis.");
                         QtyOfTaste = int.Parse(Console.ReadLine());
-                        printToReciept = qtyOfTaste + " kg pärongodis.";
-                        kvitto.Reciept(printToReciept);
+                        printToReciept = qtyOfTaste + " kg pärongodis ";
+                        //kvitto.Reciept(printToReciept);
                         produkter.Order();
 
                     
@@ -98,8 +99,8 @@ namespace Multifabriken
                         Console.WriteLine("Du valde Jordgubb! Hur många kilo (avrundat till heltal) godis vill du ha av denna smak?");
                         Console.WriteLine("Den största förpackningen innehåller 10Kg godis.");
                         QtyOfTaste = int.Parse(Console.ReadLine());
-                        printToReciept = qtyOfTaste + " kg jordgubbsgodis.";
-                        kvitto.Reciept(printToReciept);
+                        printToReciept = qtyOfTaste + " kg jordgubbsgodis ";
+                        //kvitto.Reciept(printToReciept);
                         produkter.Order();
                     
                     break;
@@ -116,7 +117,8 @@ namespace Multifabriken
                     break;
                 
                 }
-             
+                
+             kvitto.Reciept(printToReciept);
        }
     }
 }

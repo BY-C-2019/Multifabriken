@@ -95,7 +95,7 @@ namespace Multifabriken
                 Console.WriteLine("Du valde Lyxpaketet");
                 ValAvInredning = "Inredning: Lyxpaket.";
                 BilTillKvitto = ValAvModell + " " + ValAvFärg + " " + ValAvInredning;
-                kvitto.Reciept(BilTillKvitto);
+                //kvitto.Reciept(BilTillKvitto);
                 bil.Order();
                 break;
                 
@@ -104,7 +104,7 @@ namespace Multifabriken
                 Console.WriteLine("Du valde Mellanpaketet");
                 ValAvInredning = "Inredning: Mellanpaketet.";
                 BilTillKvitto = ValAvModell + " " + ValAvFärg + " " + ValAvInredning;
-                kvitto.Reciept(BilTillKvitto);
+                //kvitto.Reciept(BilTillKvitto);
                 bil.Order();
                 break;
 
@@ -113,7 +113,7 @@ namespace Multifabriken
                 Console.WriteLine("Du valde Budgetpaketet");
                 ValAvInredning = "Inredning: Budgetpaketet.";
                 BilTillKvitto = ValAvModell + " " + ValAvFärg + " " + ValAvInredning;
-                kvitto.Reciept(BilTillKvitto);
+                //kvitto.Reciept(BilTillKvitto);
                 bil.Order();
                 break;
                 
@@ -131,6 +131,7 @@ namespace Multifabriken
                 Console.WriteLine("Felaktig inmatning");
                 break;
             }
+            kvitto.Reciept(BilTillKvitto);
         }
     }
 }

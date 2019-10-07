@@ -12,7 +12,8 @@ namespace Multifabriken
         private int choiceMatrial = 0;
         
         
-        
+        // variabel för kvittot till kund.
+            string valRör;
         public void ValAvRör()
        {       
             Kvitto kvitto = new Kvitto();
@@ -32,8 +33,7 @@ namespace Multifabriken
             Console.WriteLine("[1] Betong");
             Console.WriteLine("[2] Stål");
             Console.WriteLine("[3] Plast");
-            // variabel för kvittot till kund.
-            string valRör;
+            
             // stichcasemeny för matrialet på rör. Kvitto.Reciept ska skicka valRör till kvittot så kund kan se beställning
             choiceMatrial = int.Parse(Console.ReadLine());
             switch (choiceMatrial)
@@ -42,7 +42,7 @@ namespace Multifabriken
                 Console.Clear();
                 Console.WriteLine("Du valde betong");
                 valRör = "Röret: " + choiceDiameter + " cm diameter, " + choiceLängd + " cm i längd." + " Matrial: betong."; 
-                kvitto.Reciept(valRör);
+                //kvitto.Reciept(valRör);
                 rör.Order();
                 break;
                 
@@ -50,7 +50,7 @@ namespace Multifabriken
                 Console.Clear();
                 Console.WriteLine("Du valde stål");
                 valRör = "Röret: " + choiceDiameter + " cm diameter, " + choiceLängd + " cm i längd." + " Matrial: stål.";
-                kvitto.Reciept(valRör);
+                //kvitto.Reciept(valRör);
                 rör.Order();
                 break;
 
@@ -58,7 +58,7 @@ namespace Multifabriken
                 Console.Clear();
                 Console.WriteLine("Du valde plast");
                 valRör = "Röret: " + choiceDiameter + " cm diameter, " + choiceLängd + " cm i längd." + " Matrial: plast.";
-                kvitto.Reciept(valRör);
+                //kvitto.Reciept(valRör);
                 rör.Order();
                 break;
 
@@ -66,6 +66,7 @@ namespace Multifabriken
                 Console.WriteLine("Felaktig inmatning");
                 break;
             }
+            kvitto.Reciept(valRör);
         }
     }
 }

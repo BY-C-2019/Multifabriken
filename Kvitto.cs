@@ -9,26 +9,25 @@ public class Kvitto
         List<string> addingToReciept = new List<string>();
 
         //Sträng som sparar undan värdete av reciept i addingtoreciept-listan
-        private string kvitto;
+        //private string kvitto;
 
         //Metod där varor läggs till i listan
-        public string Reciept(string reciept)
+        public void Reciept(string reciept)
             {
-                kvitto = reciept;
-                addingToReciept.Add(kvitto);
-
+                
+                addingToReciept.Add(reciept);
                 for(int i = 0; i < addingToReciept.Count; i++)
                 {
-                    
+                   System.Console.WriteLine(addingToReciept[i]);
                 }
-                return reciept;
+
             }
 
             
             //Metod som skriver ut listan
             public void PrintReciept()
             {
-                System.Console.WriteLine(kvitto);
+                //System.Console.WriteLine(kvitto);
                 Console.WriteLine("Du har beställt: ");
                 Console.WriteLine("------------------");
                // System.Console.WriteLine(addingToReciept.Count);

@@ -93,8 +93,7 @@ namespace Multifabriken
                 Console.WriteLine("Felaktig inmatning");
                 break;
             }    
-        }
-
            
+        }   
     }
 }
