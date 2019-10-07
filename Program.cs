@@ -38,15 +38,15 @@ namespace Multifabriken
                 switch (input)
                 {
                     case "1"://Godis
-                        double candyInmatning = getAmmount();
-                        if (candyInmatning < 1){
-                            Console.WriteLine("Minst 1kg godis");
+                        double candyWeight = getAmmount();
+                        if (candyWeight >= 1){             //Om godis är mer än 1kg lägg till det i listan
+                            Godis nyttGodis = new Godis(Godis.candyMenu(), candyWeight); //Skapar objekt
+                            minOrder.listaGodis.Add(nyttGodis);
+                            break;
                         }else{
-                            double candyWeight = candyInmatning;
+                            Console.WriteLine("Minst 1kg godis");
+                            break;
                         }
-                        Godis nyttGodis = new Godis(Godis.candyMenu(), candyInmatning); //Skapar objekt
-                        minOrder.listaGodis.Add(nyttGodis);
-                        break;
                     
                     
                     
@@ -54,13 +54,16 @@ namespace Multifabriken
                     
                     case "2"://Havremjölk
 
-                        double milkInmatning = getAmmount();
-                        if (milkInmatning < 0.5){
-                            Console.WriteLine("Du måste ange minst 0.5 liter mjölk");
-                        }
-                        Havremjölk mjölkOrder = new Havremjölk(Havremjölk.milkFat(), milkInmatning);
+                        double milkAmmount = getAmmount();
+                        if (milkAmmount > 0.5){
+                        Havremjölk mjölkOrder = new Havremjölk(Havremjölk.milkFat(), milkAmmount);
                         minOrder.listaHavremjölk.Add(mjölkOrder);
                         break;
+                        }
+                        else{
+                            Console.WriteLine("Du måste ange minst 0.5 liter mjölk");
+                            break;
+                        }
                     
                     
                     
