@@ -113,6 +113,7 @@ namespace Multifabriken
         //Metod för material på rör
         static string pipeMaterial()
         {
+            //Fixa try catch
             Console.WriteLine("Vilket material vill du ha?");
             Console.WriteLine("1. Plast");
             Console.WriteLine("2. Betong");
@@ -123,6 +124,7 @@ namespace Multifabriken
         
         static void Main(string[] args)
         {
+            //skapar instans av 
             Order minOrder = new Order ();
             Console.WriteLine("Hej och välkommen till multifabriken!");
             while (true)
@@ -140,7 +142,7 @@ namespace Multifabriken
                 switch (input)
                 {
                     case "1"://Godis
-                         candyMenu();
+                        candyMenu();
                         double candyWeight = getAmmount();
                         if (candyWeight < 1){
                             Console.WriteLine("Minst 1kg godis");
@@ -159,6 +161,7 @@ namespace Multifabriken
                         break;
                     case "3"://Rör
                         Rör nyttRör = new Rör();
+                        //skapa konstruktor istället för detta:
                         nyttRör.diameter = pipeDiameter();
                         nyttRör.length = pipeLength();
                         nyttRör.material = pipeMaterial();
@@ -171,10 +174,13 @@ namespace Multifabriken
                         carInterior();
                         break;
                     case "5"://Skriv ut beställning
-                    // foreach(var element in minOrder.listaRör)
-                    // {
-                    //     Console.WriteLine(element);
-                    // }
+                    int i = 1;
+                    foreach (var element in minOrder.listaRör)
+                    {
+                        Console.WriteLine("Rör " + i);
+                        i++;
+                        Console.WriteLine("Diameter: " + element.diameter + " Längd: " + element.length + " Material: " + element.material);
+                    }
                         break;
                     case "6": //Avsluta programmet
                         return;
