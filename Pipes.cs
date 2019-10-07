@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using Products;
 
-
-namespace pipes
+namespace Pipes
 {
   class pipes : products
   {
@@ -13,7 +11,7 @@ namespace pipes
     public string material = "";
     public pipes(int Length, int Diameter, int materialIndex)
     {
-      if(Diameter > 100 || Diameter < 1)
+      if(Diameter > 100 || Diameter < 1) // 
       {
         throw new ArgumentOutOfRangeException();
       }

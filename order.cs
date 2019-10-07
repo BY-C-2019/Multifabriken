@@ -1,12 +1,5 @@
-using System;
 using System.Collections.Generic;
 using Products;
-
-using Milk;
-using Pipes;
-using Cars;
-using Candy;
-
 
 namespace Order 
 {
