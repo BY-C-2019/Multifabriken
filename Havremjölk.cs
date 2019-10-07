@@ -18,10 +18,9 @@ namespace Multifabriken
         Console.WriteLine("Vilken fetthalt vill du ha på din havremjölk?");
         fetthaltOfHavremjölk = double.Parse(Console.ReadLine());
 
-        string val = "Du valde en volym på " + sizeOfHavremjölk + " liter och en fetthalt på " + fetthaltOfHavremjölk + " procent.";
+        string val = "Havremjölk " + sizeOfHavremjölk + " liter och en fetthalt: " + fetthaltOfHavremjölk + " procent.";
         
         kvitto.Reciept(val);
-        kvitto.PrintReciept();
         }
        
     }
