@@ -47,14 +47,20 @@ namespace Multifabriken
         }
 
         //Metod för att välja godistyp
-        static string candyMenu(){
+        static int candyMenu(){
             Console.WriteLine("Vilken typ av godis vill du ha?");
             Console.WriteLine("1. Hallon");
             Console.WriteLine("2. Lakris");
             Console.WriteLine("3. Jordgubb");
             Console.WriteLine("4. Päron");
             string flavourChoise = Console.ReadLine();//try catch / switch?
-            return flavourChoise;
+            int flavour = 0;
+            try{
+                flavour = Convert.ToInt32(flavourChoise);
+            }catch{
+                Console.WriteLine("Ange endast siffervärde på menyval");
+            }
+            return flavour;
         }
 
         //Metod för att hämta mängd på beställning från användaren. 
