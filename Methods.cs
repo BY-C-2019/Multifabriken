@@ -186,10 +186,6 @@ namespace Multifabriken
                 {
                     Console.WriteLine("Vilken produkt vill du ta bort?");
                     Console.WriteLine("Gör ett sifferval: ");
-                    foreach (object item in G) 
-                    {
-
-                    }
                     Console.ReadLine();
 
                 }

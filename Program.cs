@@ -8,7 +8,7 @@ namespace Multifabriken
         static void Main(string[] args)
         {
             bool runMenu = true;
-            List<object> orderList = new List<object>();
+            Order order = new Order();
 
             while (runMenu)
             {
@@ -39,25 +39,25 @@ namespace Multifabriken
                             case "1":
                                 Console.Clear();
                                 System.Console.WriteLine("**Anropa bil metod**");
-                                orderList.Add(MenuOptionCars());
+                                order.OrderList.Add(MenuOptionCars());
                                 break;
 
                             case "2":
                                 Console.Clear();
                                 System.Console.WriteLine("**Anropa godis metod**");
-                                orderList.Add(MenuOptionCandy());
+                                order.OrderList.Add(MenuOptionCandy());
                                 break;
 
                             case "3":
                                 Console.Clear();
                                 System.Console.WriteLine("**Anropa rör metod**");
-                                orderList.Add(MenuOptionPipes());
+                                order.OrderList.Add(MenuOptionPipes());
                                 break;
 
                             case "4":
                                 Console.Clear();
                                 System.Console.WriteLine("**Anropa havre metod");
-                                orderList.Add(MenuOptionOatmeal());
+                                order.OrderList.Add(MenuOptionOatmeal());
                                 break;
                         }
                         break;
@@ -74,8 +74,8 @@ namespace Multifabriken
                             try
                             {
                                 selection = Convert.ToInt32(Console.ReadLine());
-                                if (selection == 1) { Methods.DeleteProduct(); }
-                                if (selection == 2) { Methods.ChangeProduct(); }
+                                if (selection == 1) { DeleteProduct(order.OrderList); }
+                                if (selection == 2) { ChangeProduct(); }
                                 else 
                                 {
                                     throw new FormatException();
@@ -108,7 +108,7 @@ namespace Multifabriken
                     case "4":
                         runMenu = false;
                         Console.Clear();
-                        foreach (Car car in orderList)
+                        foreach (Car car in order.OrderList)
                         {
                             Console.WriteLine(car.TypeCar);
                             Console.WriteLine(car.ColorCar);
@@ -296,10 +296,14 @@ namespace Multifabriken
                     return oatmeal;
                 }
 
-                static public void DeleteProduct() 
+                static public void DeleteProduct(List<object> order) 
                 {
                     Console.WriteLine("Vilken produkt vill du ta bort?");
                     Console.WriteLine("Gör ett sifferval: ");
+                    foreach (List<object> item in order) 
+                    {
+
+                    }
                     Console.ReadLine();
 
                 }
