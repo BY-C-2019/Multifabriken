@@ -32,7 +32,6 @@ namespace Multifabriken
                  Console.Clear();
                  Kvitto kvitto = new Kvitto();
                  kvitto.PrintReciept();
-                 
                  break;
 
                  case 3: 
