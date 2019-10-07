@@ -4,12 +4,17 @@ using System.Collections.Generic;
 
 namespace Multifabriken
 {
-    public class Beställning
+    public class Produkter
     {
+     public Produkter()
+     {
+        //  havremjölk = new Havremjölk();
+           
+     }
+        Havremjölk havremjölk = new Havremjölk();
         Godis godis = new Godis();
 		Bil bil = new Bil();
-//Lägger till en lista som sparar alla beställningar.
-        List<int> addingToReciept = new List<int>();
+        
        
       private int order = 0;
         public void Order()
@@ -40,7 +45,7 @@ namespace Multifabriken
 
                 case 4: 
                 Console.Clear();
-                godis.ValAvGodis();
+                havremjölk.Havremilk();
                 break;
 
                 default:
@@ -49,20 +54,6 @@ namespace Multifabriken
             }    
         }
 
-            public int Reciept(int reciept)
-            {
-                addingToReciept.Add(reciept);
-                
-                return reciept;
-            }
-
-            public void PrintReciept()
-            {
-                Console.WriteLine("Du har beställt: ");
-                for (int i = 0; i < addingToReciept.Count; i++)
-                {
-                    System.Console.WriteLine(addingToReciept[i]);
-                }
-            }
+           
     }
 }

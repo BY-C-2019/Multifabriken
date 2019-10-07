@@ -6,38 +6,42 @@ namespace Multifabriken
     {
         static void Main(string[] args)
         {
-            Beställning beställning = new Beställning();
+             Produkter beställning = new Produkter();
 
-            Console.Clear();
-            Console.WriteLine("Välkommen till Multifabriken, ta en titt på vår meny:\n");
-            System.Console.WriteLine("[1] Beställa produkter");
-            System.Console.WriteLine("[2] Se beställda produkter");
-            System.Console.WriteLine("[3] Avsluta");
-            int input = int.Parse(Console.ReadLine());
+             Console.Clear();
+             Console.WriteLine("Välkommen till Multifabriken, ta en titt på vår meny:\n");
+             System.Console.WriteLine("[1] Beställa produkter");
+             System.Console.WriteLine("[2] Se beställda produkter");
+             System.Console.WriteLine("[3] Avsluta");
+             int input = int.Parse(Console.ReadLine());
 
-            switch(input)
-            {
-                case 1: 
-                Console.Clear();
-                beställning.Order();
+             switch(input)
+             {
+                 case 1: 
                 // Beställa produkter
-                break;
+                 Console.Clear();
+                 beställning.Order();
+                 break;
 
-                case 2: 
-                //Historik
-                break;
+                 case 2:
+                 //Historik
+                 Console.Clear();
+                  
+    
+                 break;
 
-                case 3: 
-                return;
+                 case 3: 
+                 return;
 
-                default:
+                 default:
 
-                System.Console.WriteLine("Felaktig inmatning.");
+                 System.Console.WriteLine("Felaktig inmatning.");
 
-                break;
+                 break;
 
-            }
-
-        }
+             }
+    
+            
+         }
     }
 }
