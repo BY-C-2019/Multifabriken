@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Multifabriken
 {
@@ -75,12 +76,36 @@ namespace Multifabriken
             return partFat;
         }
 
+        //metod för längd på rör
+        static double pipeLength() 
+        {
+            Console.WriteLine("Mata in önskad längd (cm): ");
+            double inmatning = Convert.ToDouble(Console.ReadLine());
+            return inmatning;
+        }
 
+        //metod för diameter på rör
+        static double pipeDiameter () 
+        {
+            Console.WriteLine("Mata in önskad diameter (cm): ");
+            double inmatning = Convert.ToDouble(Console.ReadLine());
+            return inmatning;
+        }
 
-
+        //Metod för material på rör
+        static string pipeMaterial()
+        {
+            Console.WriteLine("Vilket material vill du ha?");
+            Console.WriteLine("1. Plast");
+            Console.WriteLine("2. Betong");
+            Console.WriteLine("3. Stål");
+            string inmatning = Console.ReadLine();
+            return inmatning;
+        }
         
         static void Main(string[] args)
         {
+            Order minOrder = new Order ();
             Console.WriteLine("Hej och välkommen till multifabriken!");
             while (true)
             {
@@ -115,7 +140,12 @@ namespace Multifabriken
                         }
                         break;
                     case "3"://Rör
-
+                        Rör nyttRör = new Rör();
+                        nyttRör.diameter = pipeDiameter();
+                        nyttRör.length = pipeLength();
+                        nyttRör.material = pipeMaterial();
+                        minOrder.listaRör.Add(nyttRör);
+                        
                         break;
                     case "4"://Bilar
                         carModel();
@@ -123,10 +153,12 @@ namespace Multifabriken
                         carInterior();
                         break;
                     case "5"://Skriv ut beställning
-
-                        break;//Avsluta programmet
-                    case "6":
-
+                    // foreach(var element in minOrder.listaRör)
+                    // {
+                    //     Console.WriteLine(element);
+                    // }
+                        break;
+                    case "6": //Avsluta programmet
                         return;
                     default:
                         Console.WriteLine("Skriv ditt val endast med siffervärde");
