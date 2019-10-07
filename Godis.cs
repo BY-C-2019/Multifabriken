@@ -65,6 +65,7 @@ namespace Multifabriken
                         QtyOfTaste = int.Parse(Console.ReadLine());
                         printToReciept = qtyOfTaste + " kg hallongodis.";
                         kvitto.Reciept(printToReciept);
+                        
                         produkter.Order();
                     
                     break;

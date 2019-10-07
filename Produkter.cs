@@ -51,7 +51,7 @@ namespace Multifabriken
         //Metod som skriver ut ordermenyn
         public void Order()
         {
-            Console.Clear();
+            
             System.Console.WriteLine("[1] Beställa godis");
             System.Console.WriteLine("[2] Beställa rör");
             System.Console.WriteLine("[3] Beställa bil");
