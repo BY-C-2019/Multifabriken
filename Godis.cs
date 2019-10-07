@@ -15,8 +15,13 @@ namespace Multifabriken
                 Console.WriteLine("2. Lakris");
                 Console.WriteLine("3. Jordgubb");
                 Console.WriteLine("4. Päron");
-                int inmatning = Convert.ToInt32(Console.ReadLine());
-                //try catch om man skriver in decimal
+                string input = Console.ReadLine();
+                int inmatning = 5;
+                try{
+                inmatning = Convert.ToInt32(input);
+                }catch{
+                    Console.WriteLine("Mata endast in siffervärde");
+                }
                 if (inmatning>4)
                 {
                     Console.WriteLine("Fel inmatning testa igen");
