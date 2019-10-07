@@ -12,7 +12,7 @@ public class Menu
             Items = items.ToArray();                // Gör om till en array
         }
         public IReadOnlyList<string> Items {get;}
-        public int SelectedIndex {get; private set;} = - 1; // Utgångspunkt med inget markerat
+        public int SelectedIndex {get; private set;} = 0; // Utgångspunkt med inget markerat
         public string SelectedOption => SelectedIndex != - 1 ? Items[SelectedIndex] : null;
 
 
@@ -67,11 +67,21 @@ public class Menu
         public void Paint()
         {
             for (int i = 0; i < menu.Items.Count; i++){
-                Console.SetCursorPosition(0, 3 + i);
 
                 var color = menu.SelectedIndex == i ? ConsoleColor.Yellow : ConsoleColor.Gray;
-                
                 Console.ForegroundColor = color;
+                Console.SetCursorPosition(0, 3 + i);
+
+                if (i == menu.SelectedIndex)
+                {
+                    Console.Write('>');            
+                }
+                else
+                {
+                    Console.Write(' ');
+                }
+
+                Console.SetCursorPosition(1, 3 + i);
                 Console.WriteLine (menu.Items[i]);
             }
         }
