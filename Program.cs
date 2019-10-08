@@ -30,10 +30,30 @@ namespace multifabriken
         var p4 = p as pipes;
         var p5 = p as candy;
 
+<<<<<<< HEAD
 
         if (p2 != null)
         {
           milkList.Add(p2);
+=======
+                if (p2 != null)
+                {
+                    milkList.Add(p2);
+                }
+                else if (p3 != null)
+                {
+                    carList.Add(p3);
+                }
+                else if (p4 != null)
+                {
+                    pipeList.Add(p4);
+                }
+                else if (p5 != null)
+                {
+                    candyList.Add(p5);
+                }
+            }
+>>>>>>> 5967ad05559d3a29a98c13043f29843bd37e6fb3
         }
         else if (p3 != null)
         {
@@ -62,6 +82,7 @@ namespace multifabriken
         }
       }
 
+<<<<<<< HEAD
 
       if (carList.Count > 0)
       {
@@ -86,6 +107,24 @@ namespace multifabriken
           Console.WriteLine();
         }
       }
+=======
+            Console.WriteLine("Bilar:");
+            for (int i = 0; i < carList.Count; i++)
+            {
+                Console.WriteLine("\tBilmodell: {0}", carList[i].carmodel);
+                Console.WriteLine("\tFärg: {0}", carList[i].carcolour);
+                Console.WriteLine("\tLyxpaket: {0}", carList[i].luxpackage);
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("Godis:");
+            for (int i = 0; i < candyList.Count; i++)
+            {
+                Console.WriteLine("\tSmak: {0}", candyList[i].taste);
+                Console.WriteLine("\tMängd: {0}", candyList[i].amount);
+                Console.WriteLine();
+            }
+>>>>>>> 5967ad05559d3a29a98c13043f29843bd37e6fb3
 
 
       if (pipeList.Count > 0)
@@ -115,10 +154,21 @@ namespace multifabriken
 
         switch (menu.SelectedIndex)
         {
+<<<<<<< HEAD
           case 0:
             // Lägg till vara
             menuHeader = "Lägg till en vara";
             menuContent = new string[] { "Havremjölk", "Godis", "Bil", "Rör", "Avsluta" };
+=======
+            int fatContent = 0;
+            int packageSize = 0;
+            string input;
+            bool correctInput = true;
+            do
+            {
+                string menuHeader = "Välkommen till MULTIFABRIKEN";
+                string[] menuContent = new string[] { "Lägg till en vara", "Lista varor", "Avsluta" };
+>>>>>>> 5967ad05559d3a29a98c13043f29843bd37e6fb3
 
             menu = new Menu(menuContent);
             menu = menu.GetMenu(menu, menuHeader);
@@ -141,6 +191,7 @@ namespace multifabriken
                 Console.WriteLine("");
                 while (packageSize < 1 || packageSize > 3)
                 {
+<<<<<<< HEAD
                   Console.WriteLine("Vilken förpackning vill du ha?");
                   for (int i = 0; i < products.packageList.Count; i++)
                   {
@@ -158,6 +209,52 @@ namespace multifabriken
                 packageSize--;
 
                 milk milk = new milk(fatContent, packageSize);
+=======
+                    case 0:
+                        // Lägg till vara
+                        menuHeader = "Lägg till en vara";
+                        menuContent = new string[] { "Havremjölk", "Godis", "Bil", "Rör", "Avsluta" };
+                        menu = new Menu(menuContent);
+                        menu = menu.GetMenu(menu, menuHeader);
+
+                        switch (menu.SelectedIndex)
+                        {
+                            case 0:
+                                Console.Clear();
+                                // Mjölk
+                                while (fatContent < 2 || fatContent > 11)
+                                {
+                                    Console.WriteLine("Vilken fettprocent? Minst 2%, max 11%");
+                                    input = Console.ReadLine();
+                                    fatContent = Convert.ToInt32(input);
+                                    if (fatContent < 2 || fatContent > 11)
+                                    {
+                                        Console.WriteLine("Minst 2% och max 11% fett.");
+                                    }
+                                }
+                                Console.WriteLine("");
+                                while (packageSize < 1 || packageSize > 3)
+                                {
+                                    Console.WriteLine("Vilken förpackning vill du ha?");
+                                    for (int i = 0; i < products.packageList.Count; i++)
+                                    {
+                                        Console.WriteLine("[{0}] {1}", i + 1, products.packageList[i]);
+                                    }
+                                    input = Console.ReadLine();
+
+                                    packageSize = Convert.ToInt32(input);
+                                    if (packageSize < 1 || packageSize > 3)
+                                    {
+                                        Console.WriteLine("Ogiltligt val, välj med knapparna 1-3");
+                                    }
+                                }
+
+                                packageSize--;
+                                milk milk = new milk(fatContent, packageSize);
+
+                                order.orderList.Add(milk);
+                                Products.products.antal++;
+>>>>>>> 5967ad05559d3a29a98c13043f29843bd37e6fb3
 
                 order.orderList.Add(milk);
                 Products.products.antal++;
@@ -174,9 +271,15 @@ namespace multifabriken
                   Console.WriteLine("[{0}] {1}", i + 1, products.godisLista[i]);
                 }
 
+<<<<<<< HEAD
                 input = Console.ReadLine();
                 int SelectedIndex = Convert.ToInt32(input);
                 SelectedIndex--;
+=======
+                                Console.WriteLine("Hur många kg {0} vill du ha?", order.godisLista[SelectedIndex]);
+                                input = Console.ReadLine();
+                                int candyAmount = Convert.ToInt32(input);
+>>>>>>> 5967ad05559d3a29a98c13043f29843bd37e6fb3
 
                 Console.WriteLine("Hur mycket vill du ha av {0} i kg", order.godisLista[SelectedIndex]);
                 input = Console.ReadLine();
@@ -189,6 +292,7 @@ namespace multifabriken
 
                 break;
 
+<<<<<<< HEAD
               case 2:
                 // Bil
                 Console.Clear();
@@ -198,11 +302,22 @@ namespace multifabriken
                 {
                   Console.WriteLine("[{0}] {1}", i + 1, products.bilLista[i]);
                 }
+=======
+                                Console.WriteLine("Vilken modell vill du ha?");
+                                for (int i = 0; i < products.bilLista.Count; i++)
+                                {
+                                    Console.WriteLine("[{0}] {1}", i + 1, products.bilLista[i]);
+                                }
+                                input = Console.ReadLine();
+                                int selectedIndex = Convert.ToInt32(input);
+                                selectedIndex--;
+>>>>>>> 5967ad05559d3a29a98c13043f29843bd37e6fb3
 
                 input = Console.ReadLine();
                 int selectedIndex = Convert.ToInt32(input);
                 selectedIndex--;
 
+<<<<<<< HEAD
                 Console.WriteLine("Vilken färg vill du ha på bilen?");
                 string carColour = Console.ReadLine();
 
@@ -244,6 +359,49 @@ namespace multifabriken
 
               case 3:
                 // Rör
+=======
+                                //------------------------From Stackoverflow------------------------//
+                                char[] a = carColour.ToCharArray();
+                                a[0] = char.ToUpper(a[0]);
+                                carColour = new string(a);
+                                //------------------------------------------------------------------//
+                                while (correctInput == true)
+                                {
+                                    Console.WriteLine("Vill du ha de sniceiga lyxpaketet?");
+                                    Console.WriteLine("[J/N]");
+                                    input = Console.ReadLine();
+                                    char[] b = input.ToCharArray();
+                                    b[0] = char.ToUpper(b[0]);
+                                    input = new string(b);
+                                    bool lux = false;
+
+                                    if (input[0] == 'J')
+                                    {
+                                        lux = true;
+                                        correctInput = false;
+                                    }
+                                    else if (input[0] == 'N')
+                                    {
+                                        Console.WriteLine("Du valde fel! Du får betala lyxpaket ändå!");
+                                        Console.ReadKey();
+                                        lux = true;
+                                        correctInput = false;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Fel inmatning! [J] eller [N]!");
+                                        
+                                    }
+                                    cars cars = new cars(selectedIndex, carColour, lux);
+
+                                    order.orderList.Add(cars);
+                                    Products.products.antal++;
+
+                                }
+                                break;
+                            case 3:
+                                // Rör
+>>>>>>> 5967ad05559d3a29a98c13043f29843bd37e6fb3
 
                 Console.Clear();
                 Console.WriteLine("Vilket material vill du ha?");
