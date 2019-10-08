@@ -53,11 +53,10 @@ namespace multifabriken
             Console.WriteLine("Havremjölk:");
             for (int i = 0; i < milkList.Count; i++)
             {
-                Console.WriteLine("\tFetthalt: {0}", milkList[i].fat);
+                Console.WriteLine("\tFetthalt: {0} %", milkList[i].fat);
                 Console.WriteLine("\tPacketering: {0}", milkList[i].package);
                 Console.WriteLine();
             }
-
             Console.WriteLine("Bilar:");
             for (int i = 0; i < carList.Count; i++)
             {
